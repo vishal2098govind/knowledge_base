@@ -173,6 +173,8 @@
   },
   "active": "110819deac7cbf9c",
   "lastOpenFiles": [
+    "Data Engineering/Book - Fundamentals of DE",
+    "Untitled",
     "Knowledge Base/Knowledge Kan.md",
     "Knowledge Base/Schedule/Schedule.md",
     "Knowledge Base/Schedule/Plan.md",
@@ -195,7 +197,6 @@
     "NGINX/NGINX Proxying (L4 vs L7).md",
     "NGINX/NGINX Internal Architecture.md",
     "NGINX/Managing Threading & Connection.md",
-    "NGINX",
     "Go/Why Go/Go.md",
     "Go Dev/attachments/XSS.png",
     "Go Dev/attachments/XSS-3.png",
