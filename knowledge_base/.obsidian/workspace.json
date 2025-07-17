@@ -4,22 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "4d3e88fc58af9a39",
+        "id": "897c0fd388a22636",
         "type": "tabs",
         "children": [
           {
-            "id": "d2d5f0579e8792b8",
+            "id": "897eaaa3ba60d764",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Go Dev/PostgresConfig With Models.md",
+                "file": "Go Dev/SQL with Go.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "PostgresConfig With Models"
+              "title": "SQL with Go"
             }
           }
         ]
@@ -79,7 +79,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 337.5086555480957
+    "width": 351.5004348754883
   },
   "right": {
     "id": "b728b4262fed4323",
@@ -171,47 +171,13 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "d2d5f0579e8792b8",
+  "active": "110819deac7cbf9c",
   "lastOpenFiles": [
-    "Go Dev/SQL with Go.md",
-    "Go Dev/PostgresConfig With Models.md",
+    "Knowledge Base/Knowledge Kan.md",
+    "Knowledge Base/Schedule/Schedule.md",
+    "Knowledge Base/Schedule/Plan.md",
     "Knowledge Base/Schedule/Do or Die.md",
-    "Go Dev/Passwords.md",
-    "Go Dev/Cross-Site-Scripting (XSS).md",
-    "Marriage Expenses.md",
-    "DSA",
-    "Data Engineering/Spark/1. What is Apache Spark?.md",
-    "Knowledge Base/Targeted Knowledge Base.md",
-    "Go Dev/Reflection in go.md",
-    "Go Dev/Path vs RawPath.md",
-    "Go Dev/Parsing HTTP Request.md",
-    "Go Dev/GopherCon - How Do You Structure Your Go Apps.md",
-    "Go/Why Go/Go.md",
-    "Go Dev/SQL Resources.md",
-    "Go Dev/embed package.md",
-    "Go Dev/fmt.Errorf and %w and Error Wrapping.md",
-    "Go Dev/Postgres Config.md",
-    "Go Dev/Sentinel Errors.md",
-    "Go Dev/Go Templating.md",
-    "Go Dev/attachments/Named template.png",
     "Lenslocked.md",
-    "Go Dev/Error Wrapping.md",
-    "Go Dev/HTTP Handle, HandleFunc, Handler, HandlerFunc.md",
-    "Go Dev/attachments/Hexagonal-Architecture 2.png",
-    "Go Dev/attachments/Hexagonal-Architecture 1.png",
-    "Go Dev/GohpherCon - The Scheduler Saga.md",
-    "Go Dev/CMD Directory.md",
-    "Docker & K8s/multi-docker/Multi-Docker architecture.md",
-    "Go Dev/GopherCon - Understanding Channels.md",
-    "Excalidraw",
-    "Go Dev/attachments/Contextual Encoding.png",
-    "Go Dev/attachments/XSS-3.png",
-    "Go Dev/attachments/Pasted image 20250706103839.png",
-    "Go Dev/attachments",
-    "Go Dev/attachments/XSS-2.png",
-    "Go Dev/attachments/XSS.png",
-    "Go Dev/attachments/SQL - Injection.png",
-    "Go Dev/images",
     "drawing_tools/icons.excalidrawlib",
     "drawing_tools/google-icons.excalidrawlib",
     "drawing_tools/data-viz.excalidrawlib",
@@ -219,6 +185,39 @@
     "drawing_tools/bloom-visualisation.png",
     "drawing_tools/aws-architecture-icons.excalidrawlib",
     "drawing_tools/awesome-icons.excalidrawlib",
+    "drawing_tools/architecture-diagram-components.excalidrawlib",
+    "drawing_tools/UML-ER-library.excalidrawlib",
+    "drawing_tools/Template.excalidraw.md",
+    "drawing_tools",
+    "NGINX/TLS Termination VS TLS Passthrough.md",
+    "NGINX/NGINX.md",
+    "NGINX/NGINX arch.png",
+    "NGINX/NGINX Proxying (L4 vs L7).md",
+    "NGINX/NGINX Internal Architecture.md",
+    "NGINX/Managing Threading & Connection.md",
+    "NGINX",
+    "Go/Why Go/Go.md",
+    "Go Dev/attachments/XSS.png",
+    "Go Dev/attachments/XSS-3.png",
+    "Go Dev/attachments/XSS-2.png",
+    "Go Dev/attachments/SQL - Injection.png",
+    "Go Dev/attachments/Named template.png",
+    "Go Dev/attachments/Hexagonal-Architecture 2.png",
+    "Go Dev/attachments/Hexagonal-Architecture 1.png",
+    "Go Dev/attachments/Contextual Encoding.png",
+    "Go Dev/fmt.Fprint vs  fmt.Print.md",
+    "Go Dev/fmt.Errorf and %w and Error Wrapping.md",
+    "Go Dev/embed package.md",
+    "Go Dev/Sentinel Errors.md",
+    "Go Dev/SQL with Go.md",
+    "Go Dev/SQL Resources.md",
+    "Go Dev/Reflection in go.md",
+    "Go Dev/PostgresConfig With Models.md",
+    "Go Dev/Path vs RawPath.md",
+    "Go Dev/Passwords.md",
+    "Go Dev/Parsing HTTP Request.md",
+    "Go Dev/HTTP Handle, HandleFunc, Handler, HandlerFunc.md",
+    "Go Dev/GopherCon - Understanding Channels.md",
     "Untitled.canvas"
   ]
 }
