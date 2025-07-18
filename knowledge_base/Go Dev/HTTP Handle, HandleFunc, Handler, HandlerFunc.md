@@ -184,6 +184,28 @@ func main() {
 	http.ListenAndServe(":3000", http.HandlerFunc(handlerFunc))
 }
 ```
+- This is useful in cases where we want to include #middleware in our router
+```go
+
+func main() {
+	r := chi.NewRouter()
+	r.Use(IPLoggerMiddleware)
+	
+	r.Get("/", usersC.Home)
+	// ...
+	
+	http.ListenAndServe(":3000", r)
+}
+
+func IPLoggerMiddleware(h http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		ip := r.RemoteAddr
+		fmt.Printf("IP: %v", ip)
+		h.ServeHTTP(w, r)
+	})
+}
+
+```
 #### Using Custom router
 - Implements `http.Handler`
 ```go

@@ -303,3 +303,16 @@ if err != nil {
 }
 ```
 - The **sequence** of `filenames` or `patterns` **matters**. The files are rendered sequentially.
+
+### Custom Template Functions
+`template.Funcs` is used to add in a map of custom functions into a template
+```go
+func ParseFS(fs fs.FS, patterns ...string) (*Template, error) {
+	tpl, err := template.ParseFS(fs, patterns...)
+	if err != nil {
+		return nil, fmt.Errorf("parsing template: %w", err)
+	}
+	
+	return &Template{htmlTpl: tpl}, nil
+}
+```

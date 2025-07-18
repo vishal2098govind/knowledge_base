@@ -4,25 +4,41 @@
     "type": "split",
     "children": [
       {
-        "id": "eb3dc0f1f45568d3",
+        "id": "3909f95fab2bcd7b",
         "type": "tabs",
         "children": [
           {
-            "id": "d161e1a71876a311",
+            "id": "de918dca420496e4",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Data Engineering/Book - Fundamentals of DE/Data Engineering.md",
+                "file": "Go Dev/HTTP Handle, HandleFunc, Handler, HandlerFunc.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Data Engineering"
+              "title": "HTTP Handle, HandleFunc, Handler, HandlerFunc"
+            }
+          },
+          {
+            "id": "43ea5cceacd55aeb",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Go Dev/HTTP Cookies.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "HTTP Cookies"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -171,9 +187,13 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "d161e1a71876a311",
+  "active": "43ea5cceacd55aeb",
   "lastOpenFiles": [
-    "Data Engineering/Book - Fundamentals of DE/Data Engineering.md",
+    "Go Dev/HTTP Handle, HandleFunc, Handler, HandlerFunc.md",
+    "Go Dev/HTTP Cookies.md",
+    "Go Dev/Go Templating.md",
+    "Data Engineering/Book - Fundamentals of DE/Data Engineering Lifecycle.md",
+    "Data Engineering/Book - Fundamentals of DE/Data Engineering Definition.md",
     "Go Dev/SQL with Go.md",
     "Go Dev/Untitled.md",
     "Data Engineering/Book - Fundamentals of DE",
@@ -215,10 +235,6 @@
     "Go Dev/SQL Resources.md",
     "Go Dev/Reflection in go.md",
     "Go Dev/PostgresConfig With Models.md",
-    "Go Dev/Path vs RawPath.md",
-    "Go Dev/Passwords.md",
-    "Go Dev/Parsing HTTP Request.md",
-    "Go Dev/HTTP Handle, HandleFunc, Handler, HandlerFunc.md",
     "Untitled.canvas"
   ]
 }
