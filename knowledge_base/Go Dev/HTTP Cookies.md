@@ -180,3 +180,14 @@ func main() {
 // 42
 ```
 Using `math/rand` is not a good fit for generating random session tokens because if an attacker would somehow figure out the seed, they would then have a way of reliably predicting any future session tokens.
+
+#### Storing Session in Database
+Store session token hashes instead of actual raw session tokens to prevent access in case of database leaks
+```sql
+CREATE TABLE IF NOT EXISTS
+	sessions (
+		id SERIAL PRIMARY KEY,
+		user_id INT UNIQUE,
+		token_hash TEXT UNIQUE NOT NULL -- a hash not actual token, similar reasons as password
+);
+```
