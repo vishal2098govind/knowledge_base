@@ -182,12 +182,24 @@ func main() {
 Using `math/rand` is not a good fit for generating random session tokens because if an attacker would somehow figure out the seed, they would then have a way of reliably predicting any future session tokens.
 
 #### Storing Session in Database
-Store session token hashes instead of actual raw session tokens to prevent access in case of database leaks
+Store session token **hashes** instead of actual raw session tokens to prevent access in case of database leaks
+Session token hashes per user needs to be **unique** because if a hash is given to multiple users, we cannot predict which user
 ```sql
 CREATE TABLE IF NOT EXISTS
 	sessions (
 		id SERIAL PRIMARY KEY,
 		user_id INT UNIQUE,
 		token_hash TEXT UNIQUE NOT NULL -- a hash not actual token, similar reasons as password
-);
+); 
+```
+
+#### Deleting cookies
+To override a cookie, we can just set a new cookie with that name and send the response back. The browser would know to override that cookie.
+To delete a cookie, simply set the `MaxAge` of that cookie to -1
+```go
+func deleteCookie(w http.ResponseWriter, name string) {
+	cookie := newCookie(name, "")
+	cookie.MaxAge = -1
+	http.SetCookie(w, cookie)
+}
 ```
