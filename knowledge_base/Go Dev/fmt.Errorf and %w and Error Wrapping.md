@@ -89,7 +89,7 @@ err := fmt.Errorf("access denied: %w", ErrPermission)
 ...
 if errors.Is(err, ErrPermission) ...
 ```
-
+- Use `errors.As` when dealing with errors which are wrapped with a type/interface with some specific methods that we might want to use while handling the error
 Example:
 ```go
 package main
@@ -104,14 +104,42 @@ func GetStudents() error {
 	return sql.ErrNoRows
 }
 
+type temporary interface {
+	Temporary() bool
+}
+
 func GetSchool() error {
 	return fmt.Errorf("error getting students: %w", GetStudents())
+}
+
+type temp struct {
+	Err error
+}
+
+func (*temp) Temporary() bool {
+	return true;
+}
+
+func (t *temp) Error() string {
+	return "temp error"
+}
+
+func GetTempSchool() error {
+	retur fmt.Errorf("error getting temp school: %w", &temp{Err: fmt.Errorf("temp school error")})
 }
 
 func main() {
 	err := GetSchool()
 	if errors.Is(err, sql.ErrNoRows) {
 		fmt.Println("not found")
+	}
+
+	err := GetTempSchool()
+	var t temporary
+	if errors.As(err, &t) {
+		if t.Temporary() {
+			fmt.Println("this is temporary")
+		}
 	}
 }
 

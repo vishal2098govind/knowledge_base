@@ -4,41 +4,25 @@
     "type": "split",
     "children": [
       {
-        "id": "3909f95fab2bcd7b",
+        "id": "62cb02e4c4c1480f",
         "type": "tabs",
         "children": [
           {
-            "id": "de918dca420496e4",
+            "id": "164653622aa1284b",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Go Dev/HTTP Handle, HandleFunc, Handler, HandlerFunc.md",
+                "file": "Probability & Statistics/Probability.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "HTTP Handle, HandleFunc, Handler, HandlerFunc"
-            }
-          },
-          {
-            "id": "43ea5cceacd55aeb",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Go Dev/HTTP Cookies.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "HTTP Cookies"
+              "title": "Probability"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -179,25 +163,36 @@
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
-      "command-palette:Open command palette": false
+      "command-palette:Open command palette": false,
+      "obsidian-git:Open Git source control": false,
+      "obsidian-excalidraw-plugin:New drawing": false,
+      "open-vscode:VSCode": false,
+      "vscode-editor:Create Code File": false,
+      "obsidian-kanban:Create new board": false
     }
   },
-  "active": "43ea5cceacd55aeb",
+  "active": "164653622aa1284b",
   "lastOpenFiles": [
-    "Go Dev/HTTP Handle, HandleFunc, Handler, HandlerFunc.md",
+    "Go Dev/fmt.Errorf and %w and Error Wrapping.md",
+    "Probability & Statistics/Probability.md",
+    "Probability & Statistics",
+    "Go Dev/Sentinel Errors.md",
+    "Go Dev/Context in Go.md",
+    "Lenslocked.md",
+    "Go Dev/Reflection in go.md",
+    "Go Dev/SMTP Email.md",
+    "Go Dev/attachments/Mailtrap SMTP Server.png",
     "Go Dev/HTTP Cookies.md",
+    "Go Dev/HTTP Handle, HandleFunc, Handler, HandlerFunc.md",
     "Go Dev/Go Templating.md",
     "Data Engineering/Book - Fundamentals of DE/Data Engineering Lifecycle.md",
     "Data Engineering/Book - Fundamentals of DE/Data Engineering Definition.md",
     "Go Dev/SQL with Go.md",
-    "Go Dev/Untitled.md",
     "Data Engineering/Book - Fundamentals of DE",
-    "Untitled",
     "Knowledge Base/Knowledge Kan.md",
     "Knowledge Base/Schedule/Schedule.md",
     "Knowledge Base/Schedule/Plan.md",
     "Knowledge Base/Schedule/Do or Die.md",
-    "Lenslocked.md",
     "drawing_tools/icons.excalidrawlib",
     "drawing_tools/google-icons.excalidrawlib",
     "drawing_tools/data-viz.excalidrawlib",
@@ -222,14 +217,8 @@
     "Go Dev/attachments/Named template.png",
     "Go Dev/attachments/Hexagonal-Architecture 2.png",
     "Go Dev/attachments/Hexagonal-Architecture 1.png",
-    "Go Dev/attachments/Contextual Encoding.png",
     "Go Dev/fmt.Fprint vs  fmt.Print.md",
-    "Go Dev/fmt.Errorf and %w and Error Wrapping.md",
     "Go Dev/embed package.md",
-    "Go Dev/Sentinel Errors.md",
-    "Go Dev/SQL Resources.md",
-    "Go Dev/Reflection in go.md",
-    "Go Dev/PostgresConfig With Models.md",
     "Untitled.canvas"
   ]
 }

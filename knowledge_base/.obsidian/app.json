@@ -3,5 +3,6 @@
   "showUnsupportedFiles": true,
   "attachmentFolderPath": "./attachments",
   "readableLineLength": false,
-  "newFileLocation": "current"
+  "newFileLocation": "current",
+  "autoConvertHtml": true
 }
