@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Probability & Statistics/Probability.md",
+                "file": "Probability & Statistics/Interpretations of Probability.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Probability"
+              "title": "Interpretations of Probability"
             }
           }
         ]
@@ -174,7 +174,7 @@
   "active": "164653622aa1284b",
   "lastOpenFiles": [
     "Go Dev/fmt.Errorf and %w and Error Wrapping.md",
-    "Probability & Statistics/Probability.md",
+    "Probability & Statistics/Interpretations of Probability.md",
     "Probability & Statistics",
     "Go Dev/Sentinel Errors.md",
     "Go Dev/Context in Go.md",
