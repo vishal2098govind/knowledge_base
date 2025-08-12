@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Probability & Statistics/Interpretations of Probability.md",
+                "file": "Probability & Statistics/1. Counting/2. Factorial.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Interpretations of Probability"
+              "title": "2. Factorial"
             }
           }
         ]
@@ -173,12 +173,15 @@
   },
   "active": "164653622aa1284b",
   "lastOpenFiles": [
-    "Go Dev/fmt.Errorf and %w and Error Wrapping.md",
+    "Probability & Statistics/1. Counting/1. Counting.md",
+    "Probability & Statistics/1. Counting/2. Factorial.md",
+    "Lenslocked.md",
     "Probability & Statistics/Interpretations of Probability.md",
+    "Probability & Statistics/1. Counting",
+    "Go Dev/fmt.Errorf and %w and Error Wrapping.md",
     "Probability & Statistics",
     "Go Dev/Sentinel Errors.md",
     "Go Dev/Context in Go.md",
-    "Lenslocked.md",
     "Go Dev/Reflection in go.md",
     "Go Dev/SMTP Email.md",
     "Go Dev/attachments/Mailtrap SMTP Server.png",
@@ -201,7 +204,6 @@
     "drawing_tools/aws-architecture-icons.excalidrawlib",
     "drawing_tools/awesome-icons.excalidrawlib",
     "drawing_tools/architecture-diagram-components.excalidrawlib",
-    "drawing_tools/UML-ER-library.excalidrawlib",
     "drawing_tools/Template.excalidraw.md",
     "NGINX/TLS Termination VS TLS Passthrough.md",
     "NGINX/NGINX.md",
@@ -217,8 +219,6 @@
     "Go Dev/attachments/Named template.png",
     "Go Dev/attachments/Hexagonal-Architecture 2.png",
     "Go Dev/attachments/Hexagonal-Architecture 1.png",
-    "Go Dev/fmt.Fprint vs  fmt.Print.md",
-    "Go Dev/embed package.md",
     "Untitled.canvas"
   ]
 }
