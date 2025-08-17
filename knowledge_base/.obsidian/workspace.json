@@ -58,16 +58,17 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Probability & Statistics/1. Counting/Untitled.md",
+                "file": "Probability & Statistics/1. Counting/4. Questions.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Untitled"
+              "title": "4. Questions"
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -216,12 +217,12 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "164653622aa1284b",
+  "active": "d1276122cfb5406a",
   "lastOpenFiles": [
-    "Probability & Statistics/1. Counting/2. Permutation and Combination.md",
     "Probability & Statistics/1. Counting/3. Binomial and Multinomial Theorem.md",
+    "Probability & Statistics/1. Counting/2. Permutation and Combination.md",
+    "Probability & Statistics/1. Counting/4. Questions.md",
     "Probability & Statistics/1. Counting/1. Rule of Sum and Product, Factorial.md",
-    "Probability & Statistics/1. Counting/Untitled.md",
     "Probability & Statistics/1. Counting/attachments/Combination With repetition.png",
     "Probability & Statistics/1. Counting/attachments",
     "Probability & Statistics/Permutation.md",
