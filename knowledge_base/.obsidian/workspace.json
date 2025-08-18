@@ -23,18 +23,48 @@
             }
           },
           {
-            "id": "d29fe4ef57d410fe",
+            "id": "ac5523acbf45141e",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Probability & Statistics/1. Counting/3. Binomial and Multinomial Theorem.md",
+                "file": "Probability & Statistics/1. Counting/Untitled.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "3. Binomial and Multinomial Theorem"
+              "title": "Untitled"
+            }
+          },
+          {
+            "id": "d29fe4ef57d410fe",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Probability & Statistics/1. Counting/5. Inclusion and Exclusion.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "5. Inclusion and Exclusion"
+            }
+          },
+          {
+            "id": "59f417bd10a3eea7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Probability & Statistics/1. Counting/5. Inclusion and Exclusion.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "5. Inclusion and Exclusion"
             }
           },
           {
@@ -67,7 +97,8 @@
               "title": "4. Questions"
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -216,11 +247,13 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "164653622aa1284b",
+  "active": "59f417bd10a3eea7",
   "lastOpenFiles": [
-    "Probability & Statistics/1. Counting/3. Binomial and Multinomial Theorem.md",
-    "Probability & Statistics/1. Counting/4. Questions.md",
+    "Probability & Statistics/1. Counting/Untitled 1.md",
     "Probability & Statistics/1. Counting/5. Inclusion and Exclusion.md",
+    "Probability & Statistics/1. Counting/3. Binomial and Multinomial Theorem.md",
+    "Probability & Statistics/1. Counting/Untitled.md",
+    "Probability & Statistics/1. Counting/4. Questions.md",
     "Probability & Statistics/1. Counting/Revise Counting.md",
     "Probability & Statistics/1. Counting/1. Rule of Sum and Product, Factorial.md",
     "Probability & Statistics/1. Counting/2. Permutation and Combination.md",
@@ -248,7 +281,6 @@
     "Knowledge Base/Knowledge Kan.md",
     "Knowledge Base/Schedule/Schedule.md",
     "Knowledge Base/Schedule/Plan.md",
-    "Knowledge Base/Schedule/Do or Die.md",
     "drawing_tools/icons.excalidrawlib",
     "drawing_tools/google-icons.excalidrawlib",
     "drawing_tools/data-viz.excalidrawlib",
@@ -256,7 +288,6 @@
     "drawing_tools/bloom-visualisation.png",
     "drawing_tools/aws-architecture-icons.excalidrawlib",
     "drawing_tools/awesome-icons.excalidrawlib",
-    "drawing_tools/Template.excalidraw.md",
     "NGINX/NGINX arch.png",
     "Go Dev/attachments/XSS.png",
     "Go Dev/attachments/XSS-3.png",
