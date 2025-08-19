@@ -58,13 +58,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Probability & Statistics/1. Counting/5. Inclusion and Exclusion.md",
+                "file": "Probability & Statistics/1. Counting/6. Sitting Arrangements.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "5. Inclusion and Exclusion"
+              "title": "6. Sitting Arrangements"
             }
           },
           {
@@ -249,8 +249,9 @@
   },
   "active": "59f417bd10a3eea7",
   "lastOpenFiles": [
-    "Probability & Statistics/1. Counting/Untitled 1.md",
     "Probability & Statistics/1. Counting/5. Inclusion and Exclusion.md",
+    "Probability & Statistics/1. Counting/6. Sitting Arrangements.md",
+    "Probability & Statistics/1. Counting/Untitled 1.md",
     "Probability & Statistics/1. Counting/3. Binomial and Multinomial Theorem.md",
     "Probability & Statistics/1. Counting/Untitled.md",
     "Probability & Statistics/1. Counting/4. Questions.md",
@@ -280,7 +281,6 @@
     "Data Engineering/Book - Fundamentals of DE",
     "Knowledge Base/Knowledge Kan.md",
     "Knowledge Base/Schedule/Schedule.md",
-    "Knowledge Base/Schedule/Plan.md",
     "drawing_tools/icons.excalidrawlib",
     "drawing_tools/google-icons.excalidrawlib",
     "drawing_tools/data-viz.excalidrawlib",
