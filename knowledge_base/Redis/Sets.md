@@ -123,6 +123,41 @@ redis-19789.c326.us-east-1-3.ec2.redns.redis-cloud.com:19789> SMEMBERS colors:2
 - Sometimes we might have a set with many many items inside of them
 - `SMEMBERS` gives all the strings with one single command, no matter how many are present in the set
 - `SSCAN` allows to mention # of elements to return
+```python
+# command doc:
+SSCAN key cursor [MATCH pattern] [COUNT count]
+
+SSCAN 
+	colors:1     # key
+	0            # cursor ID
+	COUNT 100    # no.of elements to return
 ```
-SSCAN colors:1 0 COUNT 100 
+
+
+## Set Use Cases
+- Enforcing uniqueness of any value
+	- E.g. set of usernames
+	- `SISMEMBER usernames vishal_a_geek` to check if `vishal_a_geek` is already taken as username
+- Creating relationship between records
+	- E.g. implement a like-system inside our app, where user can like certain items
+	- maintain a separate set for every single user like `users:45:likes` is a set of liked items by user with id of 45
+	- we can use this set to:
+		- find items liked by the user: `SMEMBERS users:45:likes`
+		- find how many items are liked by this user: `SCARD users:45:likes`
+		- find if this user liked item with id 145: `SISMEMBER users:45:likes 145`
+- Finding common attributes between different entities
+	- Which items both user-45 and user-32
+		- `SINTER users:45:likes users:32:likes`
 ```
+redis-19789.c326.us-east-1-3.ec2.redns.redis-cloud.com:19789> SADD users:45:likes 12 23 245 134 154 145
+(integer) 6
+redis-19789.c326.us-east-1-3.ec2.redns.redis-cloud.com:19789> SADD users:46:likes 1 3 2 13 154 145
+(integer) 6
+redis-19789.c326.us-east-1-3.ec2.redns.redis-cloud.com:19789> SINTER users:45:likes users:46:likes
+[
+    "145",
+    "154"
+]
+```
+- General list of elements where the order of elements doesn't matter
+	- `SADD domains:banned ezmail.com freemail.com scammail.com`
