@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Redis/HyperLogLog.md",
+                "file": "Redis/Lists.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "HyperLogLog"
+              "title": "Lists"
             }
           },
           {
@@ -188,10 +188,11 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "110819deac7cbf9c",
+  "active": "c35668184831e89e",
   "lastOpenFiles": [
-    "Redis/Sorted Sets.md",
     "Redis/HyperLogLog.md",
+    "Redis/Lists.md",
+    "Redis/Sorted Sets.md",
     "Redis/Sort.md",
     "Redis/Hash Data Structures.md",
     "Redis/attachments/Pasted image 20251122163656.png",
@@ -224,7 +225,6 @@
     "Probability & Statistics/1. Counting/Untitled 1.md",
     "Probability & Statistics/1. Counting/Untitled.md",
     "Probability & Statistics/1. Counting/3. Binomial and Multinomial Theorem.md",
-    "Probability & Statistics/1. Counting/4. Questions.md",
     "Probability & Statistics/1. Counting/attachments/Combination With repetition.png",
     "Probability & Statistics/1. Counting/attachments",
     "Probability & Statistics/1. Counting",
