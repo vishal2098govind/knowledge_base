@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Redis/Sorted Sets.md",
+                "file": "Redis/Sort.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Sorted Sets"
+              "title": "Sort"
             }
           },
           {
@@ -94,7 +94,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 351.5004348754883
+    "width": 351.5004348754883,
+    "collapsed": true
   },
   "right": {
     "id": "b728b4262fed4323",
@@ -190,14 +191,16 @@
   },
   "active": "c35668184831e89e",
   "lastOpenFiles": [
-    "Redis/Sets.md",
     "Redis/Sorted Sets.md",
+    "Redis/Sort.md",
+    "Redis/Hash Data Structures.md",
+    "Redis/attachments/Pasted image 20251122163656.png",
+    "Redis/Sets.md",
     "Redis/Commands in Redis.md",
     "Redis/Serialisation and Deserialisation.md",
     "Redis/Pipelining Commands.md",
     "Redis/attachments/Pasted image 20251111234909.png",
     "Redis/attachments/Pasted image 20251112012643.png",
-    "Redis/Hash Data Structures.md",
     "Redis/attachments",
     "Redis/Redis Key Naming Convention.md",
     "Redis/DEL command.md",
@@ -223,7 +226,6 @@
     "Probability & Statistics/1. Counting/3. Binomial and Multinomial Theorem.md",
     "Probability & Statistics/1. Counting/4. Questions.md",
     "Probability & Statistics/1. Counting/1. Rule of Sum and Product, Factorial.md",
-    "Probability & Statistics/1. Counting/2. Permutation and Combination.md",
     "Probability & Statistics/1. Counting/attachments/Combination With repetition.png",
     "Probability & Statistics/1. Counting/attachments",
     "Probability & Statistics/1. Counting",
@@ -235,7 +237,6 @@
     "Go Dev/attachments/XSS.png",
     "Go Dev/attachments/XSS-3.png",
     "Go Dev/attachments/XSS-2.png",
-    "Go Dev/attachments/SQL - Injection.png",
     "Untitled.canvas"
   ]
 }
