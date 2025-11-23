@@ -1,4 +1,4 @@
-#redis 
+#redis #sorted-sets
 
 - A mix of hash and set
 - There are no keys and values

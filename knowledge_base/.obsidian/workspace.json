@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Redis/Sort.md",
+                "file": "Redis/HyperLogLog.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Sort"
+              "title": "HyperLogLog"
             }
           },
           {
@@ -94,8 +94,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 351.5004348754883,
-    "collapsed": true
+    "width": 351.5004348754883
   },
   "right": {
     "id": "b728b4262fed4323",
@@ -189,9 +188,10 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "c35668184831e89e",
+  "active": "110819deac7cbf9c",
   "lastOpenFiles": [
     "Redis/Sorted Sets.md",
+    "Redis/HyperLogLog.md",
     "Redis/Sort.md",
     "Redis/Hash Data Structures.md",
     "Redis/attachments/Pasted image 20251122163656.png",
@@ -225,7 +225,6 @@
     "Probability & Statistics/1. Counting/Untitled.md",
     "Probability & Statistics/1. Counting/3. Binomial and Multinomial Theorem.md",
     "Probability & Statistics/1. Counting/4. Questions.md",
-    "Probability & Statistics/1. Counting/1. Rule of Sum and Product, Factorial.md",
     "Probability & Statistics/1. Counting/attachments/Combination With repetition.png",
     "Probability & Statistics/1. Counting/attachments",
     "Probability & Statistics/1. Counting",
