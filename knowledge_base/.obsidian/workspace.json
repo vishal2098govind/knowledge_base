@@ -28,13 +28,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Go-Ardan-Labs/Pointer Vs Value Semantics.md",
+                "file": "Go-Ardan-Labs/bufio.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Pointer Vs Value Semantics"
+              "title": "bufio"
             }
           },
           {
@@ -126,7 +126,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Go-Ardan-Labs/Pointer Vs Value Semantics.md",
+                "file": "Go-Ardan-Labs/Sort.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -136,7 +136,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Pointer Vs Value Semantics"
+              "title": "Backlinks for Sort"
             }
           },
           {
@@ -185,7 +185,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -205,8 +206,10 @@
   },
   "active": "0943cfbee9a2d85b",
   "lastOpenFiles": [
-    "Go-Ardan-Labs/attachments/Pasted image 20251128005242.png",
+    "Go-Ardan-Labs/Sort.md",
+    "Go-Ardan-Labs/bufio.md",
     "Go-Ardan-Labs/Pointer Vs Value Semantics.md",
+    "Go-Ardan-Labs/attachments/Pasted image 20251128005242.png",
     "Go-Ardan-Labs/attachments",
     "Go-Ardan-Labs/Reader, Writer, Copy.md",
     "Go-Ardan-Labs/ChatGPT-HTTP, Reader, Writer, Connection.md",
@@ -239,7 +242,6 @@
     "Cloud/AWS Cloud Solutions Architect/RDS+Aurora+ElastiCache",
     "Cloud/AWS Cloud Solutions Architect",
     "Probability & Statistics/1. Counting/5. Inclusion and Exclusion.md",
-    "Knowledge Base/Knowledge Kan.md",
     "Knowledge Base/Knowledge Base.base",
     "Knowledge Base/Untitled.base",
     "Probability & Statistics/1. Counting/attachments/Combination With repetition.png",
