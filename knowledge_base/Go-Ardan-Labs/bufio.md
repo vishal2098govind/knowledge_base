@@ -410,7 +410,7 @@ Some concrete rules tailored to what you’re building:
     - When profiling shows many small reads/writes (e.g., JSON over TCP, high Queries Per Second i.e. high QPS): introduce `bufio` at the edges to smooth them out.
 
 ## 🔍 Why QPS matters in backend engineering
-
+#qps
 When I said:
 
 > “in high QPS systems, buffered IO like `bufio` helps reduce syscalls…”
@@ -426,3 +426,54 @@ So in backend engineering (your future target → scalable Go services):
     - latency increases,
     - CPU usage spikes,
     - eventually the system saturates.
+
+If one request requires **10 syscalls**, and your service is handling **10,000 QPS**,  
+→ You’re doing **100,000 syscalls/sec**.
+
+If you add `bufio` and reduce syscalls to **2 per request**,  
+→ You’re doing **20,000 syscalls/sec**.
+
+That savings at scale is huge.
+
+This is why efficient buffered IO matters a lot in:
+- network servers,
+- Kafka consumers,
+- HTTP proxies,
+- RPC servers,
+- log processors,
+- microservices under real load.
+- 
+Suppose you have a Go microservice receiving **5,000 requests/second**.
+### Unbuffered writes:
+- Each response = 6 small `Write` calls (headers, chunked body etc.)
+- Total syscalls = 5000 × 6 = **30,000 syscalls/sec**
+### Buffered with `bufio.Writer`:
+- Writes coalesced to 1–2 per response
+- Total syscalls ≈ **10,000/sec**
+This reduces:
+- **CPU time**
+- **context switching**
+- **NIC interruptions**
+- **latency under load**
+
+## 🏎️ QPS vs RPS vs TPS — what’s the difference?
+#qps 
+
+| Term    | Meaning                 | Where used                                              |
+| ------- | ----------------------- | ------------------------------------------------------- |
+| **QPS** | Queries per second      | Search engines (Google), databases, distributed systems |
+| **RPS** | Requests per second     | Web services, REST APIs, gRPC gateways                  |
+| **TPS** | Transactions per second | Databases, Kafka throughput, payment processing         |
+In microservices/backend world, **QPS** and **RPS** usually mean the same thing.
+
+**QPS = a measure of backend system throughput.**  
+The higher your QPS, the more efficiency matters.
+
+This is directly connected to:
+- `bufio.Reader` (fewer `Read` syscalls)
+- `bufio.Writer` (fewer `Write` syscalls)
+- connection pooling
+- efficient JSON parsing
+- efficient string/byte operations
+- network backpressure
+- event-driven architectures
