@@ -62,7 +62,39 @@ func main() {
 // Output:
 // Bfr[Betty] : Aft[Betty]
 ```
+### Another example
+```go
+package main
 
+import "fmt"
+
+func main() {
+	// Using value-semantic form of for-range
+	friends := []string{"A", "B", "C", "D", "E"}
+	for _, v := range friends {
+		friends = friends[:2]
+		fmt.Printf("v[%s]\n", v)
+	}
+
+	// Using pointer-semantic form of for-range
+	friends = []string{"A", "B", "C", "D", "E"}
+	for i := range friends {
+		friends = friends[:2]
+		fmt.Printf("v[%s]\n", friends[i])
+	}
+}
+
+// OUTPUT:
+// v[A]
+// v[B]
+// v[C]
+// v[D]
+// v[E]
+// v[A]
+// v[B]
+// panic: runtime error: index out of range [2] with length 2
+```
+![[Pasted image 20251203011322.png]]
 ## Slices
 - can create `slices` using built-in function `make`
 - `make` is specifically used to create/pre-allocate these data-structures only:
