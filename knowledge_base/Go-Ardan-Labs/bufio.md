@@ -407,7 +407,7 @@ Some concrete rules tailored to what you’re building:
     - If reading whole file via `os.ReadFile` – no need.
     - If streaming parse / line by line / chunk by chunk: `bufio.NewReader` / `Scanner` is ideal.
 - **Performance-critical paths**:
-    - When profiling shows many small reads/writes (e.g., JSON over TCP, high Queries Per Second i.e. high QPS): introduce `bufio` at the edges to smooth them out.
+    - When profiling shows many small reads/writes (e.g., JSON over TCP, high Queries Per Second i.e. high #qps ): introduce `bufio` at the edges to smooth them out.
 
 ## 🔍 Why QPS matters in backend engineering
 #qps
