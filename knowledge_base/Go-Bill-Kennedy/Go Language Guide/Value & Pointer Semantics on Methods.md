@@ -124,17 +124,17 @@ func main() {
 	// here f1 points to a function which points to a copy of `d`
 	// since the method displayName() uses value semantics and not pointer semantics in it's receiver
 	f1 := d.displayName
-	f1()
+	f1() // Smruti
 	d.name = "Govind"
-	f1()
+	f1() // Smruti
 
 	// here f2 points to afunction which points to the same `d` and not a copy of `d`
 	// since the method setAge() uses pointer semantics and not value semantics in it's receiver
 	f2 := d.setAge
-	f2(2)
+	f2(2) // Govind
 	d.age = 27
 	d.name = "Vishal Govind"
-	f2(0)
+	f2(0) // Vishal Govind
 }
 
 /* Output:
