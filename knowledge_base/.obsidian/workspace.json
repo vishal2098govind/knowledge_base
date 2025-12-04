@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Go-Bill-Kennedy/Go Language Guide/Decoupling.md",
+                "file": "Go-Bill-Kennedy/Go Language Guide/Value & Pointer Semantics.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Decoupling"
+              "title": "Value & Pointer Semantics"
             }
           },
           {
@@ -191,7 +191,7 @@
   "active": "db6d79f278ed5ca1",
   "lastOpenFiles": [
     "Go-Bill-Kennedy/Go Language Guide/Maps.md",
-    "Go-Bill-Kennedy/Go Language Guide/Decoupling.md",
+    "Go-Bill-Kennedy/Go Language Guide/Value & Pointer Semantics.md",
     "Go-Bill-Kennedy/Go Language Guide/Arrays & Slices.md",
     "Go-Bill-Kennedy/Go Language Guide/Memory & Data Semantics.md",
     "Go-Bill-Kennedy/Go Language Guide/Design Guidelines.md",
