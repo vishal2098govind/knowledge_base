@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Go-Bill-Kennedy/Go Language Guide/Value & Pointer Semantics.md",
+                "file": "Go-Bill-Kennedy/Go Language Guide/Value & Pointer Semantics on Methods.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Value & Pointer Semantics"
+              "title": "Value & Pointer Semantics on Methods"
             }
           },
           {
@@ -190,8 +190,9 @@
   },
   "active": "db6d79f278ed5ca1",
   "lastOpenFiles": [
+    "Go-Bill-Kennedy/Go Language Guide/attachments/Pasted image 20251205014657.png",
     "Go-Bill-Kennedy/Go Language Guide/Maps.md",
-    "Go-Bill-Kennedy/Go Language Guide/Value & Pointer Semantics.md",
+    "Go-Bill-Kennedy/Go Language Guide/Value & Pointer Semantics on Methods.md",
     "Go-Bill-Kennedy/Go Language Guide/Arrays & Slices.md",
     "Go-Bill-Kennedy/Go Language Guide/Memory & Data Semantics.md",
     "Go-Bill-Kennedy/Go Language Guide/Design Guidelines.md",
@@ -226,7 +227,6 @@
     "Redis/attachments/Pasted image 20251122163656.png",
     "Redis/Sets.md",
     "Redis/Commands in Redis.md",
-    "Redis/Serialisation and Deserialisation.md",
     "Redis/attachments/Pasted image 20251111234909.png",
     "Redis/attachments/Pasted image 20251112012643.png",
     "Redis/attachments",

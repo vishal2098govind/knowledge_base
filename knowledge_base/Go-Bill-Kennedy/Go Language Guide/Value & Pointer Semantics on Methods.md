@@ -90,3 +90,61 @@ func (f *File) Chdir() error {
 }
 ```
 `Chdir` is using pointer semantics on the receiver. This is because, we must be sharing file value and never copy, even if the method doesn't mutate anything on the underlying type 
+
+
+## Value vs Pointer semantics on methods
+```go
+package main
+
+import "fmt"
+
+type data struct {
+	name string
+	age  int
+}
+
+func (d data) displayName() {
+	fmt.Printf("My name is %s\n", d.name)
+}
+
+func (d *data) setAge(age int) {
+	d.age = age
+	fmt.Println(d.name, "Is Age", d.age) // uses data.name field from the pointer receiver
+}
+
+func main() {
+	d := data{
+		name: "Vishal",
+	}
+
+	d.displayName()
+	d.name = "Smruti"
+	d.setAge(45)
+
+	// here f1 points to a function which points to a copy of `d`
+	// since the method displayName() uses value semantics and not pointer semantics in it's receiver
+	f1 := d.displayName
+	f1()
+	d.name = "Govind"
+	f1()
+
+	// here f2 points to afunction which points to the same `d` and not a copy of `d`
+	// since the method setAge() uses pointer semantics and not value semantics in it's receiver
+	f2 := d.setAge
+	f2(2)
+	d.age = 27
+	d.name = "Vishal Govind"
+	f2(0)
+}
+
+/* Output:
+My name is Vishal
+Smruti Is Age 45
+My name is Smruti
+My name is Smruti
+Govind Is Age 2
+Vishal Govind Is Age 0
+*/
+```
+
+![[Pasted image 20251205014657.png]]
