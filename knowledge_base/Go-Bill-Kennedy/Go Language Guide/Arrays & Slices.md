@@ -69,17 +69,20 @@ package main
 import "fmt"
 
 func main() {
-	// Using value-semantic form of for-range
+	// Using value-semantic form of for-range 
 	friends := []string{"A", "B", "C", "D", "E"}
 	for _, v := range friends {
 		friends = friends[:2]
+		// Here, we are iterating over a copy of original slice, thus v is refering to the copied slice
 		fmt.Printf("v[%s]\n", v)
 	}
 
 	// Using pointer-semantic form of for-range
+	// Here
 	friends = []string{"A", "B", "C", "D", "E"}
 	for i := range friends {
 		friends = friends[:2]
+		// Here, we are iterating the original slice thus friends[i] refers to the original underlying slice which has been changed
 		fmt.Printf("v[%s]\n", friends[i])
 	}
 }
