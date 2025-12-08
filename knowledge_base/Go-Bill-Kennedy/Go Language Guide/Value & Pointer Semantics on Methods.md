@@ -93,6 +93,27 @@ func (f *File) Chdir() error {
 
 
 ## Value vs Pointer semantics on methods
+- method calls are just syntactic sugar over function calls
+- Knowing data semantics => Knowing behaviour of allocation/deallocation in memory => Knowing the cost => ENGINEERING
+- That's the beauty with Go
+	- Machine is the model in Go
+	- Go allows us to look at code and 
+		- understand the cost 
+		- and understand how things are going to perform under the hood at the micro-level as well
+```go
+d := data{
+	name: "Vishal",
+}
+
+d.displayName() 
+// under the hood, this is syntactic sugar for
+(data).displayName(d)
+
+d.setAge(45) 
+// under the hood, this is syntactic sugar for
+(*data).setAge(&d, 45)
+```
+
 ```go
 package main
 
@@ -117,9 +138,9 @@ func main() {
 		name: "Vishal",
 	}
 
-	d.displayName()
+	d.displayName() // under the hood, this is syntactic sugar for := (data).displayName(d)
 	d.name = "Smruti"
-	d.setAge(45)
+	d.setAge(45) // under the hood, this is syntactic sugar for := (*data).setAge(&d, 45)
 
 	// here f1 points to a function which points to a copy of `d`
 	// since the method displayName() uses value semantics and not pointer semantics in it's receiver
