@@ -90,7 +90,7 @@ func main() {
 ### Method sets rules
 - The Go compiler attaches methods of a struct differently to pointers and values based on the whether the method is defined using pointer or value semantics
 	- To a value of type struct (e.g. T) (not pointer of type struct e.g. \*T), the Go compiler only attaches the methods using value semantics and not pointer semantics (e.g. \*T) (i.e. methods with value receivers e.g. T, and not pointer receivers)
-		- This helps in achieving data integrity
+		- This helps in achieving **data integrity**
 		- If `sendNotification(u)` would have been allowed by the Go compiler, 
 			- then if `notify` implementation in `user` would change some fields on the receiving `u`, 
 			- which is not something the caller of `sendNotification(u)` would be expecting while passing a copy of `u` to `sendNotification(u)`, 
