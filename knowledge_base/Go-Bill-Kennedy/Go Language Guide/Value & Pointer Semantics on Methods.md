@@ -108,6 +108,7 @@ d := data{
 d.displayName() 
 // under the hood, this is syntactic sugar for
 (data).displayName(d) // here a copy of d is passed to displayName (value semantics)
+// if size of d is not known during compile time, this copy of d is created in heap, not in stack
 
 d.setAge(45) 
 // under the hood, this is syntactic sugar for

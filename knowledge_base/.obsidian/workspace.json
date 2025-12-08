@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Go-Bill-Kennedy/Go Language Guide/Value & Pointer Semantics on Methods.md",
+                "file": "Go-Bill-Kennedy/Go Language Guide/Interfaces.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Value & Pointer Semantics on Methods"
+              "title": "Interfaces"
             }
           },
           {
@@ -110,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Go-Bill-Kennedy/Go Language Guide/Value & Pointer Semantics on Methods.md",
+                "file": "Go-Bill-Kennedy/Go Language Guide/Interfaces.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -120,7 +120,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Value & Pointer Semantics on Methods"
+              "title": "Backlinks for Interfaces"
             }
           },
           {
@@ -190,9 +190,12 @@
   },
   "active": "db6d79f278ed5ca1",
   "lastOpenFiles": [
+    "Go-Bill-Kennedy/Go Language Guide/attachments/Pasted image 20251209002720.png",
+    "Go-Bill-Kennedy/Go Language Guide/Value & Pointer Semantics on Methods.md",
+    "Go-Bill-Kennedy/Go Language Guide/Interfaces.md",
+    "Go-Bill-Kennedy/Go Language Guide/Untitled",
     "Go-Bill-Kennedy/Go Language Guide/attachments/Pasted image 20251205014657.png",
     "Go-Bill-Kennedy/Go Language Guide/Maps.md",
-    "Go-Bill-Kennedy/Go Language Guide/Value & Pointer Semantics on Methods.md",
     "Go-Bill-Kennedy/Go Language Guide/Arrays & Slices.md",
     "Go-Bill-Kennedy/Go Language Guide/Memory & Data Semantics.md",
     "Go-Bill-Kennedy/Go Language Guide/Design Guidelines.md",
@@ -226,16 +229,13 @@
     "Redis/Hash Data Structures.md",
     "Redis/attachments/Pasted image 20251122163656.png",
     "Redis/Sets.md",
-    "Redis/Commands in Redis.md",
     "Redis/attachments/Pasted image 20251111234909.png",
     "Redis/attachments/Pasted image 20251112012643.png",
     "Redis/attachments",
     "Redis",
-    "Cloud/AWS Cloud Solutions Architect/RDS+Aurora+ElastiCache",
     "Probability & Statistics/1. Counting/attachments/Combination With repetition.png",
     "Go Dev/attachments/Mailtrap SMTP Server.png",
     "drawing_tools/bloom-visualisation.png",
-    "NGINX/NGINX arch.png",
     "Untitled.canvas"
   ]
 }
