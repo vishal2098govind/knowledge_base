@@ -100,8 +100,8 @@ func main() {
 ![[Pasted image 20251209002720.png]]
 
 ### Storage by value
-- When we store a value, the interface value has its own copy of the value. Changes to the original value will not be seen.
-- When we store a pointer, the interface value has its own copy of the address. Changes to the original value will be seen.
+- When we store a value, the interface value has its **own copy of the value**. Changes to the original value will not be seen.
+- When we store a pointer, the interface value has its **own copy of the address (i.e. sharing)**. Changes to the original value will be seen.
 ```go
 package main
 
