@@ -69,7 +69,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#go-reference-types",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -190,15 +190,16 @@
   },
   "active": "db6d79f278ed5ca1",
   "lastOpenFiles": [
-    "Go-Bill-Kennedy/Go Language Guide/attachments/Pasted image 20251209002720.png",
+    "Go-Bill-Kennedy/Go Language Guide/attachments/Pasted image 20251209011648.png",
     "Go-Bill-Kennedy/Go Language Guide/Value & Pointer Semantics on Methods.md",
-    "Go-Bill-Kennedy/Go Language Guide/Interfaces.md",
-    "Go-Bill-Kennedy/Go Language Guide/Untitled",
-    "Go-Bill-Kennedy/Go Language Guide/attachments/Pasted image 20251205014657.png",
-    "Go-Bill-Kennedy/Go Language Guide/Maps.md",
     "Go-Bill-Kennedy/Go Language Guide/Arrays & Slices.md",
     "Go-Bill-Kennedy/Go Language Guide/Memory & Data Semantics.md",
     "Go-Bill-Kennedy/Go Language Guide/Design Guidelines.md",
+    "Go-Bill-Kennedy/Go Language Guide/Maps.md",
+    "Go-Bill-Kennedy/Go Language Guide/Interfaces.md",
+    "Go-Bill-Kennedy/Go Language Guide/attachments/Pasted image 20251209002720.png",
+    "Go-Bill-Kennedy/Go Language Guide/Untitled",
+    "Go-Bill-Kennedy/Go Language Guide/attachments/Pasted image 20251205014657.png",
     "Go-Bill-Kennedy/Go Language Guide/attachments/Pasted image 20251203011322.png",
     "Go-Ardan-Labs/Strings in Go.md",
     "Go-Bill-Kennedy/Go Language Guide/attachments/Pasted image 20251202114238.png",
@@ -235,7 +236,6 @@
     "Redis",
     "Probability & Statistics/1. Counting/attachments/Combination With repetition.png",
     "Go Dev/attachments/Mailtrap SMTP Server.png",
-    "drawing_tools/bloom-visualisation.png",
     "Untitled.canvas"
   ]
 }
