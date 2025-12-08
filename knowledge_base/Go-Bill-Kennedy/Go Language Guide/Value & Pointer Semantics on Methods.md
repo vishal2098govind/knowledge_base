@@ -107,11 +107,11 @@ d := data{
 
 d.displayName() 
 // under the hood, this is syntactic sugar for
-(data).displayName(d)
+(data).displayName(d) // here a copy of d is passed to displayName (value semantics)
 
 d.setAge(45) 
 // under the hood, this is syntactic sugar for
-(*data).setAge(&d, 45)
+(*data).setAge(&d, 45) // here a pointer to d is passed to setAge (pointer semantics)
 ```
 
 ```go
@@ -127,11 +127,19 @@ type data struct {
 func (d data) displayName() {
 	fmt.Printf("My name is %s\n", d.name)
 }
+// equivalent to:
+// func displayName(d data, age int) {
+//	// body of displayName with a copy of d
+// }
 
 func (d *data) setAge(age int) {
 	d.age = age
 	fmt.Println(d.name, "Is Age", d.age) // uses data.name field from the pointer receiver
 }
+// equivalent to:
+// func setAge(d *data, age int) {
+//	// body of setAge with pointer to d
+// }
 
 func main() {
 	d := data{
