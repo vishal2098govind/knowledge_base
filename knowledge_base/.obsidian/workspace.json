@@ -13,28 +13,28 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Go-Bill-Kennedy/Go Language Guide/Interfaces.md",
+                "file": "Go-Bill-Kennedy/Go Language Guide/Embedding + Interface = Reuse + Polymorphism.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Interfaces"
+              "title": "Embedding + Interface = Reuse + Polymorphism"
             }
           },
           {
-            "id": "6089d3213fe8c5ef",
+            "id": "452dab8ccc007a48",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Go-Ardan-Labs/Strings in Go.md",
+                "file": "Go-Bill-Kennedy/Go Language Guide/Untitled.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Strings in Go"
+              "title": "Untitled"
             }
           }
         ]
@@ -190,13 +190,18 @@
   },
   "active": "db6d79f278ed5ca1",
   "lastOpenFiles": [
+    "Go-Bill-Kennedy/Go Language Guide/Inheritance patterns in Go.md",
+    "Go-Bill-Kennedy/Go Language Guide/Embedding + Interface = Reuse + Polymorphism.md",
+    "Go-Bill-Kennedy/Go Language Guide/Why No Inheritance in Go.md",
+    "Go-Bill-Kennedy/Go Language Guide/Untitled.md",
+    "Go-Bill-Kennedy/Go Language Guide/Embedding is not Inheritance.md",
+    "Go-Bill-Kennedy/Go Language Guide/Interfaces.md",
     "Go-Bill-Kennedy/Go Language Guide/attachments/Pasted image 20251209011648.png",
     "Go-Bill-Kennedy/Go Language Guide/Value & Pointer Semantics on Methods.md",
     "Go-Bill-Kennedy/Go Language Guide/Arrays & Slices.md",
     "Go-Bill-Kennedy/Go Language Guide/Memory & Data Semantics.md",
     "Go-Bill-Kennedy/Go Language Guide/Design Guidelines.md",
     "Go-Bill-Kennedy/Go Language Guide/Maps.md",
-    "Go-Bill-Kennedy/Go Language Guide/Interfaces.md",
     "Go-Bill-Kennedy/Go Language Guide/attachments/Pasted image 20251209002720.png",
     "Go-Bill-Kennedy/Go Language Guide/Untitled",
     "Go-Bill-Kennedy/Go Language Guide/attachments/Pasted image 20251205014657.png",
@@ -225,17 +230,12 @@
     "Go/Lenslocked.md",
     "Redis/Lists.md",
     "Redis/HyperLogLog.md",
-    "Redis/Sorted Sets.md",
-    "Redis/Sort.md",
-    "Redis/Hash Data Structures.md",
     "Redis/attachments/Pasted image 20251122163656.png",
-    "Redis/Sets.md",
     "Redis/attachments/Pasted image 20251111234909.png",
     "Redis/attachments/Pasted image 20251112012643.png",
     "Redis/attachments",
     "Redis",
     "Probability & Statistics/1. Counting/attachments/Combination With repetition.png",
-    "Go Dev/attachments/Mailtrap SMTP Server.png",
     "Untitled.canvas"
   ]
 }
