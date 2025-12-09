@@ -137,25 +137,40 @@ func main() {
 ```go
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
-// Speaker provide a common behavior for all concrete types
-// to follow if they want to be a part of this group. This
-// is a contract for these concrete types to follow.
+// // Animal contains all the base fields for animals.
+// type Animal struct {
+// 	Name     string
+// 	IsMammal bool
+// }
+
+// // Speak provides generic behavior for all animals and
+// // how they speak.
+// func (a *Animal) Speak() {
+// 	fmt.Printf(
+// 		"UGH! My name is %s, it is %t I am a mammal\n",
+// 		a.Name,
+// 		a.IsMammal,
+// 	)
+// }
+
 type Speaker interface {
 	Speak()
 }
 
-// Dog contains everything a Dog needs.
+// Dog contains everything an Animal is but specific
+// attributes that only a Dog has.
 type Dog struct {
+	// Animal
 	Name       string
 	IsMammal   bool
 	PackFactor int
 }
 
 // Speak knows how to speak like a dog.
-// This makes a Dog now part of a group of concrete
-// types that know how to speak.
 func (d *Dog) Speak() {
 	fmt.Printf(
 		"Woof! My name is %s, it is %t I am a mammal with a pack factor of %d.\n",
@@ -165,16 +180,16 @@ func (d *Dog) Speak() {
 	)
 }
 
-// Cat contains everything a Cat needs.
+// Cat contains everything an Animal is but specific
+// attributes that only a Cat has.
 type Cat struct {
+	// Animal
 	Name        string
 	IsMammal    bool
 	ClimbFactor int
 }
 
 // Speak knows how to speak like a cat.
-// This makes a Cat now part of a group of concrete
-// types that know how to speak.
 func (c *Cat) Speak() {
 	fmt.Printf(
 		"Meow! My name is %s, it is %t I am a mammal with a climb factor of %d.\n",
@@ -187,11 +202,15 @@ func (c *Cat) Speak() {
 func main() {
 
 	// Create a list of Animals that know how to speak.
-	speakers := []Speaker{
+	animals := []Speaker{
 
 		// Create a Dog by initializing its Animal parts
 		// and then its specific Dog attributes.
 		&Dog{
+			// Animal: Animal{
+			// 	Name:     "Fido",
+			// 	IsMammal: true,
+			// },
 			Name:       "Fido",
 			IsMammal:   true,
 			PackFactor: 5,
@@ -200,6 +219,10 @@ func main() {
 		// Create a Cat by initializing its Animal parts
 		// and then its specific Cat attributes.
 		&Cat{
+			// Animal: Animal{
+			// 	Name:     "Milo",
+			// 	IsMammal: true,
+			// },
 			Name:        "Milo",
 			IsMammal:    true,
 			ClimbFactor: 4,
@@ -207,10 +230,11 @@ func main() {
 	}
 
 	// Have the Animals speak.
-	for _, spkr := range speakers {
-		spkr.Speak()
+	for _, animal := range animals {
+		animal.Speak()
 	}
 }
+
 ```
 Here are some guidelines around declaring types:
 * Declare types that represent something new or unique.
@@ -218,3 +242,23 @@ Here are some guidelines around declaring types:
 * **Embed** types **to reuse existing behaviors** you need to satisfy.
 * Question types that are an alias or abstraction for an existing type.
 * Question types whose sole purpose is to share common state.
+#### Bad to define custom types based on existing types without any good reason
+```go
+type Handle int
+func Foo(h Handle) {}
+Foo(10) // possible as 10 has time of KindInt what can be converted to type Handle implicitly
+```
+##### This is more readable instead:
+```go
+func Foo(handle int) {}
+```
+#### Good if custom types based on exiting types have some reasonable and practical method sets defined on them
+```go
+// Go's time package
+type Duration int64
+func (d Duration) format() {...}
+func (d Duration) method2() {...}
+...
+
+```
+
