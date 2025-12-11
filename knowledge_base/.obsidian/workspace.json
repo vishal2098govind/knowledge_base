@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Go-Bill-Kennedy/Go Language Guide/Don't design with interfaces, discover them.md",
+                "file": "Go-Bill-Kennedy/Go Language Guide/Mocking.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Don't design with interfaces, discover them"
+              "title": "Mocking"
             }
           }
         ]
@@ -175,9 +175,10 @@
   },
   "active": "db6d79f278ed5ca1",
   "lastOpenFiles": [
+    "Go-Bill-Kennedy/Go Language Guide/Don't design with interfaces, discover them.md",
+    "Go-Bill-Kennedy/Go Language Guide/Mocking.md",
     "Go-Bill-Kennedy/Go Language Guide/Composition.md",
     "Go-Bill-Kennedy/Go Language Guide/Embedding + Interface = Reuse + Polymorphism.md",
-    "Go-Bill-Kennedy/Go Language Guide/Don't design with interfaces, discover them.md",
     "Go-Bill-Kennedy/Go Language Guide/Untitled 1.md",
     "Go-Bill-Kennedy/Go Language Guide/Untitled",
     "Go-Bill-Kennedy/Go Language Guide/Inheritance patterns in Go.md",
@@ -214,7 +215,6 @@
     "Go Dev/SQL with Go.md",
     "Go Dev/Go version.md",
     "Go/Why Go/Go.md",
-    "Go/Lenslocked.md",
     "Redis/attachments/Pasted image 20251122163656.png",
     "Redis/attachments/Pasted image 20251111234909.png",
     "Redis/attachments/Pasted image 20251112012643.png",
