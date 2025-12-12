@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Go-Bill-Kennedy/Go Language Guide/Mocking.md",
+                "file": "Go-Bill-Kennedy/Go Language Guide/Error Handling in Go.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Mocking"
+              "title": "Error Handling in Go"
             }
           }
         ]
@@ -175,8 +175,12 @@
   },
   "active": "db6d79f278ed5ca1",
   "lastOpenFiles": [
-    "Go-Bill-Kennedy/Go Language Guide/Don't design with interfaces, discover them.md",
+    "Go-Bill-Kennedy/Go Language Guide/attachments/Pasted image 20251212103913.png",
+    "Go-Bill-Kennedy/Go Language Guide/attachments/Pasted image 20251212103818.png",
+    "Go-Bill-Kennedy/Go Language Guide/Untitled.md",
+    "Go-Bill-Kennedy/Go Language Guide/Error Handling in Go.md",
     "Go-Bill-Kennedy/Go Language Guide/Mocking.md",
+    "Go-Bill-Kennedy/Go Language Guide/Don't design with interfaces, discover them.md",
     "Go-Bill-Kennedy/Go Language Guide/Composition.md",
     "Go-Bill-Kennedy/Go Language Guide/Embedding + Interface = Reuse + Polymorphism.md",
     "Go-Bill-Kennedy/Go Language Guide/Untitled 1.md",
@@ -212,15 +216,11 @@
     "Go-Ardan-Labs/Reader, Writer, Copy.md",
     "Go-Ardan-Labs/ChatGPT-HTTP, Reader, Writer, Connection.md",
     "Go-Ardan-Labs",
-    "Go Dev/SQL with Go.md",
-    "Go Dev/Go version.md",
-    "Go/Why Go/Go.md",
     "Redis/attachments/Pasted image 20251122163656.png",
     "Redis/attachments/Pasted image 20251111234909.png",
     "Redis/attachments/Pasted image 20251112012643.png",
     "Redis/attachments",
     "Redis",
-    "Probability & Statistics/1. Counting/attachments/Combination With repetition.png",
     "Untitled.canvas"
   ]
 }
