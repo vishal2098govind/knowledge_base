@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Go-Bill-Kennedy/Go Language Guide/Error Handling in Go.md",
+                "file": "Go-Bill-Kennedy/Go Language Guide/Raw TCP chat server.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Error Handling in Go"
+              "title": "Raw TCP chat server"
             }
           }
         ]
@@ -173,17 +173,20 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "db6d79f278ed5ca1",
+  "active": "110819deac7cbf9c",
   "lastOpenFiles": [
+    "Go-Ardan-Labs/bufio.md",
+    "Go-Bill-Kennedy/Go Language Guide/Raw TCP chat server.md",
+    "Go-Ardan-Labs/ChatGPT-HTTP, Reader, Writer, Connection.md",
+    "Go-Bill-Kennedy/Go Language Guide/Packaging.md",
+    "Go-Bill-Kennedy/Go Language Guide/Error Handling in Go.md",
     "Go-Bill-Kennedy/Go Language Guide/attachments/Pasted image 20251212103913.png",
     "Go-Bill-Kennedy/Go Language Guide/attachments/Pasted image 20251212103818.png",
     "Go-Bill-Kennedy/Go Language Guide/Untitled.md",
-    "Go-Bill-Kennedy/Go Language Guide/Error Handling in Go.md",
     "Go-Bill-Kennedy/Go Language Guide/Mocking.md",
     "Go-Bill-Kennedy/Go Language Guide/Don't design with interfaces, discover them.md",
     "Go-Bill-Kennedy/Go Language Guide/Composition.md",
     "Go-Bill-Kennedy/Go Language Guide/Embedding + Interface = Reuse + Polymorphism.md",
-    "Go-Bill-Kennedy/Go Language Guide/Untitled 1.md",
     "Go-Bill-Kennedy/Go Language Guide/Untitled",
     "Go-Bill-Kennedy/Go Language Guide/Inheritance patterns in Go.md",
     "Go-Bill-Kennedy/Go Language Guide/Why No Inheritance in Go.md",
@@ -206,7 +209,6 @@
     "KodeKloud-AWS/Cloud-Computing/Benefits of Cloud.md",
     "KodeKloud-AWS/Cloud-Computing",
     "KodeKloud-AWS",
-    "Go-Ardan-Labs/bufio.md",
     "Go-Bill-Kennedy/Go Language Guide",
     "Go-Bill-Kennedy",
     "Go-Ardan-Labs/Sort.md",
@@ -214,11 +216,9 @@
     "Go-Ardan-Labs/attachments/Pasted image 20251128005242.png",
     "Go-Ardan-Labs/attachments",
     "Go-Ardan-Labs/Reader, Writer, Copy.md",
-    "Go-Ardan-Labs/ChatGPT-HTTP, Reader, Writer, Connection.md",
     "Go-Ardan-Labs",
     "Redis/attachments/Pasted image 20251122163656.png",
     "Redis/attachments/Pasted image 20251111234909.png",
-    "Redis/attachments/Pasted image 20251112012643.png",
     "Redis/attachments",
     "Redis",
     "Untitled.canvas"
