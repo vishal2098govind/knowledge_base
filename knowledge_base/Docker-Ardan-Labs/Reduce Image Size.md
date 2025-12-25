@@ -87,3 +87,5 @@ FROM ubuntu
 COPY --from=build /app/hello .
 CMD ./hello
 ```
+- often, using alpine versions of images reduces size
+- e.g. using `FROM python:alpine` or `FROM alpine` etc
