@@ -163,9 +163,79 @@ round-trip min/avg/max = 0.073/0.114/0.146 ms
 	- all the containers (called pods k8s) are present in the same network
 	- so by default, on k8s, everything can communicate with everything else
 	- so, arguably, it's less secure than docker
-	- but we add isolations with mechanism called Network Policies, which requires extra steps
-	- in docker, we have isolation by default and need extra steps to communicate, 
-	- in k8s, it's the other way around, we have communication by default and need extra steps to isolate
+	- but **we add isolations** with mechanism called Network Policies, which requires extra steps
+	- in **docker**, we **have isolation by default** and **need** extra steps to **communicate**, 
+	- in **k8s**, it's the other way around, we have **communication by default** and **need** extra steps to **isolate**
 	- in k8s, it's per-namespace service discovery
 
 ### Service discovery in practice
+consider running a server with this `countrer.py` file  
+```python
+#!/usr/bin/env python
+from flask import Flask, send_from_directory, render_template
+import os
+import redis
+import socket
+
+app = Flask(__name__)
+hostname = socket.gethostname()
+redis = redis.Redis("redis")
+
+
+if "DEBUG" in os.environ:
+    app.debug = True
+
+
+@app.errorhandler(500)
+def error(e):
+    return render_template('error.html',
+        hostname=hostname, error=e), 500
+
+
+@app.route("/")
+def index():
+    redis.zincrby("counters", 1, hostname)
+    counters = redis.zrevrange("counters", 0, -1, withscores=True)
+    counters = [ (s.decode(), int(i)) for (s,i) in counters ]
+    thiscount = int(redis.zscore("counters", hostname))
+    totalcount = sum(i for (s,i) in counters)
+    return render_template( "index.html",
+        hostname=hostname, counters=counters,
+        thiscount=thiscount, totalcount=totalcount)
+
+
+@app.route("/assets/<path:path>")
+def assets(path):
+    return send_from_directory("assets", path)
+
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0")
+
+
+```
+and some other files as well (not imp) and the following docker file:
+```Dockerfile
+FROM python:alpine
+RUN pip install flask
+RUN pip install gunicorn
+RUN pip install redis
+COPY . /src
+WORKDIR /src
+CMD gunicorn --bind 0.0.0.0:5000 --workers 10 counter:app
+EXPOSE 5000
+```
+running this :
+```sh
+$ docker build . -t trainingwheels
+$ docker ps -d -p 8080:5000 trainingwheels
+```
+running just this would result in an error:
+```
+socket.gaierror: [Errno -2] Name does not resolve
+```
+this error comes from the Redis client initialization in the `counter.py` python file, as currently we don't have any Redis client in the network
+```sh
+$ docker run -d --net dev --net-alias redis redis
+```
+now, the `trainingwheels` container will work

@@ -329,3 +329,11 @@ here, the ip address of the container with id starting with `eb0` is `172.17.0.6
 ```sh
 $ ping 172.17.0.6
 ```
+
+
+## Docker networking just uses the linux networking
+- There is nothing new in the whole docker networking stack
+- Docker uses linux bridges, ip tables and all.... which are bunch of things that docker didn't invent
+- docker is not the first to use that
+- linux has been using that for decades
+- docker, instead of inventing something completely new, it uses pre-existing mechanisms and constructs and protocols etc
