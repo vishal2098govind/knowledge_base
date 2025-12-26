@@ -11,10 +11,15 @@
             "id": "1076f130b6aa7afe",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "Docker-Ardan-Labs/Container Network Driver.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "Container Network Driver"
             }
           }
         ]
@@ -170,13 +175,14 @@
   },
   "active": "1076f130b6aa7afe",
   "lastOpenFiles": [
+    "Docker-Ardan-Labs/Container Network Model.md",
+    "Docker-Ardan-Labs/Container Network Driver.md",
     "Docker-Ardan-Labs/What is Docker.md",
     "Docker-Ardan-Labs/Docker Images.md",
     "Docker-Ardan-Labs/Copying files during build.md",
     "Docker-Ardan-Labs/Dockerising Postgres Database.md",
     "Docker-Ardan-Labs/Container Networking Basics.md",
     "Docker-Ardan-Labs/Docker Volumes.md",
-    "Docker-Ardan-Labs/Container Network Model.md",
     "Docker-Ardan-Labs/Docker Compose.md",
     "Docker-Ardan-Labs/Writing Compose Files.md",
     "Docker-Ardan-Labs/Restarting and attaching to containers.md",
@@ -203,7 +209,6 @@
     "Go-Bill-Kennedy/Go Language Guide/Concurrent Web Crawler.md",
     "Go-Ardan-Labs/bufio.md",
     "Go-Ardan-Labs/ChatGPT-HTTP, Reader, Writer, Connection.md",
-    "Go-Bill-Kennedy/Go Language Guide/Packaging.md",
     "Go-Bill-Kennedy/Go Language Guide/attachments/Pasted image 20251212103913.png",
     "Go-Bill-Kennedy/Go Language Guide/attachments/Pasted image 20251212103818.png",
     "Go-Bill-Kennedy/Go Language Guide/Untitled",
