@@ -206,6 +206,7 @@ $ docker compose down
  ✔ Network trainingwheels_default    Removed 0.2s 
 ```
 - docker compose creates a new network for each compose file. 
+- the name of each service corresponds to the `--net-alias` for each container
 - thus we can spin up a container (say of a simple alpine image) in that network to debug these containers
 ```sh
 $ docker run --net trainingwheels_default -it alpine 
