@@ -4,37 +4,37 @@
     "type": "split",
     "children": [
       {
-        "id": "ecff6d7130581d36",
+        "id": "d5b4abc6775890a3",
         "type": "tabs",
         "children": [
           {
-            "id": "1076f130b6aa7afe",
+            "id": "6c5f117a3d04c839",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Docker-Ardan-Labs/Container Network Driver.md",
+                "file": "Kubernetes-Ardan-Labs/Kubernetes.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Container Network Driver"
+              "title": "Kubernetes"
             }
           },
           {
-            "id": "67221376d4b703f1",
+            "id": "24fd780d097aede0",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Docker-Ardan-Labs/Deep Dive Into Containers.md",
+                "file": "Kubernetes-Ardan-Labs/Kubernetes Concepts.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Deep Dive Into Containers"
+              "title": "Kubernetes Concepts"
             }
           }
         ],
@@ -190,10 +190,18 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "67221376d4b703f1",
+  "active": "24fd780d097aede0",
   "lastOpenFiles": [
-    "Docker-Ardan-Labs/Container Network Driver.md",
+    "Kubernetes-Ardan-Labs/Kubernetes.md",
+    "Kubernetes-Ardan-Labs/Kubernetes Concepts.md",
+    "Kubernetes-Ardan-Labs/attachments/Pasted image 20251227183054.png",
+    "Kubernetes-Ardan-Labs/attachments/Pasted image 20251227183040.png",
+    "Kubernetes-Ardan-Labs/attachments/Pasted image 20251227182708.png",
+    "Kubernetes-Ardan-Labs/attachments",
     "Docker-Ardan-Labs/Deep Dive Into Containers.md",
+    "Docker-Ardan-Labs/Orchestration - Overwiew.md",
+    "Kubernetes-Ardan-Labs",
+    "Docker-Ardan-Labs/Container Network Driver.md",
     "Docker-Ardan-Labs/Container Network Model.md",
     "Docker-Ardan-Labs/What is Docker.md",
     "Docker-Ardan-Labs/Docker Images.md",
@@ -217,15 +225,11 @@
     "Articles/Go/Article - I Thought Go Concurrency Was About Speed — I Was Wrong.md",
     "Articles/Go/Article -.md",
     "Articles/Go",
-    "Untitled",
     "Articles",
     "Go-Bill-Kennedy/Go Language Guide/Raw TCP Server and Client (netcat).md",
-    "Docker-Ardan-Labs/Writing Dockerfiles - Wordsmith.md",
     "Docker-Ardan-Labs/Untitled 1.base",
     "Docker-Ardan-Labs/Untitled.base",
     "Docker-Ardan-Labs",
-    "Go-Bill-Kennedy/Go Language Guide/Concurrent Web Crawler.md",
-    "Go-Ardan-Labs/bufio.md",
     "Go-Bill-Kennedy/Go Language Guide/attachments/Pasted image 20251212103913.png",
     "Go-Bill-Kennedy/Go Language Guide/attachments/Pasted image 20251212103818.png",
     "Go-Bill-Kennedy/Go Language Guide/Untitled",
@@ -234,10 +238,6 @@
     "Go-Bill-Kennedy/Go Language Guide/attachments/Pasted image 20251205014657.png",
     "Go-Bill-Kennedy/Go Language Guide/attachments/Pasted image 20251203011322.png",
     "Go-Bill-Kennedy/Go Language Guide/attachments/Pasted image 20251202114238.png",
-    "Go-Bill-Kennedy/Go Language Guide/attachments",
-    "Go-Ardan-Labs/attachments/Pasted image 20251128005242.png",
-    "Redis/attachments/Pasted image 20251122163656.png",
-    "Redis/attachments/Pasted image 20251111234909.png",
     "Untitled.canvas"
   ]
 }
