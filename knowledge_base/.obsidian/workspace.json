@@ -126,9 +126,24 @@
               "icon": "lucide-file",
               "title": "Services in k8s"
             }
+          },
+          {
+            "id": "b5c1f72b8681c777",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Kubernetes-Ardan-Labs/Shipping images with a registry.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "Shipping images with a registry"
+            }
           }
         ],
-        "currentTab": 7
+        "currentTab": 8
       }
     ],
     "direction": "vertical"
@@ -280,8 +295,18 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "397ee71309bf9bd8",
+  "active": "b5c1f72b8681c777",
   "lastOpenFiles": [
+    "Kubernetes-Ardan-Labs/kubectl.md",
+    "Kubernetes-Ardan-Labs/Shipping images with a registry.md",
+    "Kubernetes-Ardan-Labs/Services in k8s.md",
+    "Kubernetes-Ardan-Labs/Kubernetes.md",
+    "Kubernetes-Ardan-Labs/Running containers on k8s.md",
+    "Kubernetes-Ardan-Labs/k8s Services.md",
+    "Kubernetes-Ardan-Labs/Interacting with K8s.md",
+    "Kubernetes-Ardan-Labs/Kubernetes Architecture.md",
+    "Kubernetes-Ardan-Labs/Kubernetes Concepts.md",
+    "Kubernetes-Ardan-Labs/attachments/Pasted image 20251228205029.png",
     "Kubernetes-Ardan-Labs/attachments/Pasted image 20251228203440.png",
     "Kubernetes-Ardan-Labs/attachments/Pasted image 20251228203021.png",
     "Kubernetes-Ardan-Labs/attachments/Pasted image 20251228202222.png",
@@ -291,16 +316,6 @@
     "Kubernetes-Ardan-Labs/attachments/Pasted image 20251228201214.png",
     "Kubernetes-Ardan-Labs/attachments/Pasted image 20251228201202.png",
     "Kubernetes-Ardan-Labs/attachments/Pasted image 20251228201155.png",
-    "Kubernetes-Ardan-Labs/attachments/Pasted image 20251228201142.png",
-    "Kubernetes-Ardan-Labs/attachments/Pasted image 20251228201123.png",
-    "Kubernetes-Ardan-Labs/Running containers on k8s.md",
-    "Kubernetes-Ardan-Labs/Services in k8s.md",
-    "Kubernetes-Ardan-Labs/k8s Services.md",
-    "Kubernetes-Ardan-Labs/kubectl.md",
-    "Kubernetes-Ardan-Labs/Interacting with K8s.md",
-    "Kubernetes-Ardan-Labs/Kubernetes Architecture.md",
-    "Kubernetes-Ardan-Labs/Kubernetes Concepts.md",
-    "Kubernetes-Ardan-Labs/Kubernetes.md",
     "Kubernetes-Ardan-Labs/attachments",
     "Docker-Ardan-Labs/Deep Dive Into Containers.md",
     "Docker-Ardan-Labs/Orchestration - Overwiew.md",
@@ -319,7 +334,6 @@
     "Docker-Ardan-Labs/Efficient Dockerfiles.md",
     "Data Engineering/Spark/9. Spark Installation.md",
     "Docker-Ardan-Labs/Reduce Image Size.md",
-    "Docker-Ardan-Labs/Dockerfile Examples.md",
     "Articles/Go/Untitled/Untitled",
     "Articles/Go/Concurrency in Go Feels More Like Organizing People Than Using Threads",
     "Articles/Go",
