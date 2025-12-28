@@ -118,17 +118,17 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Kubernetes-Ardan-Labs/Replica Sets.md",
+                "file": "Kubernetes-Ardan-Labs/Services in k8s.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Replica Sets"
+              "title": "Services in k8s"
             }
           }
         ],
-        "currentTab": 6
+        "currentTab": 7
       }
     ],
     "direction": "vertical"
@@ -280,24 +280,25 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "3175de60eb1d0c2f",
+  "active": "397ee71309bf9bd8",
   "lastOpenFiles": [
-    "Kubernetes-Ardan-Labs/Replica Sets.md",
+    "Kubernetes-Ardan-Labs/attachments/Pasted image 20251228203440.png",
+    "Kubernetes-Ardan-Labs/attachments/Pasted image 20251228203021.png",
+    "Kubernetes-Ardan-Labs/attachments/Pasted image 20251228202222.png",
+    "Kubernetes-Ardan-Labs/attachments/Pasted image 20251228202153.png",
+    "Kubernetes-Ardan-Labs/attachments/Pasted image 20251228202131.png",
+    "Kubernetes-Ardan-Labs/attachments/Pasted image 20251228201240.png",
+    "Kubernetes-Ardan-Labs/attachments/Pasted image 20251228201214.png",
+    "Kubernetes-Ardan-Labs/attachments/Pasted image 20251228201202.png",
+    "Kubernetes-Ardan-Labs/attachments/Pasted image 20251228201155.png",
+    "Kubernetes-Ardan-Labs/attachments/Pasted image 20251228201142.png",
+    "Kubernetes-Ardan-Labs/attachments/Pasted image 20251228201123.png",
     "Kubernetes-Ardan-Labs/Running containers on k8s.md",
+    "Kubernetes-Ardan-Labs/Services in k8s.md",
     "Kubernetes-Ardan-Labs/k8s Services.md",
     "Kubernetes-Ardan-Labs/kubectl.md",
-    "Kubernetes-Ardan-Labs/attachments/Pasted image 20251228130046.png",
-    "Kubernetes-Ardan-Labs/attachments/Pasted image 20251228120824.png",
     "Kubernetes-Ardan-Labs/Interacting with K8s.md",
-    "Kubernetes-Ardan-Labs/attachments/Pasted image 20251228024459.png",
     "Kubernetes-Ardan-Labs/Kubernetes Architecture.md",
-    "Kubernetes-Ardan-Labs/attachments/Pasted image 20251228020159.png",
-    "Kubernetes-Ardan-Labs/attachments/Pasted image 20251228013606.png",
-    "Kubernetes-Ardan-Labs/attachments/Pasted image 20251228012854.png",
-    "Kubernetes-Ardan-Labs/attachments/Pasted image 20251228012456.png",
-    "Kubernetes-Ardan-Labs/attachments/Pasted image 20251228012234.png",
-    "Kubernetes-Ardan-Labs/attachments/Pasted image 20251228002635.png",
-    "Kubernetes-Ardan-Labs/attachments/Pasted image 20251228002528.png",
     "Kubernetes-Ardan-Labs/Kubernetes Concepts.md",
     "Kubernetes-Ardan-Labs/Kubernetes.md",
     "Kubernetes-Ardan-Labs/attachments",
@@ -319,7 +320,6 @@
     "Data Engineering/Spark/9. Spark Installation.md",
     "Docker-Ardan-Labs/Reduce Image Size.md",
     "Docker-Ardan-Labs/Dockerfile Examples.md",
-    "Go-Bill-Kennedy/Go Language Guide/Raw TCP chat server.md",
     "Articles/Go/Untitled/Untitled",
     "Articles/Go/Concurrency in Go Feels More Like Organizing People Than Using Threads",
     "Articles/Go",
