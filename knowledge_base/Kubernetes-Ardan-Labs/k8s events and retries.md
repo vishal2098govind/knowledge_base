@@ -63,7 +63,7 @@ Events:
 ```
 - these events in the `kubectl describe` are the internal log of events, which means these are stored within the control plane
 	- Good news:
-		- this is a great news because, even if we don't use or setup our own logging system with Lowkey or Elasticsearch or Datadog, we will still be able to see these events
+		- this is a great news because, even if we don't use or setup our own logging system with Loki or Elasticsearch or Datadog, we will still be able to see these events
 		- thus, even on a very basic bare bones k8s cluster, we can see these events
 	- Bad news:
 		- these events are only stored **for one hour** within the control plane, within the `etcd`

@@ -196,3 +196,146 @@ $ kubectl get all --show-labels --selector run
 NAME           READY   STATUS    RESTARTS   AGE   LABELS
 pod/pingpong   1/1     Running   0          40s   run=pingpong
 ```
+
+## Using labels and annotations in logs
+- say we have multiple pods running pingpong
+```sh
+$ kubectl get pods --show-labels --selector run
+NAME        READY   STATUS    RESTARTS   AGE     LABELS
+pingpong1   1/1     Running   0          5m13s   app=pingpong,run=pingpong1
+pingpong2   1/1     Running   0          5m9s    app=pingpong,run=pingpong2
+pingpong3   1/1     Running   0          5m5s    app=pingpong,run=pingpong3
+```
+- and we want to see all the logs of these pods
+```sh
+$ kubectl logs -l app=pingpong
+```
+- this is a pretty common thing in k8s where, let's say, we have a command that expects a pod but we don't know the exact name of all the pods, then we can do something like
+```sh
+# to get logs of all pods corresponding to a deployment
+$ kubectl logs deployment/worker
+```
+- k8s is able to execute this query because, in the deployment, there is a `matchLabels` field in `selector`
+```sh
+$ kubectl get deployment worker -o yaml
+....
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels: # <--------- matchLabels
+      app: worker # <-------- worker
+....
+```
+- disadvantage of using `kubectl logs deployment/worker` - only chooses one of the pod
+```sh
+$ kubectl create deployment pingpong --image alpine --replicas=3 -- ping localhost
+$ kubectl get all --selector app=pingpong
+NAME                            READY   STATUS    RESTARTS   AGE
+pod/pingpong-86959f6599-gsh7z   1/1     Running   0          2m53s
+pod/pingpong-86959f6599-ntzkz   1/1     Running   0          2m53s
+pod/pingpong-86959f6599-wfmt5   1/1     Running   0          2m53s
+
+NAME                       READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/pingpong   3/3     3            3           2m53s
+
+NAME                                  DESIRED   CURRENT   READY   AGE
+replicaset.apps/pingpong-86959f6599   3         3         3       2m53s
+$ kubectl logs deployment/pingpong --tail 2 --follow
+Found 3 pods, using pod/pingpong-86959f6599-wfmt5 # disadvantage of using such filter
+64 bytes from ::1: seq=126 ttl=64 time=0.038 ms
+64 bytes from ::1: seq=127 ttl=64 time=0.037 ms
+64 bytes from ::1: seq=128 ttl=64 time=0.048 ms
+64 bytes from ::1: seq=129 ttl=64 time=0.048 ms
+64 bytes from ::1: seq=130 ttl=64 time=0.055 ms
+```
+- so we can filter by labels
+```sh
+$ kubectl logs --selector app=pingpong --tail 2 # 6 lines of output => 2 lines per pod
+64 bytes from ::1: seq=1469 ttl=64 time=0.063 ms
+64 bytes from ::1: seq=1470 ttl=64 time=0.068 ms
+64 bytes from ::1: seq=1471 ttl=64 time=0.040 ms
+64 bytes from ::1: seq=1472 ttl=64 time=0.032 ms
+64 bytes from ::1: seq=1473 ttl=64 time=0.132 ms
+64 bytes from ::1: seq=1474 ttl=64 time=0.066 ms
+```
+- to specify the pod in the log, we can add prefix
+	- it adds name of the pod and name of the container as well (since we can have multiple containers in a pod)
+```sh
+$ kubectl logs --selector app=pingpong --tail 2 --prefix
+[pod/pingpong-86959f6599-gsh7z/alpine] 64 bytes from ::1: seq=1609 ttl=64 time=0.067 ms
+[pod/pingpong-86959f6599-gsh7z/alpine] 64 bytes from ::1: seq=1610 ttl=64 time=0.068 ms
+[pod/pingpong-86959f6599-ntzkz/alpine] 64 bytes from ::1: seq=1611 ttl=64 time=0.040 ms
+[pod/pingpong-86959f6599-ntzkz/alpine] 64 bytes from ::1: seq=1612 ttl=64 time=0.040 ms
+[pod/pingpong-86959f6599-wfmt5/alpine] 64 bytes from ::1: seq=1613 ttl=64 time=0.068 ms
+[pod/pingpong-86959f6599-wfmt5/alpine] 64 bytes from ::1: seq=1614 ttl=64 time=0.102 ms
+```
+
+## k8s logs on Scaling
+```sh
+$ kubectl scale deployment pingpong --replicas=10
+deployment.apps/pingpong scaled
+$ kubectl get all --show-labels --selector app=pingpong
+NAME                            READY   STATUS    RESTARTS   AGE   LABELS
+pod/pingpong-86959f6599-29rb8   1/1     Running   0          19s   app=pingpong,pod-template-hash=86959f6599
+pod/pingpong-86959f6599-8zblt   1/1     Running   0          19s   app=pingpong,pod-template-hash=86959f6599
+pod/pingpong-86959f6599-gsh7z   1/1     Running   0          95m   app=pingpong,pod-template-hash=86959f6599
+pod/pingpong-86959f6599-kbdqg   1/1     Running   0          19s   app=pingpong,pod-template-hash=86959f6599
+pod/pingpong-86959f6599-ltjg9   1/1     Running   0          19s   app=pingpong,pod-template-hash=86959f6599
+pod/pingpong-86959f6599-ntzkz   1/1     Running   0          95m   app=pingpong,pod-template-hash=86959f6599
+pod/pingpong-86959f6599-vmx6n   1/1     Running   0          19s   app=pingpong,pod-template-hash=86959f6599
+pod/pingpong-86959f6599-wfmt5   1/1     Running   0          95m   app=pingpong,pod-template-hash=86959f6599
+pod/pingpong-86959f6599-wpmd6   1/1     Running   0          19s   app=pingpong,pod-template-hash=86959f6599
+pod/pingpong-86959f6599-xxs5l   1/1     Running   0          19s   app=pingpong,pod-template-hash=86959f6599
+
+NAME                       READY   UP-TO-DATE   AVAILABLE   AGE   LABELS
+deployment.apps/pingpong   10/10   10           10          95m   app=pingpong
+
+NAME                                  DESIRED   CURRENT   READY   AGE   LABELS
+replicaset.apps/pingpong-86959f6599   10        10        10      95m   app=pingpong,pod-template-hash=86959f6599
+$ kubectl logs --selector app=pingpong --tail 2 --follow --prefix
+error: you are attempting to follow 10 log streams, but maximum allowed concurrency is 5, use --max-log-requests to increase the limit
+```
+- the `max-log-requests` limit is 5 by default
+- this is a safety limit
+- on `kubectl logs`, the `kubectl` opens up separate a connection to the API server for each pod, so the safety limit of max 5 is to prevent accidentally opening many connections to the API Server
+- while we open a connection to API Server via `kubectl logs` in one terminal, and if on another terminal we change something in the deployment
+	- scale up
+	- or scale down
+	- or change pods or restart pods via `kubectl rollout restart deployment pingpong`
+- then, the logs don't know about the changes made and they just exit if those pods are no more reachable
+- `kubectl logs` is 
+	- **great** if we need logs at **one shot**
+	- and **not great** if we want to **stream** **logs** surviving deployment restarts or scaling
+
+## Streaming logs
+### install a real logging system - log aggregator
+- `kubectl logs` is not a real logging system
+- when we deploy a k8s cluster, out of the box the logs are stored on the individual nodes
+	- i.e. logs of a pod running on a node will remain on that node
+	- the problem with this is that, if the node goes down, the logs become unavailable
+	- this can happen in at least two scenarios
+		- **node outage** or failure
+			- we are trying to figure out which operations were successful and which caused the failure, and for that we want to look at the logs, say of some worker that was in that node before it crashed. since node crashed, we can't get them anymore
+		- this can also happen during **cluster** **auto scaling**
+			- with cluster auto scaling, when we have a peak of traffic, we add new nodes, but when the traffic spike reduces, we shut down the extra nodes that we don't need, to save cost
+	- the solution is to use a **log aggregator**
+		- something like Loki, Elasticsearch, Logstash etc and send logs from all nodes to the central logging system
+- Thus, in a production k8s cluster deployment, having all of the following is crucial
+	- Central Observability
+	- Central Logging aggregator
+	- Central Metrics aggregator
+	- Redundancy
+	- Backups, etc
+- Thus, if we want to deploy a production grade k8s cluster, we will often need to add many other components before it's production ready
+### Tools like stern
+- before we are ready for production or in the mean time, while we decide upon which log aggregator to choose, is there something that we can use to see our logs, which can be a little bit better than `kubectl logs`?
+- yes, we have tools like
+	- **stern** subscribes to events in control plane to know when pods start
+	- it is able to subscribe to by using `--watch` while getting all pods
+```sh
+$ kubectl get pods --selector app=pingpong --watch
+```
+- tools like stern don't address node crashes and can't retain logs after node crashes
+- stern doesn't have a safety limit of maximum log stream

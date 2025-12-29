@@ -205,7 +205,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "kubectl describe",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -226,8 +226,7 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -328,18 +327,18 @@
   },
   "active": "a42609a097e54e60",
   "lastOpenFiles": [
-    "Kubernetes-Ardan-Labs/Patching k8s Manifests.md",
-    "Kubernetes-Ardan-Labs/Labels and annotations.md",
     "Kubernetes-Ardan-Labs/k8s events and retries.md",
+    "Kubernetes-Ardan-Labs/Kubernetes.md",
+    "Kubernetes-Ardan-Labs/Kubernetes Concepts.md",
+    "Kubernetes-Ardan-Labs/Kubernetes Architecture.md",
+    "Kubernetes-Ardan-Labs/Labels and annotations.md",
+    "Kubernetes-Ardan-Labs/Patching k8s Manifests.md",
     "Kubernetes-Ardan-Labs/Shipping images with a registry.md",
     "Kubernetes-Ardan-Labs/kubectl.md",
     "Kubernetes-Ardan-Labs/Services in k8s.md",
-    "Kubernetes-Ardan-Labs/Kubernetes.md",
     "Kubernetes-Ardan-Labs/Running containers on k8s.md",
     "Kubernetes-Ardan-Labs/k8s Services.md",
     "Kubernetes-Ardan-Labs/Interacting with K8s.md",
-    "Kubernetes-Ardan-Labs/Kubernetes Architecture.md",
-    "Kubernetes-Ardan-Labs/Kubernetes Concepts.md",
     "Kubernetes-Ardan-Labs/attachments/Pasted image 20251228205029.png",
     "Kubernetes-Ardan-Labs/attachments/Pasted image 20251228203440.png",
     "Kubernetes-Ardan-Labs/attachments/Pasted image 20251228203021.png",
