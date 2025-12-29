@@ -497,7 +497,7 @@ dev           webui      1/1     1            1           98m
 dev           worker     1/1     1            1           98m
 kube-system   coredns    2/2     2            2           35h
 ```
-- here, there are two copies of `dockercoins`, one in `blue` namespace and another in `dev` namespace
+- here, there are three copies of `dockercoins`, one in `blue` namespace and another in `dev` namespace and another in the `default` namespace
 - these copies are **completely independent** of each other, however, they are **not isolated**
 	- i.e. we don't have strict isolation or **`firewalling`** between these copies of `dockercoins`
 	- if someone hostile actor manages to hack to the `dockercoins` running on the `blue` namespace, they will be able to connect to the other namespaces as well
