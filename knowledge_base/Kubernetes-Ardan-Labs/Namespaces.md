@@ -366,4 +366,139 @@ service/rng unchanged
 deployment.apps/webui unchanged
 service/webui unchanged
 deployment.apps/worker unchanged
+
+$ kubectl get all -n dev
+NAME                          READY   STATUS    RESTARTS   AGE
+pod/hasher-99bbd4bb-9vss6     1/1     Running   0          29m
+pod/redis-7b47f84cc4-4w4wm    1/1     Running   0          29m
+pod/rng-65d885d498-dqwb8      1/1     Running   0          29m
+pod/webui-74bb6bbc59-xltz8    1/1     Running   0          29m
+pod/worker-5c6f84b477-vjs6j   1/1     Running   0          29m
+
+NAME             TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)        AGE
+service/hasher   ClusterIP   10.100.212.255   <none>        80/TCP         29m
+service/redis    ClusterIP   10.99.42.196     <none>        6379/TCP       29m
+service/rng      ClusterIP   10.110.244.252   <none>        80/TCP         29m
+service/webui    NodePort    10.106.24.250    <none>        80:30106/TCP   29m
+
+NAME                     READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/hasher   1/1     1            1           29m
+deployment.apps/redis    1/1     1            1           29m
+deployment.apps/rng      1/1     1            1           29m
+deployment.apps/webui    1/1     1            1           29m
+deployment.apps/worker   1/1     1            1           29m
+
+NAME                                DESIRED   CURRENT   READY   AGE
+replicaset.apps/hasher-99bbd4bb     1         1         1       29m
+replicaset.apps/redis-7b47f84cc4    1         1         1       29m
+replicaset.apps/rng-65d885d498      1         1         1       29m
+replicaset.apps/webui-74bb6bbc59    1         1         1       29m
+replicaset.apps/worker-5c6f84b477   1         1         1       29m
 ```
+- `kubectl apply` is something like describing infrastructure to the API server - **Infrastructure-as-code IaC**
+- if we change the `webui` service to be a `LoadBalancer` instead of `NodePort`, and do `kubectl apply`:
+```sh
+$ code container.training/k8s/dockercoins.yaml
+...
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: webui
+  name: webui
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: webui
+  type: LoadBalancer
+...
+
+$ kubectl apply -f container.training/k8s/dockercoins.yaml -n dev
+deployment.apps/hasher unchanged
+service/hasher unchanged
+deployment.apps/redis unchanged
+service/redis unchanged
+deployment.apps/rng unchanged
+service/rng unchanged
+deployment.apps/webui unchanged
+service/webui configured # kubectl was able to detect that change
+deployment.apps/worker unchanged
+
+$ kubectl get all -n dev
+NAME                          READY   STATUS    RESTARTS   AGE
+pod/hasher-99bbd4bb-9vss6     1/1     Running   0          33m
+pod/redis-7b47f84cc4-4w4wm    1/1     Running   0          33m
+pod/rng-65d885d498-dqwb8      1/1     Running   0          33m
+pod/webui-74bb6bbc59-xltz8    1/1     Running   0          33m
+pod/worker-5c6f84b477-vjs6j   1/1     Running   0          33m
+
+NAME             TYPE           CLUSTER-IP       EXTERNAL-IP   PORT(S)        AGE
+service/hasher   ClusterIP      10.100.212.255   <none>        80/TCP         33m
+service/redis    ClusterIP      10.99.42.196     <none>        6379/TCP       33m
+service/rng      ClusterIP      10.110.244.252   <none>        80/TCP         33m
+service/webui    LoadBalancer   10.106.24.250    <pending>     80:30106/TCP   33m
+
+NAME                     READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/hasher   1/1     1            1           33m
+deployment.apps/redis    1/1     1            1           33m
+deployment.apps/rng      1/1     1            1           33m
+deployment.apps/webui    1/1     1            1           33m
+deployment.apps/worker   1/1     1            1           33m
+
+NAME                                DESIRED   CURRENT   READY   AGE
+replicaset.apps/hasher-99bbd4bb     1         1         1       33m
+replicaset.apps/redis-7b47f84cc4    1         1         1       33m
+replicaset.apps/rng-65d885d498      1         1         1       33m
+replicaset.apps/webui-74bb6bbc59    1         1         1       33m
+replicaset.apps/worker-5c6f84b477   1         1         1       33m
+```
+- `kubectl apply -f file.yaml` is extremely powerful because it will let us keep track of changes that we make, keep history of these changes
+- for instance, if we made some changes and applied to the cluster, and then realize that it was a mistake, and go back to the previous version, we can revert our changes in the `file.yaml` and apply again
+- so when making changes to file.yaml, 
+	- first change the `file.yaml`
+	- commit changes
+	- push to a new branch
+	- make a pull request
+	- code review
+	- merge pull request to main or prod branch
+	- some automation would kick in
+	- and the automation performs `kubectl apply -f file.yaml`
+	- if something is not working, can revert back to previous commit
+- this pattern or idea of having our manifests in a git repository instead of directly on the machine, we call it **GitOps**
+	- keeping manifest yaml files in git repo
+	- use git repo as the source of truth, to decide what should be on the cluster
+	- then that's **GitOps**
+
+## Firewalling and Network Policies across namespaces
+- to see things in all namespaces, use `--all-namespaces` flag 
+```sh
+$ kubectl get deployments --all-namespaces
+NAMESPACE     NAME       READY   UP-TO-DATE   AVAILABLE   AGE
+blue          hasher     1/1     1            1           95m
+blue          purple     1/1     1            1           132m
+blue          redis      1/1     1            1           95m
+blue          rng        1/1     1            1           95m
+blue          webui      1/1     1            1           95m
+blue          worker     1/1     1            1           95m
+default       hasher     1/1     1            1           9h
+default       pingpong   4/4     4            4           8h
+default       redis      1/1     1            1           9h
+default       rng        1/1     1            1           9h
+default       webui      1/1     1            1           9h
+default       worker     1/1     1            1           9h
+dev           hasher     1/1     1            1           98m
+dev           redis      1/1     1            1           98m
+dev           rng        1/1     1            1           98m
+dev           webui      1/1     1            1           98m
+dev           worker     1/1     1            1           98m
+kube-system   coredns    2/2     2            2           35h
+```
+- here, there are two copies of `dockercoins`, one in `blue` namespace and another in `dev` namespace
+- these copies are **completely independent** of each other, however, they are **not isolated**
+	- i.e. we don't have strict isolation or **`firewalling`** between these copies of `dockercoins`
+	- if someone hostile actor manages to hack to the `dockercoins` running on the `blue` namespace, they will be able to connect to the other namespaces as well
+	- if we want to prevent that, we will need to use another set of features in k8s, called **Network Policies**, which we can put in place, to define which network traffic is allowed, and which one is denied.
