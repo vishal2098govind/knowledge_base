@@ -173,7 +173,7 @@
             }
           }
         ],
-        "currentTab": 9
+        "currentTab": 10
       }
     ],
     "direction": "vertical"
@@ -326,10 +326,10 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "d4d3bbe605695474",
+  "active": "a42609a097e54e60",
   "lastOpenFiles": [
-    "Kubernetes-Ardan-Labs/Labels and annotations.md",
     "Kubernetes-Ardan-Labs/Patching k8s Manifests.md",
+    "Kubernetes-Ardan-Labs/Labels and annotations.md",
     "Kubernetes-Ardan-Labs/k8s events and retries.md",
     "Kubernetes-Ardan-Labs/Shipping images with a registry.md",
     "Kubernetes-Ardan-Labs/kubectl.md",
