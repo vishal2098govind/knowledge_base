@@ -189,3 +189,10 @@ NAME                               DESIRED   CURRENT   READY   AGE     LABELS
 replicaset.apps/webui-74bb6bbc59   1         1         1       5m34s   app=webui,pod-template-hash=74bb6bbc59
 ```
 - when we create a pod using `kubectl run`, they are given default label of `run` by `kubectl`
+```sh
+$ kubectl run pingpong --image alpine ping localhost
+pod/pingpong created
+$ kubectl get all --show-labels --selector run
+NAME           READY   STATUS    RESTARTS   AGE   LABELS
+pod/pingpong   1/1     Running   0          40s   run=pingpong
+```
