@@ -115,6 +115,7 @@ PID   USER     TIME  COMMAND
 - another option is using `kubectl rollout restart`
 	- this creates the new pod and once the new pod is running, it then deletes or terminates the old pod
 	- this is better than deleting old pod before starting the new pod
+	- if we had a bunch of pods within the deployment (replicas > 1), it would have replaced each one of them one at a time so that it would be nice for production workload
 ```sh
 $ kubectl rollout restart deployment webui
 deployment.apps/webui restarted
