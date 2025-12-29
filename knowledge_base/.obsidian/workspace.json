@@ -113,21 +113,6 @@
             }
           },
           {
-            "id": "397ee71309bf9bd8",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Kubernetes-Ardan-Labs/Services in k8s.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "Services in k8s"
-            }
-          },
-          {
             "id": "b5c1f72b8681c777",
             "type": "leaf",
             "state": {
@@ -140,6 +125,21 @@
               },
               "icon": "lucide-file",
               "title": "Shipping images with a registry"
+            }
+          },
+          {
+            "id": "0c893ada4a1b367b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Kubernetes-Ardan-Labs/k8s events and retries.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "k8s events and retries"
             }
           }
         ],
@@ -175,7 +175,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "kubectl describe",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -196,7 +196,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -295,10 +296,11 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "b5c1f72b8681c777",
+  "active": "0c893ada4a1b367b",
   "lastOpenFiles": [
-    "Kubernetes-Ardan-Labs/kubectl.md",
     "Kubernetes-Ardan-Labs/Shipping images with a registry.md",
+    "Kubernetes-Ardan-Labs/k8s events and retries.md",
+    "Kubernetes-Ardan-Labs/kubectl.md",
     "Kubernetes-Ardan-Labs/Services in k8s.md",
     "Kubernetes-Ardan-Labs/Kubernetes.md",
     "Kubernetes-Ardan-Labs/Running containers on k8s.md",
