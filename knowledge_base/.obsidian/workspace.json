@@ -53,7 +53,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -205,11 +205,11 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "91866eec8b643c25",
+  "active": "f0b730d306faa529",
   "lastOpenFiles": [
+    "Kubernetes-Ardan-Labs/Namespaces.md",
     "Kubernetes-Ardan-Labs/attachments/Pasted image 20251230153920.png",
     "Kubernetes-Ardan-Labs/kubectl -f option.md",
-    "Kubernetes-Ardan-Labs/Namespaces.md",
     "Kubernetes-Ardan-Labs/attachments/Pasted image 20251230113043.png",
     "Kubernetes-Ardan-Labs/Labels and annotations.md",
     "Kubernetes-Ardan-Labs/Patching k8s Manifests.md",
@@ -231,7 +231,6 @@
     "Kubernetes-Ardan-Labs/attachments/Pasted image 20251228202131.png",
     "Kubernetes-Ardan-Labs/attachments/Pasted image 20251228201240.png",
     "Kubernetes-Ardan-Labs/attachments/Pasted image 20251228201214.png",
-    "Kubernetes-Ardan-Labs/attachments/Pasted image 20251228201202.png",
     "Kubernetes-Ardan-Labs/attachments",
     "Docker-Ardan-Labs/Deep Dive Into Containers.md",
     "Docker-Ardan-Labs/Orchestration - Overwiew.md",
