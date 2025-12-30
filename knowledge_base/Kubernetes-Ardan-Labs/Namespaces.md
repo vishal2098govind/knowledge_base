@@ -152,6 +152,16 @@ $ curl localhost
 $ kubectl create -f container.training/k8s/dockercoins.yaml --namespace dev
 ```
 #### `dockercoins.yaml`
+- in a yaml file, we can have multiple resources separated with `---`
+- this `---` is not something specific to k8s, this is standard yaml syntax
+- we may add an extra `---` at the beginning and/or at the end of the yaml file
+- we don't have to but,
+- it's a good idea to have `---` in the beginning and/or because
+	- why put at the beginning -
+		- it's a visual reminder, on opening the yaml file, that there are, or can be, multiple resources mentioned in this yaml file
+	- why put at the end and beginning - 
+		- if we have multiple resources in multiple yaml file and if we have to `cat` those or multiple yaml files together, it will appear separated, thanks to those `---` in each file at the beginning and end of each file, and thus will be less confusing
+		- not only `cat`, but if we have to combine multiple yaml files later, for any reason, we have to put `---` at that time
 ```sh
 $ cat container.training/k8s/dockercoins.yaml
 ---
