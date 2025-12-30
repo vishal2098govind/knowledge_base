@@ -88,17 +88,17 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Kubernetes-Ardan-Labs/Setting up Local k8s cluster.md",
+                "file": "Kubernetes-Ardan-Labs/Shipping images with a registry.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Setting up Local k8s cluster"
+              "title": "Shipping images with a registry"
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 5
       }
     ],
     "direction": "vertical"
@@ -250,9 +250,11 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "91866eec8b643c25",
+  "active": "a5821d6104d150dc",
   "lastOpenFiles": [
     "Kubernetes-Ardan-Labs/Setting up Local k8s cluster.md",
+    "Kubernetes-Ardan-Labs/Shipping images with a registry.md",
+    "Kubernetes-Ardan-Labs/Namespaces.md",
     "Kubernetes-Ardan-Labs/Authoring YAML.md",
     "Kubernetes-Ardan-Labs/Declarative vs Imperative Systems.md",
     "Kubernetes-Ardan-Labs/attachments/Pasted image 20251230235752.png",
@@ -266,11 +268,9 @@
     "Kubernetes-Ardan-Labs/attachments/Pasted image 20251230225054.png",
     "Kubernetes-Ardan-Labs/attachments/Pasted image 20251230222148.png",
     "Kubernetes-Ardan-Labs/kubectl -f option.md",
-    "Kubernetes-Ardan-Labs/Namespaces.md",
     "Kubernetes-Ardan-Labs/Labels and annotations.md",
     "Kubernetes-Ardan-Labs/Patching k8s Manifests.md",
     "Kubernetes-Ardan-Labs/k8s events and retries.md",
-    "Kubernetes-Ardan-Labs/Shipping images with a registry.md",
     "Kubernetes-Ardan-Labs/Running containers on k8s.md",
     "Kubernetes-Ardan-Labs/k8s Services.md",
     "Kubernetes-Ardan-Labs/kubectl.md",
