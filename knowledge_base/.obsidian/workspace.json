@@ -83,7 +83,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -235,13 +235,13 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "0697667d4f37df5a",
+  "active": "42fe0d9bdbbd31b3",
   "lastOpenFiles": [
+    "Kubernetes-Ardan-Labs/Declarative vs Imperative Systems.md",
     "Kubernetes-Ardan-Labs/attachments/Pasted image 20251230235752.png",
     "Kubernetes-Ardan-Labs/attachments/Pasted image 20251230235736.png",
     "Kubernetes-Ardan-Labs/attachments/Pasted image 20251230235702.png",
     "Kubernetes-Ardan-Labs/Authoring YAML.md",
-    "Kubernetes-Ardan-Labs/Declarative vs Imperative Systems.md",
     "Kubernetes-Ardan-Labs/attachments/Pasted image 20251230235641.png",
     "Kubernetes-Ardan-Labs/attachments/Pasted image 20251230234023.png",
     "Kubernetes-Ardan-Labs/attachments/Pasted image 20251230232535.png",
@@ -249,7 +249,6 @@
     "Kubernetes-Ardan-Labs/attachments/Pasted image 20251230232516.png",
     "Kubernetes-Ardan-Labs/attachments/Pasted image 20251230225054.png",
     "Kubernetes-Ardan-Labs/attachments/Pasted image 20251230222148.png",
-    "Kubernetes-Ardan-Labs/attachments/Pasted image 20251230222105.png",
     "Kubernetes-Ardan-Labs/kubectl -f option.md",
     "Kubernetes-Ardan-Labs/Namespaces.md",
     "Kubernetes-Ardan-Labs/Labels and annotations.md",
