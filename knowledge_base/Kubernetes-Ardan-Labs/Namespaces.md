@@ -671,6 +671,7 @@ $ kubectl config set-context --namespace dev --current
 [123.45.67.89] (kubernetes-admin@kubernetes:default) docker@node1 ~
 ```
 - The highlighted part is `context:namespace`, managed by `kube-ps1`
+![[Pasted image 20251230153920.png]]
 - in the `(kubernetes-admin@kubernetes:default)` it covers the current **context**
 	- `kubernetes-admin` is the **user**
 	- `kubernetes` is the **cluster** name
