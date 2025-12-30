@@ -13,6 +13,13 @@
 - There are multiple ways to do that
 	- we can search for examples in k8s docs
 	- there are bunch of tools and websites to help with coming up with YAML files
+		- There are tools like `kube-score` and `kube-linter` that help in checking our YAML
+		- for example, most linters are going to scream at us if we don't include resource requests in our YAML manifests.
+		- Resource requests are used to define
+			- no.of CPUs
+			- amount of RAM
+			- that our containers need
+			- this is very important to do that in production
 	- use `kubectl create --dry-run`
 
 ## `kubectl create --dry-run`
