@@ -92,3 +92,75 @@ deployment.apps/worker created
 	- rather, write a manifest
 	- put the manifest in `etcd`
 	- a bunch of controllers observing what's going on
+
+
+## Exact sequence of tasks that happen when we create a deployment
+```sh
+kubectl create deployment web --image nginx
+```
+
+1. Consider this cluster on which we run the command
+![[Pasted image 20251230220411.png]]
+2. The API server receives the request and is going to create the deployment
+	- This means, it's going to put the deployment manifest in `etcd`
+![[Pasted image 20251230220645.png]]
+3. Then the API server will tell us "deployment created"
+	- this doesn't yet mean that the containers are running already by now
+	- it just means, yes we've put the deployment in `etcd` 
+	- ~ to how when we go to a restaurant and order food, they are going to tell us, 
+		- yes we've got it
+		- it doesn't mean that your meal is ready yet
+		- it means, the kitchen would be working on it soon
+![[Pasted image 20251230221458.png]]
+4. Now, the kitchen will start working on the requested meal
+	- Since the meal asked for a deployment, the deployment controller that's going to wake up
+		- In the controller manager, we don't have just one or two controllers
+		- There are dozens of controllers, grouped together
+		- each of the controller has the responsibility for a specific type of object
+	- here, the deployment controller wakes up and it sees the deployment manifest in the `etcd`
+![[Pasted image 20251230221921.png]]
+5. The deployment controller then understands the need for a replica set
+	- so the deployment controller creates a replica set manifest and puts it in `etcd`
+	- then it goes back to sleep
+![[Pasted image 20251230222056.png]]
+![[Pasted image 20251230222105.png]]
+6. Then, the replica set controller is going to wake up
+![[Pasted image 20251230222148.png]]
+7. The replica set controller finds a new replica set manifest in the `etcd`
+	- a replica set means that we need a number of pods for the replica set
+	- here, we need only one `nginx` pod as per the request
+	- and we currently have 0 of them
+	- so, the replica set controller understands the need to create a `nginx` pod
+	- so the replica set controller creates a `nginx` pod manifest and puts it in the `etcd`
+	- then the replica set controller goes back to sleep
+![[Pasted image 20251230225054.png]]
+![[Pasted image 20251230232516.png]]
+8. Then, the scheduler wakes up on seeing a pending pod, since the responsibility of a scheduler is to assign pods to node
+	- a scheduler constantly looks for pending pod manifests in the `etcd`
+	- on seeing a pending pod manifest, it tries to understand any constraints
+		- how many CPUs the pod needs
+		- how much RAM the pod needs
+		- any placement constraints for the pod
+			- does the pod needs to be placed in that data center in that region
+			- or whatever
+	- thus, the scheduler makes a decision of which node to choose, based on those available constraints, if any
+	- say, here scheduler decides for node-1
+	- and then the scheduler goes back to sleep
+![[Pasted image 20251230232526.png]]
+![[Pasted image 20251230232535.png]]
+![[Pasted image 20251230234023.png]]
+9. at that point, `kubelet` on node-1, notices that pod, because the responsibility of `kubelet` is to register itself with the control plane, and basically say, "Hello, I am not node-1, I have"
+	- "that many cores"
+	- "that much RAM"
+	- "do you have any pods or containers for me?"
+- at that point, the control plane will the `kubelet` about this pod
+- `kubelet` will update the status of the pod in `etcd` to "creating"
+- then, it would 
+	- pull the `nginx` image, 
+	- allocate the IP address
+	- setup the container
+- once, the container is running, it would report back to the control plane and update the pod status to "Running" in the `etcd`
+![[Pasted image 20251230235641.png]]
+![[Pasted image 20251230235702.png]]
+![[Pasted image 20251230235736.png]]
+![[Pasted image 20251230235752.png]]
