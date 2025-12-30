@@ -192,6 +192,7 @@
   },
   "active": "91866eec8b643c25",
   "lastOpenFiles": [
+    "Kubernetes-Ardan-Labs/attachments/Pasted image 20251230113043.png",
     "Kubernetes-Ardan-Labs/Labels and annotations.md",
     "Kubernetes-Ardan-Labs/Namespaces.md",
     "Kubernetes-Ardan-Labs/Patching k8s Manifests.md",
@@ -229,7 +230,6 @@
     "Docker-Ardan-Labs/Docker Volumes.md",
     "Docker-Ardan-Labs/Docker Compose.md",
     "Docker-Ardan-Labs/Writing Compose Files.md",
-    "Docker-Ardan-Labs/Restarting and attaching to containers.md",
     "Articles/Go/Untitled/Untitled",
     "Articles/Go/Concurrency in Go Feels More Like Organizing People Than Using Threads",
     "Articles/Go",

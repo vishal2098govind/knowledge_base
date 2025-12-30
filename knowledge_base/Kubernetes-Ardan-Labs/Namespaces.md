@@ -502,3 +502,167 @@ kube-system   coredns    2/2     2            2           35h
 	- i.e. we don't have strict isolation or **`firewalling`** between these copies of `dockercoins`
 	- if someone hostile actor manages to hack to the `dockercoins` running on the `blue` namespace, they will be able to connect to the other namespaces as well
 	- if we want to prevent that, we will need to use another set of features in k8s, called **Network Policies**, which we can put in place, to define which network traffic is allowed, and which one is denied.
+
+## Changing the default active namespace
+- let's say if we want to work for a bit on the `dev` namespace
+- and we don't want to put `--namespace` for every `kubectl` command
+- there are three ways to change
+### `kubens` or `kns`
+- it's an extra tool, outside of k8s or `kubectl`
+```sh
+$ kns dev
+```
+
+### Edit `~/.kube/config` file or use `kubectx`
+```sh
+$ code ~/.kube/config
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority-data: 
+    server: https://127.0.0.1:6443
+  name: docker-desktop
+contexts:
+- context:
+    cluster: docker-desktop
+    namespace: dev # <-------- sets default active namespace
+    user: docker-desktop
+  name: docker-desktop
+current-context: docker-desktop
+kind: Config
+preferences: {}
+users:
+- name: docker-desktop
+  user:
+    client-certificate-data: 
+    client-key-data: 
+```
+```sh
+$ kubectl get pods
+NAME                      READY   STATUS    RESTARTS   AGE
+hasher-99bbd4bb-9vss6     1/1     Running   0          113m
+redis-7b47f84cc4-4w4wm    1/1     Running   0          113m
+rng-65d885d498-dqwb8      1/1     Running   0          113m
+webui-74bb6bbc59-xltz8    1/1     Running   0          113m
+worker-5c6f84b477-vjs6j   1/1     Running   0          113m
+$ kubectl get pods --namespace default
+NAME                        READY   STATUS    RESTARTS   AGE
+hasher-99bbd4bb-xblfb       1/1     Running   0          9h
+pingpong-5bc478477c-5s54j   1/1     Running   0          6h20m
+pingpong-5bc478477c-666bp   1/1     Running   0          6h20m
+pingpong-5bc478477c-cf6v6   1/1     Running   0          6h20m
+pingpong-5bc478477c-hhpt2   1/1     Running   0          6h20m
+redis-7b47f84cc4-6kbp2      1/1     Running   0          9h
+rng-65d885d498-vq5h8        1/1     Running   0          9h
+webui-74bb6bbc59-rmgng      1/1     Running   0          9h
+worker-5c6f84b477-gw6jn     1/1     Running   0          9h
+```
+- this is simple, but only if we have a simple `.kube/config` file here
+- if we have a complex `.kube/config` file like below
+![[Pasted image 20251230113043.png]]
+- here, there are
+	- not one, but two clusters
+	- not one, but two users
+	- not one, but two **contexts**
+- a context is a combination of 
+	- cluster
+	- user
+	- namespace
+- this means that, if we need to work on multiple clusters
+	- a prod cluster
+	- a staging cluster
+	- a dev cluster
+	- a local cluster
+- then, we can have multiple contexts, and then we can switch between contexts with `kubectx`
+	- `kubectx` is an external tool outside of k8s or `kubectl`
+- when we have only one context in our `~/.kube/config` file, it was pretty easy to change the namespace by just editing the namespace field of that one context in the `~/.kube/config` file
+- but, if we want to change current namespace in the current context, it would be difficult to do with a script as it would parse the config yaml and write some code and etc
+### `kubectl config`
+```sh
+$ kubectl config
+Modify kubeconfig files using subcommands like "kubectl config set current-context my-context".
+
+ The loading order follows these rules:
+
+  1.  If the --kubeconfig flag is set, then only that file is loaded. The flag may only be set once and no merging takes
+place.
+  2.  If $KUBECONFIG environment variable is set, then it is used as a list of paths (normal path delimiting rules for
+your system). These paths are merged. When a value is modified, it is modified in the file that defines the stanza. When
+a value is created, it is created in the first file that exists. If no files in the chain exist, then it creates the
+last file in the list.
+  3.  Otherwise, ${HOME}/.kube/config is used and no merging takes place.
+
+Available Commands:
+  current-context   Display the current-context
+  delete-cluster    Delete the specified cluster from the kubeconfig
+  delete-context    Delete the specified context from the kubeconfig
+  delete-user       Delete the specified user from the kubeconfig
+  get-clusters      Display clusters defined in the kubeconfig
+  get-contexts      Describe one or many contexts
+  get-users         Display users defined in the kubeconfig
+  rename-context    Rename a context from the kubeconfig file
+  set               Set an individual value in a kubeconfig file
+  set-cluster       Set a cluster entry in kubeconfig
+  set-context       Set a context entry in kubeconfig
+  set-credentials   Set a user entry in kubeconfig
+  unset             Unset an individual value in a kubeconfig file
+  use-context       Set the current-context in a kubeconfig file
+  view              Display merged kubeconfig settings or a specified kubeconfig file
+
+Usage:
+  kubectl config SUBCOMMAND [options]
+
+Use "kubectl config <command> --help" for more information about a given command.
+Use "kubectl options" for a list of global command-line options (applies to all commands).
+```
+- `kubectl config` is not even a command, it's a group of commands, to manipulate the `~/.kube/config` file
+```sh
+$ kubectl config set-context
+error: you must specify a non-empty context name or --current
+$ kubectl config set-context --help
+Set a context entry in kubeconfig.
+
+ Specifying a name that already exists will merge new fields on top of existing values for those fields.
+
+Examples:
+  # Set the user field on the gce context entry without touching other values
+  kubectl config set-context gce --user=cluster-admin
+
+Options:
+    --cluster='':
+	cluster for the context entry in kubeconfig
+
+    --current=false:
+	Modify the current context
+
+    --namespace='':
+	namespace for the context entry in kubeconfig
+
+    --user='':
+	user for the context entry in kubeconfig
+
+Usage:
+  kubectl config set-context [NAME | --current] [--cluster=cluster_nickname] [--user=user_nickname]
+[--namespace=namespace] [options]
+
+Use "kubectl options" for a list of global command-line options (applies to all commands).
+```
+
+```sh
+# change the default active namespace for current context to dev
+$ kubectl config set-context --namespace dev --current
+```
+
+### `kube-ps1`
+- It's easy to lose track of our current cluster / context / namespace
+- `kube-ps1` makes it easy to track these, by showing them in our shell prompt
+- It gives us a prompt looking like this one:
+```sh
+[123.45.67.89] (kubernetes-admin@kubernetes:default) docker@node1 ~
+```
+- The highlighted part is `context:namespace`, managed by `kube-ps1`
+- in the `(kubernetes-admin@kubernetes:default)` it covers the current **context**
+	- `kubernetes-admin` is the **user**
+	- `kubernetes` is the **cluster** name
+	- `default` is the **namespace**
+- Highly recommended if when working across multiple contexts or namespaces!
