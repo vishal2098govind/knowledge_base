@@ -222,8 +222,9 @@
   },
   "active": "0697667d4f37df5a",
   "lastOpenFiles": [
-    "Kubernetes-Ardan-Labs/kubectl -f option.md",
+    "Kubernetes-Ardan-Labs/Untitled.md",
     "Kubernetes-Ardan-Labs/Declarative vs Imperative Systems.md",
+    "Kubernetes-Ardan-Labs/kubectl -f option.md",
     "Kubernetes-Ardan-Labs/Namespaces.md",
     "Kubernetes-Ardan-Labs/attachments/Pasted image 20251230153920.png",
     "Kubernetes-Ardan-Labs/attachments/Pasted image 20251230113043.png",
@@ -259,7 +260,6 @@
     "Docker-Ardan-Labs/Dockerising Postgres Database.md",
     "Docker-Ardan-Labs/Container Networking Basics.md",
     "Docker-Ardan-Labs/Docker Volumes.md",
-    "Docker-Ardan-Labs/Docker Compose.md",
     "Articles/Go/Untitled/Untitled",
     "Articles/Go/Concurrency in Go Feels More Like Organizing People Than Using Threads",
     "Articles/Go",
