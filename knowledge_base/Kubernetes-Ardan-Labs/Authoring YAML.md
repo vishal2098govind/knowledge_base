@@ -15,7 +15,9 @@
 	- there are bunch of tools and websites to help with coming up with YAML files
 	- use `kubectl create --dry-run`
 
-### `kubectl create --dry-run`
+## `kubectl create --dry-run`
+
+### `--dry-run=client`
 ```sh
 $ kubectl create deployment purple --image jpetazzo/color -o yaml --dry-run
 apiVersion: apps/v1
@@ -107,3 +109,61 @@ deployment.apps/purple   1/1     1            1           24s
 NAME                                DESIRED   CURRENT   READY   AGE
 replicaset.apps/purple-65bb9bc655   1         1         1       24s
 ```
+
+### `--dry-run=server`
+- we can also do `--dry-run=server`
+```sh
+$ kubectl create deployment orange --image jpetazzo/color -o yaml --dry-run=server
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: "2025-12-30T21:13:41Z"
+  generation: 1
+  labels:
+    app: orange
+  name: orange
+  namespace: dev
+  uid: 4b098ce5-f287-467b-9692-5f769ff0e203
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: orange
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: orange
+    spec:
+      containers:
+      - image: jpetazzo/color
+        imagePullPolicy: Always
+        name: color
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+status: {}
+```
+- this is much longer output
+- what happens here is, we do a round trip to the API server
+	- here, it generates the client side YAML
+	- sends it to the server
+	- the server sends us back the YAML but after adding all the default fields and values, that we don't need, but that are provided at runtime
+
+### When to use what, `--dry-run=client` vs `--dry-run=server`
+- usually we want to use `--dry-run=client`
+- the purpose `--dry-run=server` is 
+	- not to give use all those values that are provided at runtime, because honestly we don't care about those runtime added values 
+	- but when we have things like admission control or web-hooks
