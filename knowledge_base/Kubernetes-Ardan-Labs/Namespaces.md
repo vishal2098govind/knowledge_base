@@ -587,6 +587,12 @@ worker-5c6f84b477-gw6jn     1/1     Running   0          9h
 	- `kubectx` is an external tool outside of k8s or `kubectl`
 - when we have only one context in our `~/.kube/config` file, it was pretty easy to change the namespace by just editing the namespace field of that one context in the `~/.kube/config` file
 - but, if we want to change current namespace in the current context, it would be difficult to do with a script as it would parse the config yaml and write some code and etc
+- can use `--context <context-name>` similar to `--namespace` to override the context while running `kubectl` commands
+- similarly, use `kubectl config use-context <context-name>` to set current k8s context
+```sh
+$ kubectl config use-context docker-desktop
+Switched to context "docker-desktop".
+```
 ### `kubectl config`
 ```sh
 $ kubectl config
