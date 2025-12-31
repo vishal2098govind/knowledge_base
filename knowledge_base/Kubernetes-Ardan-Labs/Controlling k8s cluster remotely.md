@@ -84,7 +84,10 @@ HASHER running on hasher-99bbd4bb-g7lln
 Found. Redirecting to /index.html/ #
 / # curl worker
 curl: (6) Could not resolve host: worker (Domain name not found)
-/ #
+/ # exit
+exit
+Session ended, resume using 'kubectl attach testpod -c testpod -i -t' command when the pod is running
+pod "testpod" deleted
 ```
 - this is something like we are "in the place" so to speak
 - like we are in the network and in the namespace and we can test a bunch of things from a convenient location
