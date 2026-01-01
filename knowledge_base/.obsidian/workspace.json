@@ -111,9 +111,36 @@
               "icon": "lucide-file",
               "title": "Kubernetes Network Model"
             }
+          },
+          {
+            "id": "0e27b450dae588cd",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Kubernetes-Ardan-Labs/Scaling.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "Scaling"
+            }
+          },
+          {
+            "id": "4618717f31974524",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "Knowledge Base/Things to cover.md"
+              },
+              "icon": "excalidraw-icon",
+              "title": "Things to cover"
+            }
           }
         ],
-        "currentTab": 6
+        "currentTab": 8
       }
     ],
     "direction": "vertical"
@@ -170,8 +197,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 351.5004348754883,
-    "collapsed": true
+    "width": 351.5004348754883
   },
   "right": {
     "id": "b728b4262fed4323",
@@ -265,14 +291,16 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "ad0b64da40d6174c",
+  "active": "4618717f31974524",
   "lastOpenFiles": [
+    "Kubernetes-Ardan-Labs/Scaling.md",
+    "Knowledge Base/Things to cover.md",
+    "Kubernetes-Ardan-Labs/Kubernetes Network Model.md",
     "Kubernetes-Ardan-Labs/attachments/Pasted image 20260101003949.png",
     "Kubernetes-Ardan-Labs/attachments/Pasted image 20260101003834.png",
     "Kubernetes-Ardan-Labs/attachments/Pasted image 20251231174719.png",
     "Kubernetes-Ardan-Labs/attachments/Pasted image 20251231174619.png",
     "Kubernetes-Ardan-Labs/Controlling k8s cluster remotely.md",
-    "Kubernetes-Ardan-Labs/Kubernetes Network Model.md",
     "Kubernetes-Ardan-Labs/Authoring YAML.md",
     "Kubernetes-Ardan-Labs/Declarative vs Imperative Systems.md",
     "Kubernetes-Ardan-Labs/kubectl -f option.md",
@@ -286,7 +314,6 @@
     "Kubernetes-Ardan-Labs/attachments/Pasted image 20251230235641.png",
     "Kubernetes-Ardan-Labs/attachments/Pasted image 20251230234023.png",
     "Kubernetes-Ardan-Labs/attachments/Pasted image 20251230232535.png",
-    "Kubernetes-Ardan-Labs/attachments/Pasted image 20251230232526.png",
     "Kubernetes-Ardan-Labs/Patching k8s Manifests.md",
     "Kubernetes-Ardan-Labs/k8s events and retries.md",
     "Kubernetes-Ardan-Labs/Running containers on k8s.md",
@@ -304,7 +331,6 @@
     "Docker-Ardan-Labs/Container Network Driver.md",
     "Docker-Ardan-Labs/Container Network Model.md",
     "Docker-Ardan-Labs/What is Docker.md",
-    "Docker-Ardan-Labs/Docker Images.md",
     "Articles/Go/Untitled/Untitled",
     "Articles/Go/Concurrency in Go Feels More Like Organizing People Than Using Threads",
     "Articles/Go",
