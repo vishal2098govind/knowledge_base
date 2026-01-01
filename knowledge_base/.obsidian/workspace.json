@@ -118,13 +118,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Kubernetes-Ardan-Labs/Scaling.md",
+                "file": "Kubernetes-Ardan-Labs/Daemon Sets.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Scaling"
+              "title": "Daemon Sets"
             }
           }
         ],
@@ -181,7 +181,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -283,7 +284,7 @@
   "active": "0e27b450dae588cd",
   "lastOpenFiles": [
     "Knowledge Base/Things to cover.md",
-    "Kubernetes-Ardan-Labs/Scaling.md",
+    "Kubernetes-Ardan-Labs/Daemon Sets.md",
     "Kubernetes-Ardan-Labs/Kubernetes Network Model.md",
     "Kubernetes-Ardan-Labs/attachments/Pasted image 20260101003949.png",
     "Kubernetes-Ardan-Labs/attachments/Pasted image 20260101003834.png",

@@ -10,7 +10,7 @@ $ kubectl scale deployment worker --replicas 2
 	- This, one replica (pod) per node, is possible to achieve by using daemon sets
 
 ## Daemon Sets
-#daemonsets
+#daemon-sets
 - a way in k8s to get one pod per node
 - we could have just scale up `rng` deployment to `--replicas=4`, but it would not necessarily be distributed as one pod per node
 	- imagine, if the cluster is very full, 
