@@ -126,21 +126,9 @@
               "icon": "lucide-file",
               "title": "Scaling"
             }
-          },
-          {
-            "id": "4618717f31974524",
-            "type": "leaf",
-            "state": {
-              "type": "excalidraw",
-              "state": {
-                "file": "Knowledge Base/Things to cover.md"
-              },
-              "icon": "excalidraw-icon",
-              "title": "Things to cover"
-            }
           }
         ],
-        "currentTab": 8
+        "currentTab": 7
       }
     ],
     "direction": "vertical"
@@ -197,7 +185,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 351.5004348754883
+    "width": 351.5004348754883,
+    "collapsed": true
   },
   "right": {
     "id": "b728b4262fed4323",
@@ -291,10 +280,10 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "4618717f31974524",
+  "active": "0e27b450dae588cd",
   "lastOpenFiles": [
-    "Kubernetes-Ardan-Labs/Scaling.md",
     "Knowledge Base/Things to cover.md",
+    "Kubernetes-Ardan-Labs/Scaling.md",
     "Kubernetes-Ardan-Labs/Kubernetes Network Model.md",
     "Kubernetes-Ardan-Labs/attachments/Pasted image 20260101003949.png",
     "Kubernetes-Ardan-Labs/attachments/Pasted image 20260101003834.png",
