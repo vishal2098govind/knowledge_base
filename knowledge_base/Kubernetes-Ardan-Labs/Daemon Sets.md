@@ -357,3 +357,460 @@ spec:
         resources: {}
 status: {}
 ```
+
+## Exercise - Treat a sick pod, while keeping other fit pods as it is
+### Idea - 1 : Change the label of sick pod, keeping others as it is
+- NOTE: this idea is when the label being changed is same label that is being used by the replica-set spec selector while matching labels
+```sh
+$ kubectl edit pod rng-65d885d498-sgnhm
+pod/rng-65d885d498-sgnhm edited
+$ kubectl get pods rng-65d885d498-sgnhm -o yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: "2026-01-01T17:10:02Z"
+  generateName: rng-65d885d498-
+  labels:
+    app: sick_rng
+    pod-template-hash: 65d885d498
+  name: rng-65d885d498-sgnhm
+  namespace: dev
+  resourceVersion: "121129"
+  uid: 86139c4b-411c-4ede-b3bf-0a72d054f4a9
+spec:
+  containers:
+  - image: dockercoins/rng:v0.1
+    imagePullPolicy: IfNotPresent
+    name: rng
+    resources: {}
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: kube-api-access-qgp4j
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  nodeName: docker-desktop
+  preemptionPolicy: PreemptLowerPriority
+  priority: 0
+  restartPolicy: Always
+  schedulerName: default-scheduler
+  securityContext: {}
+  serviceAccount: default
+  serviceAccountName: default
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  volumes:
+  - name: kube-api-access-qgp4j
+    projected:
+      defaultMode: 420
+      sources:
+      - serviceAccountToken:
+          expirationSeconds: 3607
+          path: token
+      - configMap:
+          items:
+          - key: ca.crt
+            path: ca.crt
+          name: kube-root-ca.crt
+      - downwardAPI:
+          items:
+          - fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.namespace
+            path: namespace
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: "2026-01-01T17:26:14Z"
+    status: "True"
+    type: PodReadyToStartContainers
+  - lastProbeTime: null
+    lastTransitionTime: "2026-01-01T17:10:38Z"
+    status: "True"
+    type: Initialized
+  - lastProbeTime: null
+    lastTransitionTime: "2026-01-01T17:26:14Z"
+    status: "True"
+    type: Ready
+  - lastProbeTime: null
+    lastTransitionTime: "2026-01-01T17:26:14Z"
+    status: "True"
+    type: ContainersReady
+  - lastProbeTime: null
+    lastTransitionTime: "2026-01-01T17:10:31Z"
+    status: "True"
+    type: PodScheduled
+  containerStatuses:
+  - containerID: docker://3effb0a6babc104db962ccdb3b5e4ee4c26401bdb774790209906f23af71ca0c
+    image: dockercoins/rng:v0.1
+    imageID: docker-pullable://dockercoins/rng@sha256:17f79daa5cbb38319519be0cd6c2d81b17327c118b944983d6f7eb26826607a9
+    lastState: {}
+    name: rng
+    ready: true
+    restartCount: 0
+    started: true
+    state:
+      running:
+        startedAt: "2026-01-01T17:10:51Z"
+    volumeMounts:
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: kube-api-access-qgp4j
+      readOnly: true
+      recursiveReadOnly: Disabled
+  hostIP: 192.168.65.3
+  hostIPs:
+  - ip: 192.168.65.3
+  phase: Running
+  podIP: 10.1.0.132
+  podIPs:
+  - ip: 10.1.0.132
+  qosClass: BestEffort
+  startTime: "2026-01-01T17:10:38Z"
+```
+- but if we look at the pods and services:
+```sh
+$  kubectl describe service rng
+Name:                     rng
+Namespace:                dev
+Labels:                   app=rng
+                          release=dev
+Annotations:              <none>
+Selector:                 app=rng
+Type:                     ClusterIP
+IP Family Policy:         SingleStack
+IP Families:              IPv4
+IP:                       10.97.48.98
+IPs:                      10.97.48.98
+Port:                     <unset>  80/TCP
+TargetPort:               80/TCP
+Endpoints:                10.1.0.141:80,10.1.0.142:80
+Session Affinity:         None
+Internal Traffic Policy:  Cluster
+Events:                   <none>
+$ kubectl get pods --selector app=rng -o wide --show-labels
+NAME                   READY   STATUS    RESTARTS   AGE     IP           NODE             NOMINATED NODE   READINESS GATES   LABELS
+rng-65d885d498-8vf27   1/1     Running   0          2m29s   10.1.0.142   docker-desktop   <none>           <none>            app=rng,pod-template-hash=65d885d498
+rng-zrklh              1/1     Running   0          14h     10.1.0.141   docker-desktop   <none>           <none>            app=rng,controller-revision-hash=65d885d498,pod-template-generation=1
+```
+- changing the label lead to create another replacement pod with that label right away, instead of only removing the pod in that label
+- this happens because of replica-set:
+	- the replica-set that was created the deployment, has `--replicas=1` it's YAML manifest
+	- a replica-set works with labels and selectors
+	- in a replica-set we have a selector, and what a replica-set wants to do is make sure that we have N pods with given labels
+```sh
+$ kubectl get rs --selector app=rng -o yaml
+apiVersion: v1
+items:
+- apiVersion: apps/v1
+  kind: ReplicaSet
+  metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "1"
+      deployment.kubernetes.io/max-replicas: "2"
+      deployment.kubernetes.io/revision: "1"
+    creationTimestamp: "2025-12-30T11:24:07Z"
+    generation: 1
+    labels:
+      app: rng
+      pod-template-hash: 65d885d498
+      release: dev
+    name: rng-65d885d498
+    namespace: dev
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: rng
+      uid: e03f037b-d32a-46a5-84ea-90b9e5e6b613
+    resourceVersion: "121146"
+    uid: e150933d-9732-447b-b1bd-454a2726ef2e
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        app: rng
+        pod-template-hash: 65d885d498
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: rng
+          pod-template-hash: 65d885d498
+      spec:
+        containers:
+        - image: dockercoins/rng:v0.1
+          imagePullPolicy: IfNotPresent
+          name: rng
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 1
+    fullyLabeledReplicas: 1
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+kind: List
+metadata:
+  resourceVersion: ""
+```
+- if we see the specification of replica set, what it really says is
+```sh
+spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        app: rng
+        pod-template-hash: 65d885d498
+```
+- it makes sure that we have 1 pod with the label matching the selector of `app=rng`
+- the replica set just checks for pods with matching labels, and not really checks whats actually running inside the pod, it could be `color` image or `nginx` image or any image container running in the pod, it should have the specific label
+- thus, the moment we change the label of the pod, we get other replacement pod right away
+```sh
+$ kubectl describe service rng
+Name:                     rng
+Namespace:                dev
+Labels:                   app=rng
+                          release=dev
+Annotations:              <none>
+Selector:                 app=rng
+Type:                     ClusterIP
+IP Family Policy:         SingleStack
+IP Families:              IPv4
+IP:                       10.97.48.98
+IPs:                      10.97.48.98
+Port:                     <unset>  80/TCP
+TargetPort:               80/TCP
+Endpoints:                10.1.0.141:80,10.1.0.142:80
+Session Affinity:         None
+Internal Traffic Policy:  Cluster
+Events:                   <none>
+$ kubectl get pods --show-labels -o wide | grep rng
+NAME                      READY   STATUS    RESTARTS   AGE   IP           NODE             NOMINATED NODE   READINESS GATES   LABELS
+rng-65d885d498-8vf27      1/1     Running   0          51m   10.1.0.142   docker-desktop   <none>           <none>            app=rng,pod-template-hash=65d885d498
+rng-65d885d498-sgnhm      1/1     Running   0          17h   10.1.0.132   docker-desktop   <none>           <none>            app=sick_rng,pod-template-hash=65d885d498
+rng-zrklh                 1/1     Running   0          15h   10.1.0.141   docker-desktop   <none>           <none>            app=rng,controller-revision-hash=65d885d498,pod-template-generation=1
+```
+- now, we can debug and trouble shoot the sick pod, while the replacement pod could serve the traffic
+- now, if we are done without trouble shooting and want to put the label back to `app=rng` from `app=sick_rng`
+```sh
+$ kubectl label pod rng-65d885d498-sgnhm app=rng
+error: 'app' already has a value (sick_rng), and --overwrite is false
+$ kubectl label pod rng-65d885d498-sgnhm app=rng --overwrite
+pod/rng-65d885d498-sgnhm labelled
+# ...
+# a few seconds later, that pod (rng-65d885d498-sgnhm) dissapears
+$ kubectl get pods -o wide --selector app=rng --show-labels
+NAME                   READY   STATUS    RESTARTS   AGE     IP           NODE             NOMINATED NODE   READINESS GATES   LABELS
+rng-65d885d498-8vf27   1/1     Running   0          72m     10.1.0.142   docker-desktop   <none>           <none>            app=rng,pod-template-hash=65d885d498
+rng-n9js7              1/1     Running   0          5m12s   10.1.0.143   docker-desktop   <none>           <none>            app=rng,controller-revision-hash=65d885d498,pod-template-generation=1
+$  kubectl get pods rng-65d885d498-sgnhm
+Error from server (NotFound): pods "rng-65d885d498-sgnhm" not found
+```
+- when we updated the label of pod `rng-65d885d498-sgnhm` back to `app=rng` from `app=sick_rng`, the replica-set found two pods matching the selector labels which the replica-set spec contain, and thus, replica-set decides to delete or remove one of the two as the replica-set spec only specifies 1 replica.
+
+### Idea - 2 : add a common label to all the pods and then use that in the service/load-balancer selector
+- Here, the idea is not to change the label that is used by the replica-set selector, to separate the sick pod and treat, and rather 
+	- change the label which the load-balancer uses to find pods, if load balancer listens finds pods using a different selector than that of replica-set
+	- or if load balancer the load balancer uses same selector as used by the replica-set, then make load balancer use a different or new selector to find pods and use that label in all pods, 
+	- so here **replica-set doesn't know about the treatment that is being taken place of the sick pod**
+```sh
+$ kubectl label pods active="yes" --selector app=rng
+pod/rng-65d885d498-8vf27 labeled
+pod/rng-n9js7 labeled
+
+$ kubectl get pods --selector app=rng --show-labels
+NAME                   READY   STATUS    RESTARTS   AGE   LABELS
+rng-65d885d498-8vf27   1/1     Running   0          88m   active=yes,app=rng,pod-template-hash=65d885d498
+rng-n9js7              1/1     Running   0          21m   active=yes,app=rng,controller-revision-hash=65d885d498,pod-template-generation=1
+
+$ kubectl edit service rng
+# update the selector to be `active="yes"`
+
+# label the sick pod active=no
+$ kubectl label pods rng-65d885d498-8vf27 active=no --overwrite
+pods/rng-65d885d498-8vf27 labelled
+
+# treat the sick pod
+# label the sick pod active=yes
+$ kubectl label pods rng-65d885d498-8vf27 active=yes --overwrite
+pods/rng-65d885d498-8vf27 labelled
+```
+- if we want to remove or drop a label, we can use `<label-name>-` i.e.
+```sh
+# after treating the sick pod
+
+$ kubectl edit service rng
+# update the selector to be `app=rng` instead of `active=yes`
+
+# remove active label
+$ kubectl label service rng active-
+$ kubectl label pods active- --selector app=rng
+```
+- All steps:
+```sh
+$ kubectl label pods active="yes" --selector app=rng
+pod/rng-65d885d498-zl8qq labeled
+pod/rng-lh6ts labeled # this is running due to daemonset
+$ kubectl label service rng active="yes"
+service/rng labeled
+
+
+$ kubectl get pods --selector app=rng --show-labels
+NAME                   READY   STATUS    RESTARTS   AGE    LABELS
+rng-65d885d498-zl8qq   1/1     Running   0          6h5m   active=yes,app=rng,pod-template-hash=65d885d498
+rng-lh6ts              1/1     Running   0          33m    active=yes,app=rng,controller-revision-hash=65d885d498,pod-template-generation=1
+$ kubectl get service rng --show-labels
+NAME   TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)   AGE     LABELS
+rng    ClusterIP   10.97.48.98   <none>        80/TCP    3d10h   active=yes,app=rng,release=dev
+$ kubectl get replicasets --selector app=rng --show-labels
+NAME             DESIRED   CURRENT   READY   AGE     LABELS
+rng-65d885d498   1         1         1       3d10h   app=rng,pod-template-hash=65d885d498,release=dev
+
+# set label of the sick pod `active="no"`
+$ kubectl label pod rng-65d885d498-zl8qq active="no" --overwrite
+pod/rng-65d885d498-zl8qq labeled
+$ kubectl edit service rng
+# update selector of rng service/load-balancer to match labels `active="yes"`
+$ kubectl get service rng -o yaml
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"app":"rng"},"name":"rng","namespace":"dev"},"spec":{"ports":[{"port":80,"protocol":"TCP","targetPort":80}],"selector":{"app":"rng"},"type":"ClusterIP"}}
+  creationTimestamp: "2025-12-30T11:24:07Z"
+  labels:
+    active: "yes"
+    app: rng
+    release: dev
+  name: rng
+  namespace: dev
+  resourceVersion: "145610"
+  uid: 928a5b35-ec8b-4994-99ac-b5266364ce95
+spec:
+  clusterIP: 10.97.48.98
+  clusterIPs:
+  - 10.97.48.98
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    active: "yes"
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}
+  
+# treat the sick pod
+
+$ kubectl describe service rng
+Name:                     rng
+Namespace:                dev
+Labels:                   active=yes
+                          app=rng
+                          release=dev
+Annotations:              <none>
+Selector:                 active=yes # selects pods which match this label, to balance load
+Type:                     ClusterIP
+IP Family Policy:         SingleStack
+IP Families:              IPv4
+IP:                       10.97.48.98
+IPs:                      10.97.48.98
+Port:                     <unset>  80/TCP
+TargetPort:               80/TCP
+Endpoints:                10.1.0.146:80
+Session Affinity:         None
+Internal Traffic Policy:  Cluster
+Events:                   <none>
+$ kubectl get pods --selector app=rng -o wide --show-labels
+NAME                   READY   STATUS    RESTARTS   AGE     IP           NODE             NOMINATED NODE   READINESS GATES   LABELS
+rng-65d885d498-zl8qq   1/1     Running   0          6h22m   10.1.0.145   docker-desktop   <none>           <none>            active=no,app=rng,pod-template-hash=65d885d498
+rng-lh6ts              1/1     Running   0          50m     10.1.0.146   docker-desktop   <none>           <none>            active=yes,app=rng,controller-revision-hash=65d885d498,pod-template-generation=1
+
+# change back the selector of load-balancer to match labels with `app=rng`
+$ kubectl edit service rng
+service/rng edited
+$ kubectl describe service rng
+Name:                     rng
+Namespace:                dev
+Labels:                   active=yes
+                          app=rng
+                          release=dev
+Annotations:              <none>
+Selector:                 app=rng
+Type:                     ClusterIP
+IP Family Policy:         SingleStack
+IP Families:              IPv4
+IP:                       10.97.48.98
+IPs:                      10.97.48.98
+Port:                     <unset>  80/TCP
+TargetPort:               80/TCP
+Endpoints:                10.1.0.146:80,10.1.0.145:80
+Session Affinity:         None
+Internal Traffic Policy:  Cluster
+Events:                   <none>
+$ kubectl get pods --selector app=rng -o wide --show-labels
+NAME                   READY   STATUS    RESTARTS   AGE     IP           NODE             NOMINATED NODE   READINESS GATES   LABELS
+rng-65d885d498-zl8qq   1/1     Running   0          6h26m   10.1.0.145   docker-desktop   <none>           <none>            active=no,app=rng,pod-template-hash=65d885d498
+rng-lh6ts              1/1     Running   0          54m     10.1.0.146   docker-desktop   <none>           <none>            active=yes,app=rng,controller-revision-hash=65d885d498,pod-template-generation=1
+
+# remove active label from the pods and load-balancer
+$ kubectl label service rng active- --overwrite
+service/rng labeled
+$ kubectl describe service rng
+Name:                     rng
+Namespace:                dev
+Labels:                   app=rng
+                          release=dev
+Annotations:              <none>
+Selector:                 app=rng
+Type:                     ClusterIP
+IP Family Policy:         SingleStack
+IP Families:              IPv4
+IP:                       10.97.48.98
+IPs:                      10.97.48.98
+Port:                     <unset>  80/TCP
+TargetPort:               80/TCP
+Endpoints:                10.1.0.146:80,10.1.0.145:80
+Session Affinity:         None
+Internal Traffic Policy:  Cluster
+Events:                   <none>
+$ kubectl label pods --selector app=rng active-
+pod/rng-65d885d498-zl8qq unlabeled
+pod/rng-lh6ts unlabeled
+$ kubectl get pods --selector app=rng -o wide --show-labels
+NAME                   READY   STATUS    RESTARTS   AGE     IP           NODE             NOMINATED NODE   READINESS GATES   LABELS
+rng-65d885d498-zl8qq   1/1     Running   0          6h29m   10.1.0.145   docker-desktop   <none>           <none>            app=rng,pod-template-hash=65d885d498
+rng-lh6ts              1/1     Running   0          57m     10.1.0.146   docker-desktop   <none>           <none>            app=rng,controller-revision-hash=65d885d498,pod-template-generation=1
+```
+
+### Conclusion
+- this seems pretty nice because this means now that we can manipulate the load balancer configuration just with labels and selectors, without bother about
+	- how to configure IP tables
+	- how to write configuration for HAProxy, or NGINX or Apache or whatever being used as the load balancer
+- and thus, 
+	- on changing the labels and selectors of pods and load-balancers respectively, 
+	- immediately in realtime, 
+	- the load balancers adds or removes backends from it's endpoints list
