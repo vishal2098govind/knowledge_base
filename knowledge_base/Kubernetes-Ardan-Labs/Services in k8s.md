@@ -1,9 +1,14 @@
 #k8s
 - exposing a deployment creates a k8s **service** acting as a **static IP address** as well as a **load balancer**
-```
+```sh
 $ kubectl expose <resource> <name> --port [--type]
 ```
+- services can also be created using
+```sh
+$ kubectl create service <type> <name> [--tcp port]
+```
 
+```
 ## `ClusterIP` service
 ```sh
 $ kubectl create deployment blue --image jpetazzo/color

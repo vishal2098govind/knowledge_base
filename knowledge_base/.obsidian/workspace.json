@@ -128,22 +128,22 @@
             }
           },
           {
-            "id": "5112064013aef20d",
+            "id": "466053e79a214e11",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Kubernetes-Ardan-Labs/Untitled.md",
+                "file": "Kubernetes-Ardan-Labs/Blue-Green Deployment with k8s.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Untitled"
+              "title": "Blue-Green Deployment with k8s"
             }
           }
         ],
-        "currentTab": 7
+        "currentTab": 8
       }
     ],
     "direction": "vertical"
@@ -163,7 +163,7 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false
+                "autoReveal": true
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -196,8 +196,7 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -296,8 +295,10 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "0e27b450dae588cd",
+  "active": "466053e79a214e11",
   "lastOpenFiles": [
+    "Kubernetes-Ardan-Labs/Services in k8s.md",
+    "Kubernetes-Ardan-Labs/Blue-Green Deployment with k8s.md",
     "Kubernetes-Ardan-Labs/Untitled.md",
     "Kubernetes-Ardan-Labs/Daemon Sets.md",
     "Knowledge Base/Things to cover.md",
@@ -329,13 +330,11 @@
     "Kubernetes-Ardan-Labs/Kubernetes Architecture.md",
     "Kubernetes-Ardan-Labs/Kubernetes Concepts.md",
     "Kubernetes-Ardan-Labs/Kubernetes.md",
-    "Kubernetes-Ardan-Labs/Services in k8s.md",
     "Kubernetes-Ardan-Labs/attachments",
     "Docker-Ardan-Labs/Deep Dive Into Containers.md",
     "Docker-Ardan-Labs/Orchestration - Overwiew.md",
     "Kubernetes-Ardan-Labs",
     "Docker-Ardan-Labs/Container Network Driver.md",
-    "Docker-Ardan-Labs/Container Network Model.md",
     "Articles/Go/Untitled/Untitled",
     "Articles/Go/Concurrency in Go Feels More Like Organizing People Than Using Threads",
     "Articles/Go",
