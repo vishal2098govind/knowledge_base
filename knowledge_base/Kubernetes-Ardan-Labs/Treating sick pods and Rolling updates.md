@@ -702,6 +702,10 @@ pod/worker-68f978b56c-gdw4z   0/1     Terminating         0          9s
 pod/worker-68f978b56c-jm6j6   0/1     Terminating         0          9s
 pod/worker-68f978b56c-wmt5n   0/1     Terminating         0          9s
 ```
+- here, k8s was smart enough to be able to realize that there was something wrong, with the pods
+- the new pods did not come up and the old pods did not go down beyond the point when k8s realized there was something wrong with the update being rolled out
+- k8s was smart enough to stop the rolling update the moment it realized something wrong, otherwise, if k8s would have completely put down all old pods and put up all the new pods without stopping on realizing something went wrong, we would have ended up with a completely broken app
+- k8s is able to realize something going wrong with the help of **`healthchecks`**
 
 ## Update strategy in deployment - `maxSurge` and `maxUnavailable`
 ```sh
@@ -813,7 +817,7 @@ status:
 	- for `maxSurge` during rolling update, it really depends on the kind of work load we have
 
 
-### Older replica-sets during rolling updates - `revisionHistoryLimit`
+## Older replica-sets during rolling updates - `revisionHistoryLimit`
 - during rolling updates of deployments, the older replica-sets are kept
 - by default last 10 revisions of replica-sets are kept
 - this default 10 can be found in the deployment spec in the `spec.revisionHistoryLimit`

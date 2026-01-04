@@ -156,9 +156,24 @@
               "icon": "lucide-file",
               "title": "Treating sick pods and Rolling updates"
             }
+          },
+          {
+            "id": "5e0a8a64d11fa09d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Kubernetes-Ardan-Labs/K8s Healthchecks (probes).md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "K8s Healthchecks (probes)"
+            }
           }
         ],
-        "currentTab": 9
+        "currentTab": 10
       }
     ],
     "direction": "vertical"
@@ -310,10 +325,11 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "ea83eeef77589fbc",
+  "active": "5e0a8a64d11fa09d",
   "lastOpenFiles": [
-    "Kubernetes-Ardan-Labs/Blue-Green Deployment with k8s.md",
     "Kubernetes-Ardan-Labs/Treating sick pods and Rolling updates.md",
+    "Kubernetes-Ardan-Labs/K8s Healthchecks (probes).md",
+    "Kubernetes-Ardan-Labs/Blue-Green Deployment with k8s.md",
     "Kubernetes-Ardan-Labs/Labels and annotations.md",
     "Kubernetes-Ardan-Labs/Services in k8s.md",
     "Kubernetes-Ardan-Labs/Daemon Sets.md",
@@ -349,7 +365,6 @@
     "Docker-Ardan-Labs/Deep Dive Into Containers.md",
     "Docker-Ardan-Labs/Orchestration - Overwiew.md",
     "Kubernetes-Ardan-Labs",
-    "Docker-Ardan-Labs/Container Network Driver.md",
     "Articles/Go/Untitled/Untitled",
     "Articles/Go/Concurrency in Go Feels More Like Organizing People Than Using Threads",
     "Articles/Go",
