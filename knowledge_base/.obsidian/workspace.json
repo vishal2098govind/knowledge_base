@@ -171,9 +171,33 @@
               "icon": "lucide-file",
               "title": "K8s Healthchecks (probes)"
             }
+          },
+          {
+            "id": "cd53b2b8bd5ff666",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "Knowledge Base/Things to cover.md"
+              },
+              "icon": "excalidraw-icon",
+              "title": "Things to cover"
+            }
+          },
+          {
+            "id": "02cafc132283b87d",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "Knowledge Base/Knowledge System.md"
+              },
+              "icon": "excalidraw-icon",
+              "title": "Knowledge System"
+            }
           }
         ],
-        "currentTab": 10
+        "currentTab": 12
       }
     ],
     "direction": "vertical"
@@ -230,8 +254,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 351.5004348754883,
-    "collapsed": true
+    "width": 351.5004348754883
   },
   "right": {
     "id": "b728b4262fed4323",
@@ -325,15 +348,20 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "5e0a8a64d11fa09d",
+  "active": "02cafc132283b87d",
   "lastOpenFiles": [
-    "Kubernetes-Ardan-Labs/Treating sick pods and Rolling updates.md",
+    "Knowledge Base/Things to cover.md",
+    "Knowledge Base/Knowledge System.md",
+    "Knowledge Base/Untitled.md",
+    "Kubernetes-Ardan-Labs/Ingress.md",
+    "Kubernetes-Ardan-Labs/attachments/Pasted image 20260104203124.png",
+    "Kubernetes-Ardan-Labs/attachments/Pasted image 20260104175606.png",
     "Kubernetes-Ardan-Labs/K8s Healthchecks (probes).md",
+    "Kubernetes-Ardan-Labs/Treating sick pods and Rolling updates.md",
     "Kubernetes-Ardan-Labs/Blue-Green Deployment with k8s.md",
     "Kubernetes-Ardan-Labs/Labels and annotations.md",
     "Kubernetes-Ardan-Labs/Services in k8s.md",
     "Kubernetes-Ardan-Labs/Daemon Sets.md",
-    "Knowledge Base/Things to cover.md",
     "Kubernetes-Ardan-Labs/Kubernetes Network Model.md",
     "Kubernetes-Ardan-Labs/attachments/Pasted image 20260101003949.png",
     "Kubernetes-Ardan-Labs/attachments/Pasted image 20260101003834.png",
@@ -350,8 +378,6 @@
     "Kubernetes-Ardan-Labs/attachments/Pasted image 20251230235736.png",
     "Kubernetes-Ardan-Labs/attachments/Pasted image 20251230235702.png",
     "Kubernetes-Ardan-Labs/attachments/Pasted image 20251230235641.png",
-    "Kubernetes-Ardan-Labs/attachments/Pasted image 20251230234023.png",
-    "Kubernetes-Ardan-Labs/attachments/Pasted image 20251230232535.png",
     "Kubernetes-Ardan-Labs/Patching k8s Manifests.md",
     "Kubernetes-Ardan-Labs/k8s events and retries.md",
     "Kubernetes-Ardan-Labs/Running containers on k8s.md",
@@ -360,10 +386,7 @@
     "Kubernetes-Ardan-Labs/Interacting with K8s.md",
     "Kubernetes-Ardan-Labs/Kubernetes Architecture.md",
     "Kubernetes-Ardan-Labs/Kubernetes Concepts.md",
-    "Kubernetes-Ardan-Labs/Kubernetes.md",
     "Kubernetes-Ardan-Labs/attachments",
-    "Docker-Ardan-Labs/Deep Dive Into Containers.md",
-    "Docker-Ardan-Labs/Orchestration - Overwiew.md",
     "Kubernetes-Ardan-Labs",
     "Articles/Go/Untitled/Untitled",
     "Articles/Go/Concurrency in Go Feels More Like Organizing People Than Using Threads",
