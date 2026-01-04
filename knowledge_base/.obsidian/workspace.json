@@ -254,7 +254,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 351.5004348754883
+    "width": 351.5004348754883,
+    "collapsed": true
   },
   "right": {
     "id": "b728b4262fed4323",
@@ -350,8 +351,9 @@
   },
   "active": "02cafc132283b87d",
   "lastOpenFiles": [
-    "Knowledge Base/Things to cover.md",
+    "Knowledge Base/Untitled 1.md",
     "Knowledge Base/Knowledge System.md",
+    "Knowledge Base/Things to cover.md",
     "Knowledge Base/Untitled.md",
     "Kubernetes-Ardan-Labs/Ingress.md",
     "Kubernetes-Ardan-Labs/attachments/Pasted image 20260104203124.png",
@@ -385,7 +387,6 @@
     "Kubernetes-Ardan-Labs/kubectl.md",
     "Kubernetes-Ardan-Labs/Interacting with K8s.md",
     "Kubernetes-Ardan-Labs/Kubernetes Architecture.md",
-    "Kubernetes-Ardan-Labs/Kubernetes Concepts.md",
     "Kubernetes-Ardan-Labs/attachments",
     "Kubernetes-Ardan-Labs",
     "Articles/Go/Untitled/Untitled",
