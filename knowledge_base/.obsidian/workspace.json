@@ -254,8 +254,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 351.5004348754883,
-    "collapsed": true
+    "width": 351.5004348754883
   },
   "right": {
     "id": "b728b4262fed4323",
@@ -351,10 +350,10 @@
   },
   "active": "02cafc132283b87d",
   "lastOpenFiles": [
-    "Knowledge Base/Untitled 1.md",
-    "Knowledge Base/Knowledge System.md",
-    "Knowledge Base/Things to cover.md",
     "Knowledge Base/Untitled.md",
+    "Knowledge Base/Knowledge System.md",
+    "Knowledge Base/Untitled 1.md",
+    "Knowledge Base/Things to cover.md",
     "Kubernetes-Ardan-Labs/Ingress.md",
     "Kubernetes-Ardan-Labs/attachments/Pasted image 20260104203124.png",
     "Kubernetes-Ardan-Labs/attachments/Pasted image 20260104175606.png",
