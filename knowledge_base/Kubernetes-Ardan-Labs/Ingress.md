@@ -269,3 +269,29 @@ $ curl http://rainbow.127.0.0.1.nip.io:8081/green
 404 page not found
 ```
 ![[Pasted image 20260107004326.png]]
+
+## Single Ingress controller per cluster VS one per namespace
+- If we want simplicity - single ingress controller per cluster
+	- this has some security implications
+	- global ingress controller we need a little bit too much permission, which we don't want and rather want to really isolate namespaces from each other
+- If we want to be picky about the ingress controller they want to use for different projects
+	- we want to use this particular ingress controller because it has support for 
+		- A/B testing
+		- Canary deployment
+		- very advance like tracing etc
+		- so we don't want the default global ingress controller in our project's namespace
+
+## Ingress standard features
+- Load Balancing
+- SSL termination
+- URI Routing
+	- `/api` -> api-service
+	- /static -> assets-service
+
+## Ingress extended features
+More advanced features that are supported by most ingress controllers, but are not part of the spec, and are done by vendor specific extensions
+- Routing with other headers or cookies
+- A/B testing
+- Canary deployment
+	- e.g. send 1% of the traffic to a specific different version or backend than the most of the traffic
+- etc
