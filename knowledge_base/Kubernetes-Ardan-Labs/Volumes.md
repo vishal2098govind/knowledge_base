@@ -243,6 +243,8 @@ MODIFIED   nginx-with-git         1/2     NotReady            0             13s 
 	- or make the service send the traffic to the pod even if the pod says it's not ready
 		- setting `spec.publishNotReadyAddresses` to true in the service's YAML manifest
 > `kubectl explain` is a way to view the documentation of the k8s API without leaving the terminal
+> `kubectl explain` doesn't do any online fetching of documentation, rather it does introspection on the API. 
+   Helpful if we are working in a specific version of k8s if they are not yet in the online documentation
 ```sh
 $ kubectl explain service.spec
 KIND:       Service
@@ -274,3 +276,69 @@ FIELDS:
 .....
 
 ```
+
+### `nginx-with-init`
+```sh
+$ cat k8s/nginx-4-with-init.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-with-init
+spec:
+  volumes:
+  - name: www
+  containers:
+  - name: nginx
+    image: nginx
+    volumeMounts:
+    - name: www
+      mountPath: /usr/share/nginx/html/
+  initContainers:
+  - name: git
+    image: alpine
+    command: [ "sh", "-c", "apk add git && sleep 5 && git clone https://github.com/octocat/Spoon-Knife /www" ]
+    volumeMounts:
+    - name: www
+      mountPath: /www/
+
+$ kubectl apply -f k8s/nginx-4-with-init.yaml
+pod/nginx-with-init created
+```
+
+```
+$ kubectl get pods --watch -o wide --output-watch-events
+EVENT      NAME                   READY   STATUS    RESTARTS      AGE   IP           NODE             NOMINATED NODE   READINESS GATES
+ADDED      nginx-with-volume      1/1     Running   1 (10h ago)   14h   10.1.1.167   docker-desktop   <none>           <none>
+ADDED      nginx-without-volume   1/1     Running   1 (10h ago)   14h   10.1.1.151   docker-desktop   <none>           <none>
+ADDED      nginx-with-git         0/2     Pending   0             0s    <none>       <none>           <none>           <none>
+MODIFIED   nginx-with-git         0/2     Pending   0             0s    <none>       docker-desktop   <none>           <none>
+MODIFIED   nginx-with-git         0/2     ContainerCreating   0             0s    <none>       docker-desktop   <none>           <none>
+MODIFIED   nginx-with-git         2/2     Running             0             7s    10.1.1.180   docker-desktop   <none>           <none>
+MODIFIED   nginx-with-git         1/2     NotReady            0             13s   10.1.1.180   docker-desktop   <none>           <none>
+ADDED      nginx-with-init        0/1     Pending             0             0s    <none>       <none>           <none>           <none>
+MODIFIED   nginx-with-init        0/1     Pending             0             0s    <none>       docker-desktop   <none>           <none>
+MODIFIED   nginx-with-init        0/1     Init:0/1            0             0s    <none>       docker-desktop   <none>           <none>
+MODIFIED   nginx-with-init        0/1     Init:0/1            0             6s    10.1.1.181   docker-desktop   <none>           <none>
+MODIFIED   nginx-with-init        0/1     PodInitializing     0             20s   10.1.1.181   docker-desktop   <none>           <none>
+MODIFIED   nginx-with-init        1/1     Running             0             26s   10.1.1.181   docker-desktop   <none>           <none>
+```
+- `initContainers` run before other containers
+- normal containers are meant to be running continuously forever, and if they crash the pod restarts them and keeps them up running
+- the **init-containers** are meant to run just once, 
+	- and it's supposed to be like a finite process 
+#### Use cases for init-containers
+- like downloading some content
+- or generating some certificate
+- or generating some configuration file
+- or some one time or one shot initialization task and then that container exits and we don't see it again
+- something like database migrations 
+	- not always best solutions if we end up scaling pods later, where we might end up running database migrations multiple times, unless we properly acquire lock on the database before migration starts
+- waiting for other services to be up
+	- e.g. - we have a web server that needs to connect with the database
+		- the main container would run only if the init-container finds the database to be ready and gets killed
+
+## Volume lifecycle
+- Lifecycle of volume is linked to the pod's lifecycle
+- as long as the pod exists, the volume exists
+- thus, we should not put persistent data in such volumes, since on loosing a pod, we loose the data
+- volumes survive container restarts
