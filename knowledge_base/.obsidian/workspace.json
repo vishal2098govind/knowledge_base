@@ -58,13 +58,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Kubernetes-Ardan-Labs/Configuration Management.md",
+                "file": "Kubernetes-Ardan-Labs/Managing Configuration using Volume.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Configuration Management"
+              "title": "Managing Configuration using Volume"
             }
           },
           {
@@ -83,7 +83,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -236,10 +236,10 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "7398fac05369a315",
+  "active": "61f454f67a20b422",
   "lastOpenFiles": [
-    "Kubernetes-Ardan-Labs/Configuration Management.md",
     "Kubernetes-Ardan-Labs/Volumes.md",
+    "Kubernetes-Ardan-Labs/Managing Configuration using Volume.md",
     "Kubernetes-Ardan-Labs/Managing secrets.md",
     "Docker-Ardan-Labs/Deep Dive Into Containers.md",
     "Kubernetes-Ardan-Labs/Ingress.md",

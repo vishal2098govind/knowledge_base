@@ -1,4 +1,184 @@
 #k8s #volumes #configuration-management
+## Configuration of code
+- There are many ways we can configure our code:
+	- command-line arguments
+	- environment variables
+	- configuration files
+	- configuration servers
+		- getting configuration from a database/zookeeper/APIs etc
+
+### Passing configuration to containers
+There are many ways to do that:
+#### Bake in the custom image
+- bake the configuration in the image - probably the worst way
+```Dockerfile
+# ....
+CMD my-app --port=8000 --threads=4
+# ...
+ENV PORT=8000 CONCURRENCY=4
+
+COPY app.conf /app/app.conf
+```
+- why a bad idea:
+	- we have often have diff configuration in dev vs in prod
+	- if we need to deploy same image but multiple times
+		- deployment in multiple different data centers
+		- if we are making SaaS application, we need dynamic configuration based on customer, and each customer has their own configuration
+	- risk to keep secret information in Dockerfiles
+#### Using YAML
+```sh
+$ kubectl create deployment ping --dry-run=client -o yaml > k8s/ping.yaml --image alpine -- ping 127.0.0.1
+$ cat k8s/ping.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: ping
+  name: ping
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ping
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: ping
+    spec:
+      containers:
+      - command:
+        - ping
+        - 127.0.0.1
+        image: alpine
+        name: ping
+        resources: {}
+status: {}
+```
+- we can add environment variables to the yaml so that the container can pick them up
+```sh
+$ code k8s/ping.yaml
+$ cat k8s/ping.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: ping
+  name: ping
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ping
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: ping
+    spec:
+      containers:
+      - command:
+        - ping
+        - $TARGET
+        image: alpine
+        env:
+        - name: TARGET
+          value: 127.0.0.3
+        - name: MOOD
+          value: 😎
+        name: ping
+        resources: {}
+status: {}
+```
+- this will not work and will give `bad address $TARGET error`
+- the way command is passed to the container here is equivalent to passing the JSON Array syntax in the docker file where the content of the array is given as it is without any parsing
+- thus, we can either choose to use 
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: ping
+  name: ping
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ping
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: ping
+    spec:
+      containers:
+      - command:
+        - sh
+        - -c
+        - ping $TARGET
+        image: alpine
+        env:
+        - name: TARGET
+          value: 127.0.0.3
+        - name: MOOD
+          value: 😎
+        name: ping
+        resources: {}
+status: {}
+```
+- or we can use a special syntax which k8s supports for such use-cases (using $(`VAR_NAME`))
+```sh
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: ping
+  name: ping
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ping
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: ping
+    spec:
+      containers:
+      - command:
+        - ping
+        - $(TARGET)
+        image: alpine
+        env:
+        - name: TARGET
+          value: 127.0.0.3
+        - name: MOOD
+          value: 😎
+        name: ping
+        resources: {}
+status: {}
+```
+### Other ways to pass environment variables
+```yaml
+spec:
+	containers:
+	- command:
+	  env:
+		  - name: MY_POD_NAMESPACE
+		    valueFrom: 
+			    fieldRef:
+				    fieldPath: metadata.namespace
+```
+
 ## Configuration files and config maps
 - we get a bunch of files and put in config map
 ```sh
