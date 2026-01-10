@@ -1367,6 +1367,7 @@ DESCRIPTION:
     will not be assigned PID 1. HostPID and ShareProcessNamespace cannot both be
     set. Optional: Default to false.
 ```
+> `pod.spec.hostPID <boolean>` can be used to share host's pid namespace to be able to share processes and send signals to across different pods in the same node
 - thus, update the `haproxy.yaml`
 ```sh
 $ code k8s/haproxy.yaml

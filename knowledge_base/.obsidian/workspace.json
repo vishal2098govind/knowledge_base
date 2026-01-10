@@ -83,7 +83,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -236,11 +236,11 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "61f454f67a20b422",
+  "active": "a3535959daaadef8",
   "lastOpenFiles": [
-    "Kubernetes-Ardan-Labs/Volumes.md",
     "Kubernetes-Ardan-Labs/Managing Configuration using Volume.md",
     "Kubernetes-Ardan-Labs/Managing secrets.md",
+    "Kubernetes-Ardan-Labs/Volumes.md",
     "Docker-Ardan-Labs/Deep Dive Into Containers.md",
     "Kubernetes-Ardan-Labs/Ingress.md",
     "Kubernetes-Ardan-Labs/attachments/Pasted image 20260107004326.png",
