@@ -5,9 +5,9 @@
 - there are a number of namespaces
 - namespaces are equivalent to different rooms of the building/house where the house is the entire container
 ### Namespaces are available in modern kernels:
-#### pid 
+#### pid
 - makes each container have it's own processes
-- we can also share those processes among containers
+- we can also share those processes among containers #shared-pid-namespace
 ```sh
 $ docker run --pid host -ti alpine # this shares all the processes of the host with the container
 $ docker run --pid container:<container-id> -ti alpine # this shares the processes of the other container with this container
