@@ -1859,3 +1859,8 @@ $ curl localhost:8080
 $ curl localhost:8080
 🟡This is pod rainbow/yellow-69d94b589c-rbrqk on linux/amd64, serving / for 10.1.1.218:54192.
 ```
+
+### Should we need to do all these to keep containers running during configuration reload?
+- If we need to reload a configuration without stopping running process, without having to stop the world, 
+	- if we have some long-running connections running in the container, like web-sockets or video or gaming or VoIP server, we can't just restart the running container midway, we might want to let the existing connections drain, waiting until all the clients have finished their session or whatever
+	- then, this method tells it's possible
