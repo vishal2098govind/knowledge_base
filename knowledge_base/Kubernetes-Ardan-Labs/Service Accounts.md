@@ -52,6 +52,8 @@ _devdocs:*:59:59:Developer Documentation:/var/empty:/usr/bin/false
 #### Creating and using service accounts
 - creating a application called autoscaler, that will have permission only to scale up and scale down a specific deployment (worker), and no other permission
 ```sh
+$ kubectl create namespace securitydemo
+namespace/securitydemo created
 $ kubectl create serviceaccount autoscaler
 serviceaccount/autoscaler created
 $ kubectl apply -f k8s/dockercoins.yaml
@@ -280,4 +282,253 @@ $ curl https://$KUBERNETES_SERVICE_HOST:$KUBERNETES_SERVICE_PORT -H "Authorizati
   "details": {},
   "code": 403
 }
+```
+
+## RBAC
+#rbac
+- RBAC - Role based access control
+```sh
+$ kubectl get pods
+Error from server (Forbidden): pods is forbidden: User "system:serviceaccount:securitydemo:autoscaler" cannot list resource "pods" in API group "" in the namespace "securitydemo"
+```
+- this is where, the RBAC will kick in
+- there's no such thing like `kubeclt grant list pods to user system:serviceaccount:securitydemo:autoscaler`
+- at first we need to create a `role`, and then we need to associate or bind that role with the user
+- we don't directly give permissions to users, we put the permissions in roles, and then we associate the role with users
+```sh
+# 1. create role
+$ kubectl create role list-pods-role --verb=list --resource=pods
+role.rbac.authorization.k8s.io/list-pods-role created
+$ kubectl get roles
+NAME             CREATED AT
+list-pods-role   2026-01-11T20:58:08Z
+```
+- associate role with the user or `serviceaccount` by creating a `rolebinding`
+```sh
+$ kubectl create rolebinding -h
+...
+Usage:
+  kubectl create rolebinding NAME --clusterrole=NAME|--role=NAME
+[--user=username] [--group=groupname]
+[--serviceaccount=namespace:serviceaccountname] [--dry-run=server|client|none]
+[options]
+...
+$ kubectl create rolebinding autoscaler-can-list-pods --role=list-pods-role --serviceaccount=securitydemo:autoscaler
+rolebinding.rbac.authorization.k8s.io/autoscaler-can-list-pods created
+$ kubectl get rolebinding
+NAME                       ROLE                  AGE
+autoscaler-can-list-pods   Role/list-pods-role   6m23s
+```
+- now, inside the pod, we can do
+```sh
+bash-5.3# kubectl get pods
+NAME                      READY   STATUS    RESTARTS   AGE
+autoscaler-pod            1/1     Running   0          53m
+hasher-99bbd4bb-vfdlp     1/1     Running   0          76m
+redis-7b47f84cc4-9b7s5    1/1     Running   0          76m
+rng-65d885d498-f667w      1/1     Running   0          76m
+webui-74bb6bbc59-478mc    1/1     Running   0          76m
+worker-5c6f84b477-dnncf   1/1     Running   0          76m
+worker-5c6f84b477-fxwtg   1/1     Running   0          76m
+worker-5c6f84b477-jmxv2   1/1     Running   0          76m
+worker-5c6f84b477-n4wmd   1/1     Running   0          76m
+worker-5c6f84b477-nvddl   1/1     Running   0          76m
+worker-5c6f84b477-qkrj9   1/1     Running   0          76m
+worker-5c6f84b477-qr45k   1/1     Running   0          76m
+worker-5c6f84b477-wv972   1/1     Running   0          76m
+worker-5c6f84b477-xhdn6   1/1     Running   0          76m
+worker-5c6f84b477-zkgnk   1/1     Running   0          76m
+```
+- now, for the pod to be able to scale up or down worker deployment
+```sh
+bash-5.3# kubectl scale deployment worker --replicas=2
+error: no objects passed to scale deployments.apps "worker" is forbidden: User "system:serviceaccount:securitydemo:autoscaler" cannot get resource "deployments" in API group "apps" in the namespace "securitydemo"
+```
+- this asks for permissions to `get resource "deployments"`
+```sh
+# pod
+bash-5.3# kubectl scale deployment worker --replicas=2
+error: no objects passed to scale deployments.apps "worker" is forbidden: User "system:serviceaccount:securitydemo:autoscaler" cannot get resource "deployments" in API group "apps" in the namespace "securitydemo"
+-----
+# host machine
+$ kubectl create role get-deployments-role --verb get --resource deployments
+
+$ kubectl create rolebinding autoscaler-can-get-deployments --role get-deployments-role --serviceaccount securitydemo:autoscaler
+----
+# pod
+$ kubectl scale deployment worker --replicas=2
+Error from server (Forbidden): deployments.apps "worker" is forbidden: User "system:serviceaccount:securitydemo:autoscaler" cannot patch resource "deployments/scale" in API group "apps" in the namespace "securitydemo"
+----
+# host machine
+$ kubectl create role patch-deployments-scale-role --verb patch --resource deployments/scale
+
+$ kubectl create rolebinding autoscaler-can-patch-scale --role patch-deployments-scale-role --serviceaccount securitydemo:autoscaler
+----
+bash-5.3# kubectl scale deployment worker --replicas=4
+deployment.apps/worker scaled
+---
+$  kubectl get all
+NAME                          READY   STATUS              RESTARTS   AGE
+pod/autoscaler-pod            1/1     Running             0          70m
+pod/hasher-99bbd4bb-vfdlp     1/1     Running             0          93m
+pod/redis-7b47f84cc4-9b7s5    1/1     Running             0          93m
+pod/rng-65d885d498-f667w      1/1     Running             0          93m
+pod/webui-74bb6bbc59-478mc    1/1     Running             0          93m
+pod/worker-5c6f84b477-mmrdn   0/1     ContainerCreating   0          2s
+pod/worker-5c6f84b477-pgbfq   0/1     ContainerCreating   0          2s
+pod/worker-5c6f84b477-qkrj9   1/1     Running             0          93m
+pod/worker-5c6f84b477-qr45k   1/1     Running             0          93m
+
+NAME             TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)        AGE
+service/hasher   ClusterIP   10.98.77.203     <none>        80/TCP         93m
+service/redis    ClusterIP   10.111.75.228    <none>        6379/TCP       93m
+service/rng      ClusterIP   10.100.121.121   <none>        80/TCP         93m
+service/webui    NodePort    10.98.235.93     <none>        80:30227/TCP   93m
+
+NAME                     READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/hasher   1/1     1            1           93m
+deployment.apps/redis    1/1     1            1           93m
+deployment.apps/rng      1/1     1            1           93m
+deployment.apps/webui    1/1     1            1           93m
+deployment.apps/worker   2/4     4            2           93m
+
+NAME                                DESIRED   CURRENT   READY   AGE
+replicaset.apps/hasher-99bbd4bb     1         1         1       93m
+replicaset.apps/redis-7b47f84cc4    1         1         1       93m
+replicaset.apps/rng-65d885d498      1         1         1       93m
+replicaset.apps/webui-74bb6bbc59    1         1         1       93m
+replicaset.apps/worker-5c6f84b477   4         4         2       93m
+```
+- creating `role` and `rolebindings` using YAML
+```sh
+$ kubectl create role get-deployment --verb get --resource deployment -o json --dry-run=client
+{
+    "kind": "Role",
+    "apiVersion": "rbac.authorization.k8s.io/v1",
+    "metadata": {
+        "name": "get-deployment",
+        "creationTimestamp": null
+    },
+    "rules": [
+        {
+            "verbs": [
+                "get"
+            ],
+            "apiGroups": [
+                "apps"
+            ],
+            "resources": [
+                "deployments"
+            ]
+        }
+    ]
+}
+```
+- for much more fine-grained access control, we can mention `--resourceName` so that the permissions are only for the mentioned resource names of the resource types mentioned in `resources`
+```sh
+$ kubectl create role autoscaler-role --verb get --resource deployments --resource-name worker --dry-run=client -o yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  creationTimestamp: null
+  name: autoscaler-role
+rules:
+- apiGroups:
+  - apps
+  resourceNames:
+  - worker
+  resources:
+  - deployments
+  verbs:
+  - get
+```
+- can extend it to allow scale up and down
+```sh
+$ cat autoscaler-role.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  creationTimestamp: null
+  name: autoscaler-role
+rules:
+- apiGroups:
+  - apps
+  resourceNames:
+  - worker
+  resources:
+  - deployments
+  verbs:
+  - get
+- apiGroups:
+  - apps
+  resourceNames:
+  - worker
+  resources:
+  - deployments/scale
+  verbs:
+  - patch
+```
+- add `rolebinding`
+```sh
+$ kubectl create rolebinding autoscaler-can --role autoscaler-role --serviceaccount securitydemo:autoscaler --dry-run=client -o yaml
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  creationTimestamp: null
+  name: autoscaler-can
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: autoscaler-role
+subjects:
+- kind: ServiceAccount
+  name: autoscaler
+  namespace: securitydemo
+$ cat autoscaler-role.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: autoscaler-role
+rules:
+- apiGroups:
+  - apps
+  resourceNames:
+  - worker
+  resources:
+  - deployments
+  verbs:
+  - get
+- apiGroups:
+  - apps
+  resourceNames:
+  - worker
+  resources:
+  - deployments/scale
+  verbs:
+  - patch
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: autoscaler-can
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: autoscaler-role
+subjects:
+- kind: ServiceAccount
+  name: autoscaler
+  namespace: securitydemo
+---
+$ kubectl apply -f autoscaler-role.yaml
+role.rbac.authorization.k8s.io/autoscaler-role created
+rolebinding.rbac.authorization.k8s.io/autoscaler-can created
+```
+- now, if we try to scale in the pod
+```sh
+bash-5.3# kubectl scale deployment worker --replicas=4
+deployment.apps/worker scaled
+bash-5.3# kubectl scale deployment webui --replicas=3
+error: no objects passed to scale deployments.apps "webui" is forbidden: User "system:serviceaccount:securitydemo:autoscaler" cannot get resource "deployments" in API group "apps" in the namespace "securitydemo"
 ```
