@@ -288,3 +288,114 @@ $ curl localhost:8080
 ➜  ~ curl localhost:8080/red
 🔴This is pod nginx-helm-demo/red-77f6d65f98-qmxts on linux/amd64, serving /red for 10.1.1.232:59874.
 ```
+- include juice-shop application
+```sh
+$ helm install my-juice-shop securecodebox/juice-shop --version 5.4.0
+NAME: my-juice-shop
+LAST DEPLOYED: Sun Jan 11 13:34:09 2026
+NAMESPACE: nginx-helm-demo
+STATUS: deployed
+REVISION: 1
+DESCRIPTION: Install complete
+NOTES:
+1. Get the application URL by running these commands:
+  echo "Visit http://127.0.0.1:3000 to use your application"
+  kubectl --namespace nginx-helm-demo port-forward service/my-juice-shop 3000:3000
+➜  container.training git:(main) ✗ kubectl get all
+NAME                                                 READY   STATUS    RESTARTS   AGE
+pod/blue-5c986bd7bf-zdb9r                            1/1     Running   0          24m
+pod/ingress-nginx-demo-controller-75f4856bd7-fnmrb   1/1     Running   0          37m
+pod/my-juice-shop-5485c85d44-txz9h                   0/1     Pending   0          4s
+pod/red-77f6d65f98-qmxts                             1/1     Running   0          24m
+
+NAME                                              TYPE           CLUSTER-IP       EXTERNAL-IP   PORT(S)                      AGE
+service/blue                                      ClusterIP      10.102.126.22    <none>        80/TCP                       19m
+service/ingress-nginx-demo-controller             LoadBalancer   10.96.23.225     localhost     80:30205/TCP,443:32195/TCP   37m
+service/ingress-nginx-demo-controller-admission   ClusterIP      10.100.161.127   <none>        443/TCP                      37m
+service/my-juice-shop                             ClusterIP      10.96.163.44     <none>        3000/TCP                     4s
+service/red                                       ClusterIP      10.110.230.21    <none>        80/TCP                       19m
+
+NAME                                            READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/blue                            1/1     1            1           24m
+deployment.apps/ingress-nginx-demo-controller   1/1     1            1           37m
+deployment.apps/my-juice-shop                   0/1     1            0           4s
+deployment.apps/red                             1/1     1            1           24m
+
+NAME                                                       DESIRED   CURRENT   READY   AGE
+replicaset.apps/blue-5c986bd7bf                            1         1         1       24m
+replicaset.apps/ingress-nginx-demo-controller-75f4856bd7   1         1         1       37m
+replicaset.apps/my-juice-shop-5485c85d44                   1         1         0       4s
+replicaset.apps/red-77f6d65f98                             1         1         1       24m
+
+
+$ # configure default values of the juice-shop helm to get ingress
+$ kubectl get ingress
+NAME   CLASS   HOSTS   ADDRESS     PORTS   AGE
+red    nginx   *       localhost   80      49m
+$ helm upgrade my-juice-shop securecodebox/juice-shop --version 5.4.0 --set ingress.enabled=true
+
+Release "my-juice-shop" has been upgraded. Happy Helming!
+NAME: my-juice-shop
+LAST DEPLOYED: Sun Jan 11 14:05:32 2026
+NAMESPACE: nginx-helm-demo
+STATUS: deployed
+REVISION: 3
+DESCRIPTION: Upgrade complete
+NOTES:
+1. Get the application URL by running these commands:
+  http://chart-example.localmap[path:/]
+$ kubectl get ingress
+NAME            CLASS   HOSTS                 ADDRESS     PORTS   AGE
+my-juice-shop   nginx   chart-example.local               80      3s
+red             nginx   *                     localhost   80      51m
+```
+- making an ingress class default
+```sh
+$ kubectl get ingressclass nginx -o yaml
+apiVersion: networking.k8s.io/v1
+kind: IngressClass
+metadata:
+  annotations:
+    meta.helm.sh/release-name: ingress-nginx-demo
+    meta.helm.sh/release-namespace: nginx-helm-demo
+  creationTimestamp: "2026-01-11T07:27:06Z"
+  generation: 1
+  labels:
+    app.kubernetes.io/component: controller
+    app.kubernetes.io/instance: ingress-nginx-demo
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: ingress-nginx
+    app.kubernetes.io/part-of: ingress-nginx
+    app.kubernetes.io/version: 1.14.1
+    helm.sh/chart: ingress-nginx-4.14.1
+  name: nginx
+  resourceVersion: "549320"
+  uid: da884015-0ee0-4cc6-95ef-8216f5aabb25
+spec:
+  controller: k8s.io/ingress-nginx
+$ kubectl annotate ingressclass nginx ingressclass.kubernetes.io/is-default-class=true
+ingressclass.networking.k8s.io/nginx annotated
+➜  container.training git:(main) ✗ kubectl get ingressclass nginx -o yaml
+apiVersion: networking.k8s.io/v1
+kind: IngressClass
+metadata:
+  annotations:
+    ingressclass.kubernetes.io/is-default-class: "true"
+    meta.helm.sh/release-name: ingress-nginx-demo
+    meta.helm.sh/release-namespace: nginx-helm-demo
+  creationTimestamp: "2026-01-11T07:27:06Z"
+  generation: 1
+  labels:
+    app.kubernetes.io/component: controller
+    app.kubernetes.io/instance: ingress-nginx-demo
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: ingress-nginx
+    app.kubernetes.io/part-of: ingress-nginx
+    app.kubernetes.io/version: 1.14.1
+    helm.sh/chart: ingress-nginx-4.14.1
+  name: nginx
+  resourceVersion: "555792"
+  uid: da884015-0ee0-4cc6-95ef-8216f5aabb25
+spec:
+  controller: k8s.io/ingress-nginx
+```
