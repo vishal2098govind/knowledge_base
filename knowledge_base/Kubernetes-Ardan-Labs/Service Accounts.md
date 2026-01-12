@@ -358,6 +358,33 @@ $ kubectl create rolebinding autoscaler-can-get-deployments --role get-deploymen
 # pod
 $ kubectl scale deployment worker --replicas=2
 Error from server (Forbidden): deployments.apps "worker" is forbidden: User "system:serviceaccount:securitydemo:autoscaler" cannot patch resource "deployments/scale" in API group "apps" in the namespace "securitydemo"
+```
+- this little detail will let us have permissions to scale up and scale down, without having permissions on everything else
+- the fact that we can give permission for the scale sub-resources, means that we can give access to that sub-resource and give access specifically to that scale, without giving access to, for instance, changing the image or metadata or deleting deployment etc etc.
+- when we talk about k8s objects, sometimes we talk about
+	- objects
+	- or resources
+	- or manifests
+- and very often, we use all these in a kind of inter changeable way, when we say
+	- "we need to create an object"
+	- or "we need to create a resource"
+	- or "we need to write a manifest"
+- what's exactly the difference between these terms
+	- object is the thing that exists in k8s API
+		- typically it corresponds to some entry in `etcd`
+	- the manifest is something that is present in the entry of `etcd`
+		- it's YAML or JSON that is given to API Server to describe an object
+		- internally, inside `etcd` we have `protobufs` for these objects
+			- we might have more or less fields than what we have in manifest
+	- resources are a way to access the objects through the API
+		- sometimes we've multiple resources for the same object because we've different API endpoints
+		- ~ social media app - users, friends, followers
+			- /users endpoint, /followers endpoint, /friends endpoint
+		- similarly multiple resources and api routes giving access to same object
+	- sub-resources
+		- special resource that gives access to reduced object
+		- we have multiple different sub-resources depending on the type of object
+```sh
 ----
 # host machine
 $ kubectl create role patch-deployments-scale-role --verb patch --resource deployments/scale
