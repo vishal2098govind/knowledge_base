@@ -52,3 +52,42 @@
 	- since CPU is a compressible resource, for CPU **we can go** with requests < limits
 - If a pod doesn't have any request nor limit, QoS is considered "**BestEffort**"
 	- on reaching limits, the pods will be kicked out for other pods to run
+
+## Specifying resources
+- Memory is to be specified in bytes
+	- 250M (upper-case M)= 250 x 1000 x 1000 = 250 Million or 250 Megabytes
+	- 250Mi = 250 x 1024 x 1024 = 250 Mebibytes
+	- 250m (lower-case m) = 250 mili = 0.25 bytes = 2 bits
+- CPU is indicated using number of cores
+	- this can be a decimal value as well
+	- `resources.limits.cpu: 1` => 1 CPU cores
+	- `resources.limits.cpu: 2` => 2 CPU cores
+	- `resources.limits.cpu: 10` => 10 CPU cores
+	- `resources.limits.cpu: 0.5` => half of a CPU
+```yaml
+resources:
+	limits:
+		memory: 8G
+		cpu: 2
+```
+- there is **no physical reservation** of CPUs and Memory for the containers within the pod
+- each time we put a pod that has 8GB of memory request on a node, we decrement that much amount from the available memory on that node
+	- it doesn't matter if the container or pod is actually using the requested memory
+- Default values used
+	- it is recommended to either put nothing, or put everything
+	- If we specify a limit without a request:
+		- the request is set to the limit
+	- If we specify a request without a limit:
+		- there will be no limit
+		- (which means that the limit will be the size of the node)
+	- If we don't specify anything:
+		- the request is zero and the limit is the size of the node
+		- _Unless there are default values defined for our namespace!_
+- We can create `LimitRange` objects to indicate any combination of:
+    - min and/or max resources allowed per pod
+    - default resource _limits_
+    - default resource _requests_
+    - maximal burst ratio (_limit/request_)
+- LimitRange objects are `namespaced`
+- They apply to their namespace only
+- this is helpful if all pods in the namespace have same kind of applications or same resource footprint, which is very unusual
