@@ -91,3 +91,46 @@ resources:
 - LimitRange objects are `namespaced`
 - They apply to their namespace only
 - this is helpful if all pods in the namespace have same kind of applications or same resource footprint, which is very unusual
+
+
+## Checking Node and Pod resource usage
+```sh
+$ kubectl top nodes
+NAME             CPU(cores)   CPU(%)   MEMORY(bytes)   MEMORY(%)
+docker-desktop   2446m        20%      5747Mi          74
+$ kubectl top pods
+NAME                      CPU(cores)   MEMORY(bytes)
+hasher-99bbd4bb-vfdlp     39m          22Mi
+redis-7b47f84cc4-9b7s5    5m           16Mi
+rng-65d885d498-f667w      50m          25Mi
+webui-74bb6bbc59-478mc    1m           41Mi
+worker-5c6f84b477-mmrdn   27m          26Mi
+worker-5c6f84b477-pgbfq   30m          26Mi
+worker-5c6f84b477-qkrj9   29m          25Mi
+worker-5c6f84b477-qr45k   32m          26Mi
+```
+
+## Cluster sizing
+- what happens when cluster gets full
+- when are we out of resources
+	- `kubelet` sits on each node, and monitors resource usage
+	- for memory and disk, we've a threshold of around 90%, which on reaching, `kubelet` needs to react and free up some memory
+	- we've two thresholds
+		- soft threshold - `kubelet` doesn't reach immediately when hit, but reacts when we stay too long on soft threshold
+		- hard threshold - `kubelet` reacts immediately when hit
+	- the pods with "BestEffort" as QoS are the first ones to be removed
+	- then, the pods with "Burst-able" as QoS are the ones to be removed
+	- by then, we have solved memory memory issues, because after that, we only are left with pods that use less than their memory request
+	- if disk usage is too high, k8s will try to terminate pods and then try to **evict pods**
+		- evict is technical word for removing the pod
+		- which means the pod is **moved to another node**
+			- when we evict the pod, the pod is terminated in that node
+			- as if we did `kubectl delete pod pod-name` and we have a graceful shutdown
+			- and the controller above will create a replacement pod in another node
+	- the node is marked as "under pressure"
+		- technically, this is a **taint** placed on the node
+		- the node marks itself as not ready and asking not to be sent new pods here for a while, and thus the scheduler will avoid assigning pods to that node
+	- sometimes a pod cannot be scheduled anywhere after eviction
+		- if all nodes are under pressure
+		- or the pod requests more resources than available
+		- then, the pod remains in `Pending` state until the situation improves
