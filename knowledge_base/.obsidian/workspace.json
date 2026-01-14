@@ -28,7 +28,7 @@
             "state": {
               "type": "excalidraw",
               "state": {
-                "file": "Go-Ardan-Labs/goscheduler.excalidraw"
+                "file": "Go-Bill-Kennedy/goscheduler.excalidraw"
               },
               "icon": "excalidraw-icon",
               "title": "goscheduler"
@@ -188,8 +188,12 @@
   },
   "active": "32a8c89bce08f118",
   "lastOpenFiles": [
+    "Go-Bill-Kennedy/k8s CPU Limits for Go.md",
+    "Kubernetes-Ardan-Labs/Self learning notes.md",
+    "Go-Bill-Kennedy/goscheduler.excalidraw",
+    "Go/link-editor flags in Go.md",
+    "Go-Bill-Kennedy/Millicore.md",
     "Kubernetes-Ardan-Labs/tables used.md",
-    "Go-Ardan-Labs/goscheduler.excalidraw",
     "Kubernetes-Ardan-Labs/Daemon Sets.md",
     "Kubernetes-Ardan-Labs/k8s events and retries.md",
     "Docker-Ardan-Labs/Docker Images.md",
@@ -197,7 +201,6 @@
     "Kubernetes-Ardan-Labs/Shipping images with a registry.md",
     "Kubernetes-Ardan-Labs/kubectl.md",
     "Docker-Ardan-Labs/Container Network Driver.md",
-    "Go/link-editor flags in Go.md",
     "Go/PC in slog.md",
     "Articles/Go/Go-sum/Draft.md",
     "Articles/Go/Concurrency in Go Feels More Like Organizing People Than Using Threads/Article - Concurrency in Go Feels More Like Organizing People Than Using Threads.md",
@@ -213,10 +216,7 @@
     "Kubernetes-Ardan-Labs/Managing Configuration using Volume.md",
     "Kubernetes-Ardan-Labs/Managing secrets.md",
     "Kubernetes-Ardan-Labs/Managing stacks with Helm.md",
-    "Kubernetes-Ardan-Labs/Authentication and Authorization.md",
     "Kubernetes-Ardan-Labs/attachments/Pasted image 20260107004326.png",
-    "Kubernetes-Ardan-Labs/nip.io.md",
-    "Kubernetes-Ardan-Labs/Kubernetes Network Model.md",
     "Book-Building-Microservices",
     "Book-DDIA",
     "Book-Browser-Networking",
