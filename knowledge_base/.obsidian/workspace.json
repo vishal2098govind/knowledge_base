@@ -26,12 +26,15 @@
             "id": "32a8c89bce08f118",
             "type": "leaf",
             "state": {
-              "type": "excalidraw",
+              "type": "markdown",
               "state": {
-                "file": "Go-Bill-Kennedy/goscheduler.excalidraw"
+                "file": "Go-Bill-Kennedy/DDD-Go/go reflection and struct tags.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
               },
-              "icon": "excalidraw-icon",
-              "title": "goscheduler"
+              "icon": "lucide-file",
+              "title": "go reflection and struct tags"
             }
           }
         ],
@@ -188,9 +191,13 @@
   },
   "active": "32a8c89bce08f118",
   "lastOpenFiles": [
+    "Go-Bill-Kennedy/DDD-Go/config.md",
+    "Go-Bill-Kennedy/DDD-Go/go reflection and struct tags.md",
+    "Go-Bill-Kennedy/DDD-Go/Drawing 2026-01-20 18.46.08.excalidraw.md",
+    "Go-Bill-Kennedy/goscheduler.excalidraw",
+    "Go-Bill-Kennedy/DDD-Go",
     "Go-Bill-Kennedy/k8s CPU Limits for Go.md",
     "Kubernetes-Ardan-Labs/Self learning notes.md",
-    "Go-Bill-Kennedy/goscheduler.excalidraw",
     "Go/link-editor flags in Go.md",
     "Go-Bill-Kennedy/Millicore.md",
     "Kubernetes-Ardan-Labs/tables used.md",
@@ -214,8 +221,6 @@
     "Docker-Ardan-Labs/Deep Dive Into Containers.md",
     "Kubernetes-Ardan-Labs/Volumes.md",
     "Kubernetes-Ardan-Labs/Managing Configuration using Volume.md",
-    "Kubernetes-Ardan-Labs/Managing secrets.md",
-    "Kubernetes-Ardan-Labs/Managing stacks with Helm.md",
     "Kubernetes-Ardan-Labs/attachments/Pasted image 20260107004326.png",
     "Book-Building-Microservices",
     "Book-DDIA",
@@ -223,7 +228,6 @@
     "Book-Database-Internals",
     "Book-gRPC-Microservices-in-Go",
     "Book-DDD-with-Go",
-    "Book-Concurrency-In-Go",
     "Kubernetes-Ardan-Labs/attachments/Pasted image 20260104203124.png",
     "Kubernetes-Ardan-Labs/attachments/Pasted image 20260104175606.png",
     "Kubernetes-Ardan-Labs/attachments/Pasted image 20260101003949.png",
