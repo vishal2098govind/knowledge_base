@@ -1,0 +1,24 @@
+#go #go-packaging
+
+- Every package in the system creates a firewall between the different parts of the system
+- every folder in the go project represents a static API or static library
+- we are organizing APIs more than organizing code
+- a package provides a **purpose**
+- we don't build packages that just **contain** stuffs - `utils` or `common`
+- every package we build 
+	- will have a **purpose**
+	- will have **APIs**
+		- every API's job really just to do some data transformation we need
+		- every function is a **data transformation**
+		- it receives some input, it returns some output
+	- will have it's own **type system**
+		-  this type system represents 
+			- the data coming in to the API 
+			- and the data leaving that API
+- we prefer starting to write our package APIs over concrete types, and discover interfaces along the way if needed to be runtime-polymorphic
+- we should use interfaces when it makes sense for us as the package maintainers, not for the users of the package
+	- i.e. use interfaces, when it makes sense, as input types to the APIs
+	- don't (prefer not to) use interfaces as return types leaving the APIs
+		- prefer returning concrete data
+		- we don't have to decouple data for the user/caller of the package/API
+		- leave the decoupling to the person that consumes our package/API
