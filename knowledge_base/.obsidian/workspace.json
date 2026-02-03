@@ -4,53 +4,56 @@
     "type": "split",
     "children": [
       {
-        "id": "18005fc93207aae6",
+        "id": "ad5cd9b675897492",
         "type": "tabs",
         "children": [
           {
-            "id": "32a8c89bce08f118",
+            "id": "15e6a869cdc2ae9f",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Go-Bill-Kennedy/DDD-Go/go reflection and struct tags.md",
+                "file": "Authentication/Cryptography-Coursera/Course-Overview.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "go reflection and struct tags"
+              "title": "Course-Overview"
             }
           },
           {
-            "id": "07c2dc7f24c5742d",
+            "id": "77642d9e57922354",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Go-Bill-Kennedy/DDD-Go/customized mux.md",
+                "file": "Authentication/Cryptography-Coursera/What is Cryptography.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "customized mux"
+              "title": "What is Cryptography"
             }
           },
           {
-            "id": "d51a2a54e37fba85",
+            "id": "b4a5519ead7d1dc3",
             "type": "leaf",
             "state": {
-              "type": "excalidraw",
+              "type": "markdown",
               "state": {
-                "file": "Go-Bill-Kennedy/DDD-Go/wrapping mux.md"
+                "file": "Authentication/Cryptography-Coursera/3 Steps in Cryptography.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
               },
-              "icon": "excalidraw-icon",
-              "title": "wrapping mux"
+              "icon": "lucide-file",
+              "title": "3 Steps in Cryptography"
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -107,7 +110,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 351.5004348754883
+    "width": 351.5004348754883,
+    "collapsed": true
   },
   "right": {
     "id": "b728b4262fed4323",
@@ -201,22 +205,31 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "07c2dc7f24c5742d",
+  "active": "b4a5519ead7d1dc3",
   "lastOpenFiles": [
-    "Go-Bill-Kennedy/DDD-Go/wrapping mux.md",
-    "Go-Bill-Kennedy/DDD-Go/customized mux.md",
+    "Authentication/Cryptography-Coursera/What is Cryptography.md",
+    "Authentication/Cryptography-Coursera/3 Steps in Cryptography.md",
+    "Authentication/Cryptography-Coursera/Course-Overview.md",
+    "Authentication/Cryptography.md",
+    "Authentication/Cryptography-Coursera",
     "Go-Bill-Kennedy/DDD-Go/go reflection and struct tags.md",
-    "Go/link-editor flags in Go.md",
+    "Go-Bill-Kennedy/Go Language Guide/Design Guidelines.md",
+    "Go-Bill-Kennedy/DDD-Go/Service Architecture.md",
+    "Go-Bill-Kennedy/DDD-Go/wrapping mux.md",
+    "Go-Bill-Kennedy/DDD-Go/attachments/Pasted Image 20260122104430_555.png",
+    "Go-Bill-Kennedy/DDD-Go/attachments",
     "Go-Bill-Kennedy/DDD-Go/Untitled.md",
-    "Go-Bill-Kennedy/DDD-Go/Untitled.base",
+    "Go-Bill-Kennedy/k8s CPU Limits for Go.md",
+    "Go-Bill-Kennedy/Millicore.md",
+    "Go-Bill-Kennedy/goscheduler.excalidraw",
     "Go-Bill-Kennedy/DDD-Go/Package oriented design.md",
+    "Go-Bill-Kennedy/DDD-Go/customized mux.md",
+    "Go/link-editor flags in Go.md",
+    "Go-Bill-Kennedy/DDD-Go/Untitled.base",
     "Go-Bill-Kennedy/DDD-Go/config.md",
     "Go-Bill-Kennedy/DDD-Go/Drawing 2026-01-20 18.46.08.excalidraw.md",
-    "Go-Bill-Kennedy/goscheduler.excalidraw",
     "Go-Bill-Kennedy/DDD-Go",
-    "Go-Bill-Kennedy/k8s CPU Limits for Go.md",
     "Kubernetes-Ardan-Labs/Self learning notes.md",
-    "Go-Bill-Kennedy/Millicore.md",
     "Kubernetes-Ardan-Labs/tables used.md",
     "Kubernetes-Ardan-Labs/Daemon Sets.md",
     "Kubernetes-Ardan-Labs/k8s events and retries.md",
@@ -226,20 +239,12 @@
     "Kubernetes-Ardan-Labs/kubectl.md",
     "Docker-Ardan-Labs/Container Network Driver.md",
     "Go/PC in slog.md",
-    "Articles/Go/Go-sum/Draft.md",
-    "Articles/Go/Concurrency in Go Feels More Like Organizing People Than Using Threads/Article - Concurrency in Go Feels More Like Organizing People Than Using Threads.md",
-    "Articles/Go/Article - I Thought Go Concurrency Was About Speed — I Was Wrong.md",
     "Articles/Go/Go-sum",
-    "Go/Versioning In Go/Go Package Versioning - vgo.md",
     "Go/Versioning In Go",
-    "Kubernetes-Ardan-Labs/Service Accounts.md",
-    "Kubernetes-Ardan-Labs/Managing capacity - Memory and CPU.md",
     "Kubernetes-Ardan-Labs/attachments/Pasted image 20260107004326.png",
     "Book-Building-Microservices",
     "Book-DDIA",
     "Book-Browser-Networking",
-    "Book-Database-Internals",
-    "Book-gRPC-Microservices-in-Go",
     "Kubernetes-Ardan-Labs/attachments/Pasted image 20260104203124.png",
     "Kubernetes-Ardan-Labs/attachments/Pasted image 20260104175606.png",
     "Kubernetes-Ardan-Labs/attachments/Pasted image 20260101003949.png",
@@ -248,7 +253,6 @@
     "Kubernetes-Ardan-Labs/attachments/Pasted image 20251231174619.png",
     "Kubernetes-Ardan-Labs/attachments/Pasted image 20251230235752.png",
     "Kubernetes-Ardan-Labs/attachments/Pasted image 20251230235736.png",
-    "Kubernetes-Ardan-Labs/attachments/Pasted image 20251230235702.png",
     "Untitled.canvas"
   ]
 }

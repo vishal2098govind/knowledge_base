@@ -168,5 +168,4 @@ func readiness(ctx context.Context, w http.ResponseWriter, r *http.Request) erro
 
 	return json.NewEncoder(w).Encode(resp)
 }
-
 ```
