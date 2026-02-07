@@ -68,22 +68,19 @@
             }
           },
           {
-            "id": "9ed381be0d2086d8",
+            "id": "18f0082f157ce581",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "excalidraw",
               "state": {
-                "file": "Authentication/TLS/PKI - Public Key Infrastructure.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
+                "file": "Authentication/TLS/Data Encryption.md"
               },
-              "icon": "lucide-file",
-              "title": "PKI - Public Key Infrastructure"
+              "icon": "excalidraw-icon",
+              "title": "Data Encryption"
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -234,7 +231,7 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "9ed381be0d2086d8",
+  "active": "96614d552e54a117",
   "lastOpenFiles": [
     "Authentication/TLS/Data Encryption.md",
     "Authentication/TLS/PKI - Public Key Infrastructure.md",

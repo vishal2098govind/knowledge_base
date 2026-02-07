@@ -41,6 +41,8 @@ When a public key is used to encrypt, it is simply called **encrypting**
 
 Asymmetric Encryption is used to solve the problem with Symmetric Encryption of sharing the symmetric key to both the parties.
 
+Algorithms: RSA, Diffie-Hellman
+
 **Hashing**:
 Hashing is used mainly for verifying if the data that is received is actually what that was sent - i.e. mainly for data integrity
 A hashing function takes in a parameter of any length and always returns hash of same length
