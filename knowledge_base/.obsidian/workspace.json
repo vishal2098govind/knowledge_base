@@ -58,13 +58,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Authentication/JWT/JSON Web Tokens.md",
+                "file": "Authentication/TLS/PKI - Public Key Infrastructure.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "JSON Web Tokens"
+              "title": "PKI - Public Key Infrastructure"
             }
           }
         ],
@@ -223,6 +223,8 @@
   "active": "96614d552e54a117",
   "lastOpenFiles": [
     "Authentication/JWT/JSON Web Tokens.md",
+    "Authentication/TLS/PKI - Public Key Infrastructure.md",
+    "Authentication/TLS",
     "Authentication/JWT",
     "Authentication/Cryptography-Coursera/XOR in Cryptography.md",
     "Authentication/Cryptography-Coursera/Ciphers.md",
@@ -259,7 +261,6 @@
     "Go-Bill-Kennedy/DDD-Go/config.md",
     "Go-Bill-Kennedy/DDD-Go/Drawing 2026-01-20 18.46.08.excalidraw.md",
     "Go-Bill-Kennedy/DDD-Go",
-    "Articles/Go/Go-sum",
     "Kubernetes-Ardan-Labs/attachments/Pasted image 20260107004326.png",
     "Kubernetes-Ardan-Labs/attachments/Pasted image 20260104203124.png",
     "Kubernetes-Ardan-Labs/attachments/Pasted image 20260104175606.png",

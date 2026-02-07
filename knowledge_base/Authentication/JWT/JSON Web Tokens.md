@@ -124,3 +124,4 @@ Thus, confidential information like passwords should not be put inside a JWT tok
 - The client secret is passed along so that the authorization server would be able to verify for sure that the request is actually coming from the valid registered client
 - The client id and client secret are given to the client itself by the authorization server
 - the authorization server uses these **client credentials** (client-id and client-secret combined) to authenticate the client
+
