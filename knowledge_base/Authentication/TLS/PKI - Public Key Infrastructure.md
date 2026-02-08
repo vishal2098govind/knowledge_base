@@ -41,7 +41,7 @@ When a public key is used to encrypt, it is simply called **encrypting**
 
 Asymmetric Encryption is used to solve the problem with Symmetric Encryption of sharing the symmetric key to both the parties.
 
-Algorithms: RSA, Diffie-Hellman
+Algorithms: RSA
 
 **Hashing**:
 Hashing is used mainly for verifying if the data that is received is actually what that was sent - i.e. mainly for data integrity
@@ -163,3 +163,40 @@ WS Side:
 - Now, the WS received the `ENCP(WS.pub, BR.symm-key)`
 - It decrypts it using the `WS.pvt` i.e. does `DCP(WS.pvt, ENCP(WS.pub, BR.symm-key))` and obtains the `BR.symm-key`
 - Now, both BR and WS have `BR.symm-key` which they are going to use in the rest of the TLS/TCP session while transmitting application data in the socket
+
+
+Side notes:
+- Due to variety of historical and commercial reasons, RSA handshake has been the dominant key exchange mechanisms in most TLS deployments
+- Client generates a symmetric key for established session, encrypts it using server's private key, and sends it to server to use as the symmetric key for the established session
+- The server uses it's private key to decrypt the sent symmetric key and key-exchange is complete.
+- From this point, the client and server use the negotiated symmetric key to encrypt their session
+- The RSA handshake works but has critical weakness.
+- The same public-private key pair is used both to authenticate server and to encrypt symmetric session key sent to the server.
+- If an attacker gains access to server's private key and listens in on the exchange, then they can decrypt the entire session.
+- Worse, even if an attacker does not currently have access to private key, they can still record the encrypted session and decrypt it at a later time once they obtain the private key
+- By contrast, the Diffie Hellman key exchange allows the client and server to negotiate a shared secret without explicitly communicating it in the handshake
+- The server's private key is used to sign and verify the handshake, but established symmetric key never leaves the client or server and thus cannot be intercepted by a passive attacker
+	- Mathematics to understand how shared keys exchange without actually sending
+	- $(g^a\ mod\ p)^b≡(g^a)^b\ mod\ p$
+	- using this, Alice and Bob decide on parameters `g` and `p` which are typically well known to all
+	- Alice chooses a parameter `a` which Bob doesn't know or doesn't sends to Bob in any way
+	- Bob chooses a parameter `b` which Alice doesn't know or doesn't sends to Alice in any way
+	- Alice and Bob during the handshake, 
+		- Alice computes  $g^a\ mod\ p$ and sends to Bob
+		- Bob computes $g^b\ mod\ p$ and sends to Alice
+	- Alice and Bob now receive the computed values of 
+		- Alice receives the computed value of $g^b\ mod\ p$
+		- Bob receives the computed value of $g^a\ mod\ p$
+	- Alice and Bob raise the received value with the their chosen parameters of $a$ and $b$
+		- Alice computes $(g^b\ mod\ p)^b≡(g^b)^a\ mod\ p$
+		- Bob computes $(g^a\ mod\ p)^b≡(g^a)^b\ mod\ p$
+	- Alice and Bob now have same key which they use as symmetric key
+	- Any attacker in the middle will not be able to figure out the key because for that they need to know g, b and a all three
+	- even if $g$ and $p$ are well know, just by knowing $g^a\ mod\ p$ and $g^b\ mod\ p$, one cannot find $a$ and $b$ separately in finite time, but would take ages or some 1000s of years to compute, given $p$ is very large
+- Best of all, Diffie-Hellman key exchange can be used to reduce the risk of compromise of past communication sessions
+- We can generate new symmetric keys as part of each exchange and discard previous keys
+- Since the symmetric keys are never communicated and are actively re-negotiated for each new session, the worst-case scenario is that an attacker could compromise the client or server and access session keys of the current and future session
+- However, knowing the private key does not help decrypt any of the **previous sessions**
+- Deffie Hellman is often referred as ECDH : Elliptic Curve Deffie Hellman
+- Asymmetric or Public Key Cryptography is much more computationally expensive than Symmetric Key Cryptography
+- 
