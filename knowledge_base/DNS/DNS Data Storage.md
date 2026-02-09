@@ -203,3 +203,20 @@ www.example.com CNAME example.com
 - CNAME record cannot co-exist with another record for the same name
 	- i.e. not possible to have both CNAME and TXT record for www.example.com
 - CNAME can point to another CNAME, a mechanism that is known as CNAME chaining. Not recommended as it requires multiple DNS lookups before intended domain can be loaded, which slows down the name resolution process and in turn impacts user experience
+
+## TXT Record
+- Associates textual data with a domain name
+
+Format
+```
+<domain-name> <class> TXT <TTL> <textual data>
+```
+
+can place any text that the administrator wants to associate with their domain, though the value of this record was originally intended as a place for human readable notes, it is now possible to put machine readable data as well
+
+It is also perfectly possible for one domain to be associated with many TXT records
+
+### Use cases of TXT records
+- Associating domains with textual data
+- Proving domain ownership
+- Strengthening email security
