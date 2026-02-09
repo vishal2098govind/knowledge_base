@@ -83,10 +83,26 @@ Nowadays, we often hear people of various professions saying that this is outsid
 
 Conversely, a well-known expert who is very good in their industry is referred to as the leading authority in that field, and so that person is responsible for educating rest of us on their specific subject matter
 
-Along the same lines, the domain within the context of DNS is a particular slice of namespace where there is somebody with the authority to manage that segment and with the responsibility to provide, and with the responsibility to provide answers to DNS requests made for that very segment
+- Along the same lines, the domain within the context of DNS is a particular slice of namespace 
+- where there is somebody with the authority to manage that segment
+- and with the responsibility to provide answers to DNS requests made for that very segment
+- The entire name hierarchy is divided into such segments of authority
 ![[Pasted image 20260209011837.png]]
 DNS uses a globally distributed system of databases, and that system works in conjunction with an equally distributed system of authorities
 
 This hierarchical authority structure complements the hierarchical name structure in DNS
 
-It is not necessary for a different authority to exist at every level of hierarchy, as in many cases, a single authority may manage a section of namespace that spans more than one level of the structure
+It is not necessary for a different authority to exist at every level of hierarchy, 
+as in many cases, a single authority may manage a section of namespace that spans more than one level of the structure
+E.g.: `ican` is the organization responsible for managing the root servers as well as the `int` TLD
+While the authority over other TLDs has been delegated to other organizations
+
+E.g. as the owner of `securitycharms.com` domain, I can exercise authority of `securitycharms.com` and some of it's subdomains like `www.securitycharms.com` and delegate authority to another organization of a specific subdomain like `zzz.securitycharms.com`
+
+Authoritative name server is the one holding the dns name-database specific to the requested domain, and is the one that will complete the name resolution process, by providing the IP address mapped to the domain name we have typed into our browser
+
+The root server had previously provided a referral because it was not the authoritative server for the requested domain
+Likewise, the referred TLD name server was also not the authoritative server for the requested domain either
+Which is why it offered a referral of it's own
+Because of these referrals, we are now at the end of our name resolution journey as we are contacting the authoritative name server that has information we need.
+This time, there's not going to be another referral, but a final answer in the form of an IP address that the requested domain resolves to, so that we can finally browse to that website
