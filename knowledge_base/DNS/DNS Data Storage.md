@@ -87,7 +87,7 @@ example.com
 	minimum = 1800
 ```
 
-## NS Record
+## NS Record - Name Server
 - NS : Name Server
 - One of the most important resource records
 - Point to authoritative name servers for a zone
@@ -116,3 +116,90 @@ Non-authoritative answer:
 knolia.ai	nameserver = ns63.domaincontrol.com.
 knolia.ai	nameserver = ns64.domaincontrol.com.
 ```
+
+## `A` record - Address Record
+The resource record that stores the association between domain name and IPv4 address is the A-record or the address record
+
+It is a primary record in DNS and is queried in forward lookup requests
+
+Format:
+```
+<domain-name> <TTL> <class> A <IPv4 address>
+```
+### AAAA Record
+The cousin of the A record is the AAAA record - aka Quad-A record, which stores a domain name, and IPv6 address
+
+Reason for four As in AAAA-Record:
+to signify that the value stored in it is four times as big as the one stored in A record
+i.e. IPv4 has 32 bits, IPv6 has 128 bits
+
+Format
+```
+<domain-name> <TTL> <class> AAAA <IPv6 address>
+```
+
+It is perfectly possible for an A record and a AAAA record to point to same domain name, in cases where dual stack is required
+
+```sh
+$ nslookup -type=A example.com
+Server:		8.8.8.8
+Address:	8.8.8.8#53
+
+Non-authoritative answer:
+Name:	example.com
+Address: 104.18.27.120
+Name:	example.com
+Address: 104.18.26.120
+
+$ nslookup -type=AAAA example.com
+Server:		8.8.8.8
+Address:	8.8.8.8#53
+
+Non-authoritative answer:
+example.com	has AAAA address 2606:4700:9a92:8c7c:33c5:0:ccc4:a209
+```
+
+## PTR Record - Pointer Record
+- This resource record allows the reverse name resolution to happen
+- Points an IP address to domain name
+
+Format:
+```
+<reverse domain name> <class> PTR <domain name>
+```
+
+They are placed in reverse lookup zone
+
+```sh
+$ nslookup -type=ptr 52.214.181.141
+Server:		8.8.8.8
+Address:	8.8.8.8#53
+
+Non-authoritative answer:
+141.181.214.52.in-addr.arpa	name = ec2-52-214-181-141.eu-west-1.compute.amazonaws.com.
+```
+
+## Canonical Name Record CNAME
+This appears very frequently in DNS configuration, troubleshooting and name resolution
+CNAME = Canonical Name = real name of an object referenced by an alias
+This record basically maps one domain to another
+
+Format
+
+```
+<alias> <class> CNAME <TTL> <canonical name>
+www.example.com CNAME example.com
+```
+
+### Use cases of CNAME records:
+- Used to map subdomains to apex domains, such as www.example.com to example.com
+- Redirect multiple TLDs to same second-level domain
+- Example, if we have mydomain.com and mydomain.com.nz they get directed to mydomain.com
+- Validate ownership or control of a domain
+
+### Restrictions on CNAME
+- Must always point to another domain name and never directly to an IP address
+- Cannot point to an NS or MX record
+- CNAME record cannot co-exist with another record for the same name
+	- i.e. not possible to have both CNAME and TXT record for www.example.com
+- CNAME can point to another CNAME, a mechanism that is known as CNAME chaining. Not recommended as it requires multiple DNS lookups before intended domain can be loaded, which slows down the name resolution process and in turn impacts user experience
