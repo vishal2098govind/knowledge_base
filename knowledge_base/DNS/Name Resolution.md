@@ -134,6 +134,7 @@ These servers are known as Cache-only DNS servers. They are often present in man
 - The resolve names get cached for a finite amount of time
 - The duration for that time frame is determined by a parameter known as time-to-live (TTL) 
 
+![[Pasted image 20260210014935.png]]
 ## Reverse Name Resolution
 - Forward resolution - given domain name, we want to know it's IP address
 - Reverse resolution - given an IP address, we want to know it's domain name it's mapped to
