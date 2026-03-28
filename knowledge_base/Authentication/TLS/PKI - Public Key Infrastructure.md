@@ -88,7 +88,7 @@ ICA side:
 - prepares a RSA key-pair
 	- obtains `ICA.pub` and `ICA.pvt`
 - sends CSR to RCA:
-- in the CSR, passes the ICA.pub along with identification details of the ICA
+- in the CSR, passes the `ICA.pub` along with identification details of the ICA
 
 RCA side:
 - receives CSR from ICA
