@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Authentication/JWT/Example JWT Implementation.md",
+                "file": "Go-Bill-Kennedy/Go Language Guide/Error Handling in Go.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Example JWT Implementation"
+              "title": "Error Handling in Go"
             }
           },
           {
@@ -28,13 +28,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Authentication/JWT/Untitled.md",
+                "file": "Authentication/JWT/Example JWT Implementation.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Untitled"
+              "title": "Example JWT Implementation"
             }
           }
         ]
@@ -188,12 +188,12 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "ca4f4fb121bb1739",
+  "active": "110819deac7cbf9c",
   "lastOpenFiles": [
-    "Authentication/JWT/JSON Web Tokens.md",
-    "Authentication/JWT/Untitled.md",
     "Authentication/JWT/Example JWT Implementation.md",
+    "Authentication/JWT/JSON Web Tokens.md",
     "Authentication/JWT/JWT.md",
+    "Authentication/JWT/Untitled.md",
     "Authentication/TLS/PKI - Public Key Infrastructure.md",
     "Authentication/TLS/Data Encryption.md",
     "Authentication/Base64 Encoding.md",
