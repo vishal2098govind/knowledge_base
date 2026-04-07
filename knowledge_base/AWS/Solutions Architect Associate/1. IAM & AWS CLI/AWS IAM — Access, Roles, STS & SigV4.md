@@ -392,6 +392,146 @@ Cycle repeats
 
 ---
 
+## Cross-Account Access — STS Extended
+
+### The Problem
+
+Two AWS accounts are completely isolated by default:
+
+```
+Account A (123456789012) — your application, Lambda runs here
+Account B (999988887777) — your data, S3 bucket lives here
+```
+
+Account A's roles have zero access to anything in Account B out of the box.
+
+### The Solution — a role in Account B that Account A is allowed to assume
+
+**Step 1: In Account B, create a role with a trust policy pointing at Account A**
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::123456789012:role/my-lambda-role"
+      },
+      "Action": "sts:AssumeRole",
+      "Condition": {
+        "StringEquals": {
+          "sts:ExternalId": "shared-secret-xyz"
+        }
+      }
+    }
+  ]
+}
+```
+
+**Step 2: In Account B, attach a permission policy to that role**
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": ["s3:GetObject"],
+      "Resource": "arn:aws:s3:::account-b-bucket/*"
+    }
+  ]
+}
+```
+
+**Step 3: In Account A, give `my-lambda-role` permission to call AssumeRole on Account B's role**
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "sts:AssumeRole",
+      "Resource": "arn:aws:iam::999988887777:role/cross-account-role"
+    }
+  ]
+}
+```
+
+> Both sides must agree — Account B's role must trust Account A, AND Account A's role must be allowed to call AssumeRole on Account B's role. Missing either side = access denied.
+
+### The Full Cross-Account Flow
+
+```
+Lambda in Account A starts
+        ↓
+AWS runtime calls STS in Account A → gets Layer 1 credentials for my-lambda-role
+        ↓
+Your code explicitly calls STS AssumeRole for Account B's role:
+
+stsClient.AssumeRole({
+  RoleArn:         "arn:aws:iam::999988887777:role/cross-account-role",
+  RoleSessionName: "lambda-cross-account-session",
+  ExternalId:      "shared-secret-xyz"
+})
+        ↓
+STS checks:
+  - Does Account B's trust policy allow my-lambda-role from Account A? → yes
+  - Does Account A's permission policy allow calling AssumeRole on this ARN? → yes
+  - Does ExternalId match? → yes
+        ↓
+STS returns a NEW set of temporary credentials scoped to Account B's role:
+  AccessKeyId:     ASIAYYYY...
+  SecretAccessKey: newSecret...
+  SessionToken:    newToken...
+        ↓
+Your code uses THESE credentials to build a new S3 client pointed at Account B
+        ↓
+S3 request signed with Account B credentials
+        ↓
+S3 in Account B validates:
+  - Signature valid? → yes
+  - SessionToken valid, belongs to cross-account-role in Account B? → yes
+  - Does cross-account-role have s3:GetObject on this bucket? → yes
+        ↓
+Response returned to Lambda in Account A
+```
+
+### Credential Layering
+
+In cross-account, your Lambda holds **two sets of credentials simultaneously:**
+
+```
+Layer 1 — Account A credentials (from runtime, via env vars)
+  → used for anything in Account A
+  → used to call STS AssumeRole for Account B
+
+Layer 2 — Account B credentials (from explicit AssumeRole call)
+  → used only for resources in Account B
+  → completely separate STS session
+  → separate expiry, separate rotation
+```
+
+The mechanism is identical to single-account — AssumeRole → temporary credentials → signed requests. The only difference is you do it twice, and the second time you do it explicitly in code rather than letting the runtime handle it.
+
+### Why ExternalId Matters More in Cross-Account
+
+In single-account, if someone tricks a service into assuming a role, blast radius is limited to your account. In cross-account, a third-party vendor has a role in your account they can assume from their account. If their system gets compromised, an attacker could assume your role from the vendor's account.
+
+`ExternalId` is the defence — even if an attacker gains access to the vendor's AWS account, they don't know your `ExternalId`, so the AssumeRole call fails. This is the **confused deputy problem** and cross-account is exactly where it matters most.
+
+### Common Real-World Patterns
+
+|Pattern|Example|
+|---|---|
+|Multi-account org|Dev, staging, prod in separate accounts, CI/CD assumes role in each|
+|Third-party access|Datadog, New Relic assuming a role in your account to read metrics|
+|Shared services account|Central logging or security account that other accounts push to|
+|Data mesh|Each team owns their data account, other teams assume roles to query|
+
+---
+
 ## IAM Policy Language Reference
 
 |What you need|Where to look|
