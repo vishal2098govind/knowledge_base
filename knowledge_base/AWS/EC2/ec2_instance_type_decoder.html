@@ -1,0 +1,313 @@
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; }
+.wrap { padding: 16px 0 8px; font-family: 'Inter', sans-serif; }
+.input-row { display: flex; gap: 8px; align-items: center; margin-bottom: 20px; flex-wrap: wrap; }
+.input-row input {
+  font-family: 'JetBrains Mono', monospace; font-size: 14px; padding: 8px 14px;
+  border: 1.5px solid var(--color-border-secondary); border-radius: var(--border-radius-md);
+  background: var(--color-background-secondary); color: var(--color-text-primary);
+  flex: 1; min-width: 160px; outline: none;
+}
+.input-row input:focus { border-color: var(--color-border-primary); }
+.decode-btn {
+  padding: 8px 18px; background: var(--color-text-primary); color: var(--color-background-primary);
+  border: none; border-radius: var(--border-radius-md); font-size: 14px; font-weight: 500;
+  cursor: pointer; font-family: 'Inter', sans-serif;
+}
+.anatomy { display: flex; align-items: flex-start; gap: 0; margin-bottom: 24px; flex-wrap: wrap; }
+.seg { display: flex; flex-direction: column; align-items: center; gap: 0; }
+.seg-box {
+  padding: 10px 14px; font-family: 'JetBrains Mono', monospace; font-size: 22px; font-weight: 500;
+  border-top: 3px solid; border-bottom: 3px solid; border-right: 1px solid var(--color-border-tertiary);
+  min-width: 36px; text-align: center; cursor: default;
+}
+.seg:first-child .seg-box { border-left: 3px solid; border-radius: 6px 0 0 6px; }
+.seg:last-child .seg-box  { border-right: 3px solid; border-radius: 0 6px 6px 0; }
+.seg-label { font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: .06em; margin-top: 5px; color: var(--color-text-secondary); font-family: 'Inter', sans-serif; }
+.c-fam  { color: #3C3489; background: #EEEDFE; border-color: #7F77DD; }
+.c-gen  { color: #085041; background: #E1F5EE; border-color: #1D9E75; }
+.c-proc { color: #4A1B0C; background: #FAECE7; border-color: #D85A30; }
+.c-add  { color: #042C53; background: #E6F1FB; border-color: #378ADD; }
+.c-dot  { color: var(--color-text-secondary); background: transparent; border-color: transparent; font-size: 22px; }
+.c-size { color: #3B1528; background: #FBEAF0; border-color: #D4537E; }
+@media (prefers-color-scheme: dark) {
+  .c-fam  { color: #CECBF6; background: #26215C; border-color: #534AB7; }
+  .c-gen  { color: #9FE1CB; background: #04342C; border-color: #0F6E56; }
+  .c-proc { color: #F5C4B3; background: #4A1B0C; border-color: #993C1D; }
+  .c-add  { color: #B5D4F4; background: #042C53; border-color: #185FA5; }
+  .c-size { color: #F4C0D1; background: #4B1528; border-color: #993556; }
+}
+.legend { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+.leg-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--color-text-secondary); font-family: 'Inter', sans-serif; }
+.leg-dot { width: 10px; height: 10px; border-radius: 2px; }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; }
+.card { border: 1px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 12px 14px; background: var(--color-background-secondary); }
+.card-label { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: .05em; color: var(--color-text-tertiary); margin-bottom: 4px; font-family: 'Inter', sans-serif; }
+.card-value { font-size: 14px; font-weight: 500; color: var(--color-text-primary); font-family: 'Inter', sans-serif; }
+.card-sub { font-size: 12px; color: var(--color-text-secondary); margin-top: 2px; font-family: 'Inter', sans-serif; line-height: 1.5; }
+.card-expansion { font-size: 11px; color: var(--color-text-tertiary); margin-top: 4px; font-style: italic; border-top: 1px solid var(--color-border-tertiary); padding-top: 4px; font-family: 'Inter', sans-serif; }
+.error { font-size: 13px; color: var(--color-text-danger, #A32D2D); padding: 10px 0; font-family: 'Inter', sans-serif; }
+.section-title { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: .06em; color: var(--color-text-tertiary); margin: 20px 0 10px; font-family: 'Inter', sans-serif; }
+.quick-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
+.pill {
+  font-family: 'JetBrains Mono', monospace; font-size: 12px; padding: 4px 10px; border-radius: 20px;
+  border: 1px solid var(--color-border-secondary); background: var(--color-background-secondary);
+  color: var(--color-text-secondary); cursor: pointer; transition: background .15s, color .15s;
+}
+.pill:hover { background: var(--color-background-primary); color: var(--color-text-primary); }
+.unofficial-note { font-size: 11px; color: var(--color-text-tertiary); margin-bottom: 16px; font-family: 'Inter', sans-serif; }
+.fam-section { margin-top: 32px; }
+.fam-section-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+.fam-section-title { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: .06em; color: var(--color-text-tertiary); font-family: 'Inter', sans-serif; }
+.fam-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.fam-table thead th {
+  font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 500;
+  text-transform: uppercase; letter-spacing: .06em; color: var(--color-text-tertiary);
+  text-align: left; padding: 6px 10px; border-bottom: 1px solid var(--color-border-tertiary);
+}
+.fam-table tbody tr { border-bottom: 1px solid var(--color-border-tertiary); }
+.fam-table tbody tr:last-child { border-bottom: none; }
+.fam-table tbody tr:hover { background: var(--color-background-secondary); }
+.fam-table td { padding: 8px 10px; vertical-align: top; }
+.td-key {
+  font-family: 'JetBrains Mono', monospace; font-weight: 500; color: #3C3489;
+  background: #EEEDFE; border-radius: 4px; padding: 2px 7px !important; white-space: nowrap;
+}
+@media (prefers-color-scheme: dark) { .td-key { color: #CECBF6; background: #26215C; } }
+.td-exp { color: var(--color-text-secondary); font-family: 'Inter', sans-serif; font-size: 12.5px; }
+.td-name { color: var(--color-text-primary); font-family: 'Inter', sans-serif; font-weight: 500; font-size: 13px; }
+.td-desc { color: var(--color-text-secondary); font-family: 'Inter', sans-serif; font-size: 12px; }
+.official-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; margin-left: 5px; vertical-align: middle; }
+.dot-official { background: #1D9E75; }
+.dot-unofficial { background: #888780; }
+.fam-legend { display: flex; gap: 14px; font-size: 11px; color: var(--color-text-tertiary); font-family: 'Inter', sans-serif; }
+.fam-legend-item { display: flex; align-items: center; gap: 5px; }
+.deprecated-badge {
+  font-size: 10px; font-family: 'Inter', sans-serif; font-weight: 500;
+  padding: 1px 5px; border-radius: 3px; margin-left: 5px;
+  background: #FAEEDA; color: #854F0B; border: 1px solid #EF9F27;
+  vertical-align: middle;
+}
+@media (prefers-color-scheme: dark) { .deprecated-badge { background: #412402; color: #FAC775; border-color: #BA7517; } }
+</style>
+
+<div class="wrap">
+  <div class="input-row">
+    <input type="text" id="inp" placeholder="e.g. m5.xlarge, c6g.2xlarge, r7i.4xlarge" value="m5.xlarge" spellcheck="false">
+    <button class="decode-btn" onclick="decode()">Decode</button>
+  </div>
+  <div class="quick-pills">
+    <div class="section-title" style="margin:0;align-self:center">Try:</div>
+    <span class="pill" onclick="quickDecode('m5.xlarge')">m5.xlarge</span>
+    <span class="pill" onclick="quickDecode('c6g.2xlarge')">c6g.2xlarge</span>
+    <span class="pill" onclick="quickDecode('r7i.4xlarge')">r7i.4xlarge</span>
+    <span class="pill" onclick="quickDecode('t3a.micro')">t3a.micro</span>
+    <span class="pill" onclick="quickDecode('a1.xlarge')">a1.xlarge</span>
+    <span class="pill" onclick="quickDecode('p4d.24xlarge')">p4d.24xlarge</span>
+    <span class="pill" onclick="quickDecode('x2gd.16xlarge')">x2gd.16xlarge</span>
+    <span class="pill" onclick="quickDecode('inf2.xlarge')">inf2.xlarge</span>
+    <span class="pill" onclick="quickDecode('hpc7a.96xlarge')">hpc7a.96xlarge</span>
+  </div>
+  <div id="out"></div>
+
+  <div class="fam-section">
+    <div class="fam-section-header">
+      <span class="fam-section-title">All families reference</span>
+      <div class="fam-legend">
+        <div class="fam-legend-item"><span class="official-dot dot-official"></span> official</div>
+        <div class="fam-legend-item"><span class="official-dot dot-unofficial"></span> unofficial guess</div>
+      </div>
+    </div>
+    <table class="fam-table">
+      <thead>
+        <tr>
+          <th>key</th>
+          <th>stands for</th>
+          <th>name</th>
+          <th>best for</th>
+        </tr>
+      </thead>
+      <tbody id="fam-tbody"></tbody>
+    </table>
+  </div>
+</div>
+
+<script>
+const FAMILIES = {
+  a:   { expansion: "ARM / Graviton1", official: false, deprecated: true, name: "ARM-based (Graviton1)", desc: "AWS's first Graviton (ARM) instance. Predates the 'g' suffix convention. Succeeded by m6g, c6g, r6g etc.", use: "Legacy ARM workloads; prefer m/c/r + g suffix for new deployments" },
+  t:   { expansion: "Turbo / throttleable", official: false, name: "Burstable performance", desc: "Baseline CPU + burst credits. Cheap. Good for low-traffic apps, dev/test.", use: "Web servers, small DBs, CI workers" },
+  m:   { expansion: "Medium / main", official: false, name: "General purpose", desc: "Balanced CPU, memory, and network. The safe default.", use: "App servers, gaming backends, enterprise apps" },
+  c:   { expansion: "Compute", official: true, name: "Compute optimised", desc: "High CPU-to-memory ratio. For CPU-heavy workloads.", use: "Batch processing, media encoding, ML inference, HPC" },
+  r:   { expansion: "RAM", official: true, name: "Memory optimised", desc: "High RAM-to-CPU ratio. For in-memory workloads.", use: "In-memory DBs, real-time analytics, SAP HANA" },
+  x:   { expansion: "Extreme memory", official: false, name: "Memory intensive", desc: "Extreme RAM. SAP and big in-memory data sets.", use: "SAP HANA, Apache Spark, large-scale analytics" },
+  z:   { expansion: "Zero compromise (high freq)", official: false, name: "High freq + memory", desc: "Fastest Intel Xeon + large memory. Per-core licensing.", use: "Electronic design automation, trading, gaming" },
+  p:   { expansion: "Performance (GPU)", official: false, name: "GPU — training/HPC", desc: "NVIDIA GPUs for parallel compute and deep learning training.", use: "ML training, HPC, rendering" },
+  g:   { expansion: "GPU / Graphics", official: true, name: "GPU — graphics/ML", desc: "NVIDIA GPUs balanced for inference and graphics.", use: "ML inference, video transcoding, game streaming" },
+  inf: { expansion: "Inferentia", official: true, name: "AWS Inferentia", desc: "Custom AWS Inferentia chips purpose-built for ML inference.", use: "High-throughput, low-cost ML inference" },
+  trn: { expansion: "Trainium", official: true, name: "AWS Trainium", desc: "Custom AWS Trainium chips for deep learning training.", use: "Large-scale model training" },
+  f:   { expansion: "FPGA", official: true, name: "FPGA", desc: "Field-programmable gate arrays for custom hardware acceleration.", use: "Genomics, financial analytics, video processing" },
+  vt:  { expansion: "Video transcoding", official: true, name: "Video transcoding", desc: "Xilinx FPGAs tuned for real-time video transcoding.", use: "Live and stored video encoding" },
+  d:   { expansion: "Dense storage", official: true, name: "Dense storage (HDD)", desc: "High-density HDD local storage. Massive sequential throughput.", use: "Distributed file systems, data warehousing, Hadoop" },
+  h:   { expansion: "High disk throughput", official: false, name: "High disk throughput", desc: "HDD-backed with high throughput and lower cost.", use: "MapReduce, distributed file systems" },
+  i:   { expansion: "I/O", official: true, name: "Storage optimised (NVMe)", desc: "NVMe SSD local storage. Very high IOPS.", use: "NoSQL DBs, in-memory caches with persistence, OLAP" },
+  im:  { expansion: "I/O + memory balanced", official: false, name: "Storage optimised (balanced)", desc: "Balance of compute and high NVMe SSD storage.", use: "High I/O applications, real-time analytics" },
+  is:  { expansion: "I/O + storage heavy", official: false, name: "Storage optimised (4x NVMe)", desc: "Extra NVMe SSD vs im family.", use: "Data-intensive workloads needing massive local storage" },
+  hpc: { expansion: "High performance computing", official: true, name: "High performance computing", desc: "EFA networking, high-core CPUs for tightly coupled HPC jobs.", use: "CFD, weather modelling, seismic analysis" },
+  mac: { expansion: "macOS", official: true, name: "macOS (Apple silicon / Intel)", desc: "Bare-metal Mac mini or Mac Pro for Apple development.", use: "iOS/macOS build and test pipelines" },
+  u:   { expansion: "Ultra memory", official: false, name: "High memory (bare metal)", desc: "Terabytes of RAM for in-memory DBs.", use: "SAP HANA scale-up, in-memory analytics" },
+};
+
+const GENERATIONS = { 1:"1st gen",2:"2nd gen",3:"3rd gen",4:"4th gen",5:"5th gen",6:"6th gen",7:"7th gen",8:"8th gen",9:"9th gen" };
+const PROCESSORS = {
+  a: { label: "AMD", desc: "AMD EPYC CPU — better price/perf vs Intel" },
+  g: { label: "Graviton (ARM)", desc: "AWS Graviton ARM — best price/performance for most workloads" },
+  i: { label: "Intel", desc: "Intel Xeon — explicit Intel choice, common for licensed software" },
+};
+const ADDITIONAL = {
+  d: { label: "NVMe SSD", desc: "Local NVMe SSDs attached (instance store)" },
+  n: { label: "Network optimised", desc: "Higher network bandwidth / EFA support" },
+  e: { label: "Extra memory/storage", desc: "More RAM or storage vs base size" },
+  z: { label: "High freq CPU", desc: "Higher all-core turbo clock speed" },
+  b: { label: "Block storage opt", desc: "Optimised EBS bandwidth" },
+};
+const SIZES = {
+  nano:{vcpu:"2",mem:"0.5 GiB"},micro:{vcpu:"2",mem:"1 GiB"},small:{vcpu:"2",mem:"2 GiB"},medium:{vcpu:"2",mem:"4 GiB"},
+  large:{vcpu:"2",mem:"8 GiB"},xlarge:{vcpu:"4",mem:"16 GiB"},"2xlarge":{vcpu:"8",mem:"32 GiB"},
+  "4xlarge":{vcpu:"16",mem:"64 GiB"},"8xlarge":{vcpu:"32",mem:"128 GiB"},"12xlarge":{vcpu:"48",mem:"192 GiB"},
+  "16xlarge":{vcpu:"64",mem:"256 GiB"},"24xlarge":{vcpu:"96",mem:"384 GiB"},"32xlarge":{vcpu:"128",mem:"512 GiB"},
+  "48xlarge":{vcpu:"192",mem:"768 GiB"},"96xlarge":{vcpu:"384",mem:"~6 TiB (HPC)"},metal:{vcpu:"bare metal",mem:"—"},
+};
+
+function buildFamiliesTable() {
+  const tbody = document.getElementById('fam-tbody');
+  tbody.innerHTML = Object.entries(FAMILIES).map(([key, f]) => `
+    <tr>
+      <td><span class="td-key">${key}</span>${f.deprecated ? '<span class="deprecated-badge">older</span>' : ''}</td>
+      <td class="td-exp">${f.expansion}<span class="official-dot ${f.official ? 'dot-official' : 'dot-unofficial'}" title="${f.official ? 'Official AWS term' : 'Community guess'}"></span></td>
+      <td class="td-name">${f.name}</td>
+      <td class="td-desc">${f.use}</td>
+    </tr>`).join('');
+}
+
+function parseInstance(raw) {
+  raw = raw.trim().toLowerCase();
+  const parts = raw.split('.');
+  if (parts.length !== 2) return null;
+  const [typeStr, size] = parts;
+  let family = null, rest = typeStr;
+  for (const f of ["inf","trn","hpc","mac","vt","im","is"]) {
+    if (typeStr.startsWith(f)) { family = f; rest = typeStr.slice(f.length); break; }
+  }
+  if (!family) { family = typeStr[0]; rest = typeStr.slice(1); }
+  const genMatch = rest.match(/^(\d+)(.*)/);
+  if (!genMatch) return null;
+  const gen = parseInt(genMatch[1]);
+  const after = genMatch[2];
+  let proc = null, additionalChars = after, procChar = null;
+  for (const p of ['g','a','i']) {
+    if (additionalChars.startsWith(p)) { procChar = p; additionalChars = additionalChars.slice(1); break; }
+  }
+  if (procChar) proc = PROCESSORS[procChar];
+  const addl = [];
+  for (const ch of additionalChars) { if (ADDITIONAL[ch]) addl.push({ key: ch, ...ADDITIONAL[ch] }); }
+  return { family, gen, proc, addl, size };
+}
+
+function renderAnatomyBox(text, colorClass, label) {
+  return `<div class="seg"><div class="seg-box ${colorClass}">${text}</div><div class="seg-label">${label}</div></div>`;
+}
+
+function render(parsed) {
+  const { family, gen, proc, addl, size } = parsed;
+  const famInfo = FAMILIES[family] || { expansion: null, official: false, name: family.toUpperCase() + " family", desc: "Specialised instance family.", use: "—" };
+  const sizeInfo = SIZES[size] || { vcpu: "—", mem: "—" };
+
+  let anatHtml = '';
+  anatHtml += renderAnatomyBox(family, 'c-fam', 'Family');
+  anatHtml += renderAnatomyBox(gen, 'c-gen', 'Gen');
+  if (proc) anatHtml += renderAnatomyBox(Object.keys(PROCESSORS).find(k=>PROCESSORS[k]===proc), 'c-proc', 'CPU');
+  for (const a of addl) anatHtml += renderAnatomyBox(a.key, 'c-add', a.label.split(' ')[0]);
+  anatHtml += `<div class="seg"><div class="seg-box c-dot">.</div><div class="seg-label">&nbsp;</div></div>`;
+  anatHtml += renderAnatomyBox(size, 'c-size', 'Size');
+
+  const legend = `<div class="legend">
+    <div class="leg-item"><div class="leg-dot" style="background:#7F77DD"></div> Family</div>
+    <div class="leg-item"><div class="leg-dot" style="background:#1D9E75"></div> Generation</div>
+    ${proc ? `<div class="leg-item"><div class="leg-dot" style="background:#D85A30"></div> Processor</div>` : ''}
+    ${addl.length ? `<div class="leg-item"><div class="leg-dot" style="background:#378ADD"></div> Capabilities</div>` : ''}
+    <div class="leg-item"><div class="leg-dot" style="background:#D4537E"></div> Size</div>
+  </div>`;
+
+  const expansionHtml = famInfo.expansion ? `
+    <div class="card-expansion">
+      "${family.toUpperCase()}" likely stands for: <strong>${famInfo.expansion}</strong>
+      ${!famInfo.official ? ' (unofficial)' : ' (official)'}
+    </div>` : '';
+
+  const deprecatedWarning = famInfo.deprecated ? `
+    <div style="font-size:11px;color:#854F0B;background:#FAEEDA;border:1px solid #EF9F27;border-radius:6px;padding:8px 10px;margin-bottom:10px;font-family:'Inter',sans-serif;">
+      Older family. For new deployments prefer the equivalent with a generation + g suffix, e.g. m6g, c6g, r6g.
+    </div>` : '';
+
+  return `
+    ${deprecatedWarning}
+    <div class="anatomy">${anatHtml}</div>
+    ${legend}
+    <div class="unofficial-note">* Expansions marked unofficial are community-accepted guesses. AWS has not formally documented what most single letters stand for.</div>
+    <div class="cards">
+      <div class="card">
+        <div class="card-label">Family — ${family.toUpperCase()}</div>
+        <div class="card-value">${famInfo.name}</div>
+        <div class="card-sub">${famInfo.desc}</div>
+        ${expansionHtml}
+      </div>
+      <div class="card">
+        <div class="card-label">Generation</div>
+        <div class="card-value">${GENERATIONS[gen] || gen + 'th gen'}</div>
+        <div class="card-sub">Higher = newer CPU platform + better price/perf</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Processor</div>
+        <div class="card-value">${proc ? proc.label : 'Intel (default)'}</div>
+        <div class="card-sub">${proc ? proc.desc : 'No suffix = Intel Xeon by default'}</div>
+      </div>
+      ${addl.map(a => `<div class="card">
+        <div class="card-label">Capability — ${a.key}</div>
+        <div class="card-value">${a.label}</div>
+        <div class="card-sub">${a.desc}</div>
+      </div>`).join('')}
+      <div class="card">
+        <div class="card-label">Size — ${size}</div>
+        <div class="card-value">${sizeInfo.vcpu} vCPU · ${sizeInfo.mem}</div>
+        <div class="card-sub">Sizes double in vCPU and RAM with each step (roughly)</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Best for</div>
+        <div class="card-value" style="font-size:13px">${famInfo.use}</div>
+      </div>
+    </div>`;
+}
+
+function decode() {
+  const val = document.getElementById('inp').value;
+  const out = document.getElementById('out');
+  const parsed = parseInstance(val);
+  if (!parsed) {
+    out.innerHTML = `<div class="error">Couldn't parse "${val}". Try a format like <code>m5.xlarge</code> or <code>c6g.2xlarge</code>.</div>`;
+    return;
+  }
+  out.innerHTML = render(parsed);
+}
+
+function quickDecode(v) {
+  document.getElementById('inp').value = v;
+  decode();
+}
+
+buildFamiliesTable();
+decode();
+</script>
