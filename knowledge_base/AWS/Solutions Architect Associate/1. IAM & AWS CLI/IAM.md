@@ -1,4 +1,4 @@
-#iam
+#iam #aws #solutions-architect-udemy 
 
 ### Users, Groups and Policies 
 Every AWS Account when created, a root account is created by default
@@ -67,14 +67,14 @@ Example:
 		- **Resource** - List of resources to which the actions are applied to
 		- **Condition** - List of conditions when this policy is in effect (optional)
 
-|Principal Type|Example|
-|---|---|
-|AWS Account (root)|`arn:aws:iam::123456789:root`|
-|IAM User|`arn:aws:iam::123456789:user/vishal`|
-|IAM Role|`arn:aws:iam::123456789:role/my-role`|
-|AWS Service|`lambda.amazonaws.com`|
-|Federated identity|via SAML / OIDC / Cognito|
-|Everyone|`*`|
+| Principal Type     | Example                               |
+| ------------------ | ------------------------------------- |
+| AWS Account (root) | `arn:aws:iam::123456789:root`         |
+| IAM User           | `arn:aws:iam::123456789:user/vishal`  |
+| IAM Role           | `arn:aws:iam::123456789:role/my-role` |
+| AWS Service        | `lambda.amazonaws.com`                |
+| Federated identity | via SAML / OIDC / Cognito             |
+| Everyone           | `*`                                   |
 **Principal only appears in resource-based policies** (like S3 bucket policies, KMS key policies, trust policies on roles).
 **Identity-based policies** (attached to users/roles) don't have a Principal field because the principal is _implicit_ — it's whoever the policy is attached to.
 
@@ -172,3 +172,43 @@ Service → STS AssumeRole → temporary credentials → signed API calls
 | **Storage & Integration**  | S3 Replication<br>Lambda@Edge                                                                                                        |
 | **Developer & Automation** | CodeBuild<br>CodePipeline<br>CodeDeploy<br>CloudFormation                                                                            |
 | **Other**                  | API Gateway<br>IoT Core<br>Systems Manager (SSM)                                                                                     |
+
+
+### IAM Permission, IAM Policy, IAM Role, IAM User, IAM User Groups
+
+```
+IAM Permission (actions based on service) - low level service level actions/apis
+
+IAM Policy - collection of IAM permissions or actions or apis along with 
+	- Principal (optional)
+		  - principal is implicit in case of identity based policy (IAM Role or IAM User)
+		  - principal is explicitly added in case of resource based policies
+		  - can be: 
+		    - User arn 
+		    - or Role arn 
+		    - or Service name
+			- or AWS account
+	- Resources
+		  - 
+	- Conditions (optional)
+		  - can be:
+		    - 
+```
+
+### IAM Security Tools
+- IAM Credentials Report (account level)
+	- list of account's users and status of their various credentials
+- IAM Access Advisor (user level)
+	- shows service permissions granted to a user and when those services were last accessed
+	- can use this to revise policies by reducing permissions not being used and follow **principal of least privilege**
+
+### IAM Best Practices
+- Don’t use the root account except for AWS account setup
+- One physical user = One AWS user
+- Assign users to groups and assign permissions to groups
+- Create a strong password policy
+- Use and enforce the use of Multi Factor Authentication (MFA)
+- Create and use Roles for giving permissions to AWS services
+- Use Access Keys for Programmatic Access (CLI / SDK)
+- Audit permissions of your account using IAM Credentials Report & IAM Access Advisor
+- Never share IAM users & Access Keys
