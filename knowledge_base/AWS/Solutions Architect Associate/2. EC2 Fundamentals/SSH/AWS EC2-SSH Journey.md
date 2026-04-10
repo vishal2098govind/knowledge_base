@@ -1,11 +1,11 @@
-
+#ssh #aws-ec2 #solutions-architect-udemy 
 
 ```sh
  cd Downloads
 ➜  Downloads
 ➜  Downloads cat geek-ec2-kp.pem
 -----BEGIN RSA PRIVATE KEY-----
-<base64-url-encoded private key>
+<base64-encoded private key>
 -----END RSA PRIVATE KEY-----%
 ➜  Downloads
 ➜  Downloads ssh -i geek-ec2-kp.pem ec2-user@54.226.167.59

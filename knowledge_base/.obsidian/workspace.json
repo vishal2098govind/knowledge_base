@@ -11,12 +11,15 @@
             "id": "cbec78c41df38dee",
             "type": "leaf",
             "state": {
-              "type": "excalidraw",
+              "type": "markdown",
               "state": {
-                "file": "AWS/Solutions Architect Associate/2. EC2 Fundamentals/SSH/SSH Protocol.md"
+                "file": "AWS/Solutions Architect Associate/2. EC2 Fundamentals/SSH/AWS EC2-SSH Journey.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
               },
-              "icon": "excalidraw-icon",
-              "title": "SSH Protocol"
+              "icon": "lucide-file",
+              "title": "AWS EC2-SSH Journey"
             }
           },
           {
@@ -108,7 +111,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "AWS/Solutions Architect Associate/2. EC2 Fundamentals/SSH/SSH Protocol.md",
+                "file": "AWS/Solutions Architect Associate/2. EC2 Fundamentals/SSH/AWS EC2-SSH Journey.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +121,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for SSH Protocol"
+              "title": "Backlinks for AWS EC2-SSH Journey"
             }
           },
           {
@@ -188,13 +191,13 @@
   },
   "active": "cbec78c41df38dee",
   "lastOpenFiles": [
+    "AWS/Solutions Architect Associate/2. EC2 Fundamentals/SSH/SSH Protocol.md",
     "AWS/Solutions Architect Associate/2. EC2 Fundamentals/SSH/attachments/Pasted Image 20260410165842_061.png",
     "AWS/Solutions Architect Associate/2. EC2 Fundamentals/SSH/attachments/Pasted Image 20260410165741_249.png",
     "AWS/Solutions Architect Associate/2. EC2 Fundamentals/SSH/attachments/Pasted Image 20260410165637_058.png",
     "AWS/Solutions Architect Associate/2. EC2 Fundamentals/SSH/attachments/Pasted Image 20260410165536_403.png",
     "AWS/Solutions Architect Associate/2. EC2 Fundamentals/SSH/attachments",
     "AWS/Solutions Architect Associate/2. EC2 Fundamentals/SSH/AWS EC2-SSH Journey.md",
-    "AWS/Solutions Architect Associate/2. EC2 Fundamentals/SSH/SSH Protocol.md",
     "AWS/Solutions Architect Associate/2. EC2 Fundamentals/Security Groups.md",
     "AWS/Solutions Architect Associate/2. EC2 Fundamentals/SSH/SSH Protocol End to End.md",
     "AWS/Solutions Architect Associate/2. EC2 Fundamentals/SSH",
@@ -234,7 +237,6 @@
     "DNS/attachments/Pasted image 20260210014935.png",
     "DNS/attachments/Pasted image 20260210003853.png",
     "DNS/attachments/Pasted image 20260209165005.png",
-    "DNS/attachments/Pasted image 20260209011837.png",
     "Untitled.canvas"
   ]
 }
