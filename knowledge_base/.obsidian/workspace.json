@@ -4,40 +4,47 @@
     "type": "split",
     "children": [
       {
-        "id": "553d0eca357f66d1",
+        "id": "1354e3e12c2b6c84",
         "type": "tabs",
         "children": [
           {
-            "id": "cbec78c41df38dee",
+            "id": "b6626897a73e8f76",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "excalidraw",
               "state": {
-                "file": "AWS/Solutions Architect Associate/2. EC2 Fundamentals/SSH/AWS EC2-SSH Journey.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
+                "file": "HTTP/HTTP Fundamentals/Basic HTTP Understanding.md"
               },
-              "icon": "lucide-file",
-              "title": "AWS EC2-SSH Journey"
+              "icon": "excalidraw-icon",
+              "title": "Basic HTTP Understanding"
             }
           },
           {
-            "id": "db2b5068811c56de",
+            "id": "339f81bb309a7417",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "excalidraw",
               "state": {
-                "file": "AWS/Solutions Architect Associate/2. EC2 Fundamentals/SSH/AWS EC2-SSH Journey.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
+                "file": "HTTP/HTTP Fundamentals/TCP Connection Deep Dive.md"
               },
-              "icon": "lucide-file",
-              "title": "AWS EC2-SSH Journey"
+              "icon": "excalidraw-icon",
+              "title": "TCP Connection Deep Dive"
+            }
+          },
+          {
+            "id": "2e93e3ba8a2ba0dd",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "HTTP/HTTP Fundamentals/TCP Connection Pooling.md"
+              },
+              "icon": "excalidraw-icon",
+              "title": "TCP Connection Pooling"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -69,7 +76,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "least priv",
+                "query": "",
                 "matchingCase": true,
                 "explainSearch": true,
                 "collapseAll": true,
@@ -94,8 +101,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 351.5004348754883,
-    "collapsed": true
+    "width": 351.5004348754883
   },
   "right": {
     "id": "b728b4262fed4323",
@@ -111,7 +117,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "AWS/Solutions Architect Associate/2. EC2 Fundamentals/SSH/AWS EC2-SSH Journey.md",
+                "file": "HTTP/HTTP Fundamentals/Basic HTTP Understanding.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -121,7 +127,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for AWS EC2-SSH Journey"
+              "title": "Backlinks for Basic HTTP Understanding"
             }
           },
           {
@@ -189,15 +195,35 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "cbec78c41df38dee",
+  "active": "2e93e3ba8a2ba0dd",
   "lastOpenFiles": [
+    "HTTP/HTTP Fundamentals/TCP Connection Deep Dive.md",
+    "HTTP/HTTP Fundamentals/TCP Connection Pooling.md",
+    "HTTP/HTTP Fundamentals/Untitled.md",
+    "HTTP/HTTP Fundamentals/Basic HTTP Understanding.md",
+    "HTTP/HTTP Fundamentals/attachments/Pasted Image 20260412231129_247.png",
+    "Go-Bill-Kennedy/goscheduler.excalidraw",
+    "Go-Bill-Kennedy/Go Language Guide/Concurrent Web Crawler.md",
+    "Go-Ardan-Labs/ChatGPT-HTTP, Reader, Writer, Connection.md",
+    "Go-Ardan-Labs/Reader, Writer, Copy.md",
+    "Go Dev/Untitled.md",
+    "Go Dev/fmt.Errorf and %w and Error Wrapping.md",
+    "Go-Bill-Kennedy/Go Language Guide/Error Handling in Go.md",
+    "HTTP/HTTP Fundamentals/attachments",
+    "AWS/Solutions Architect Associate/2. EC2 Fundamentals/EC2 Instances Purchasing Options.md",
+    "HTTP/HTTP Fundamentals",
+    "HTTP",
+    "AWS/Solutions Architect Associate/2. EC2 Fundamentals/attachments/Pasted image 20260411211502.png",
+    "AWS/Solutions Architect Associate/2. EC2 Fundamentals/attachments",
+    "AWS/Solutions Architect Associate/2. EC2 Fundamentals/Default Tenancy vs Dedicated Instances vs Dedicated Hosts.md",
+    "AWS/Solutions Architect Associate/2. EC2 Fundamentals/AWS EC2 Role.md",
     "AWS/Solutions Architect Associate/2. EC2 Fundamentals/SSH/SSH Protocol.md",
+    "AWS/Solutions Architect Associate/2. EC2 Fundamentals/SSH/AWS EC2-SSH Journey.md",
     "AWS/Solutions Architect Associate/2. EC2 Fundamentals/SSH/attachments/Pasted Image 20260410165842_061.png",
     "AWS/Solutions Architect Associate/2. EC2 Fundamentals/SSH/attachments/Pasted Image 20260410165741_249.png",
     "AWS/Solutions Architect Associate/2. EC2 Fundamentals/SSH/attachments/Pasted Image 20260410165637_058.png",
     "AWS/Solutions Architect Associate/2. EC2 Fundamentals/SSH/attachments/Pasted Image 20260410165536_403.png",
     "AWS/Solutions Architect Associate/2. EC2 Fundamentals/SSH/attachments",
-    "AWS/Solutions Architect Associate/2. EC2 Fundamentals/SSH/AWS EC2-SSH Journey.md",
     "AWS/Solutions Architect Associate/2. EC2 Fundamentals/Security Groups.md",
     "AWS/Solutions Architect Associate/2. EC2 Fundamentals/SSH/SSH Protocol End to End.md",
     "AWS/Solutions Architect Associate/2. EC2 Fundamentals/SSH",
@@ -211,32 +237,13 @@
     "AWS/Solutions Architect Associate/1. IAM & AWS CLI/AWS IAM and AWS STS.md",
     "Articles/Authentication",
     "Articles/AWS",
-    "Untitled",
     "AWS/Solutions Architect Associate/1. IAM & AWS CLI/attachments/Pasted image 20260408000838.png",
     "AWS/Solutions Architect Associate/1. IAM & AWS CLI/attachments/Pasted image 20260408000708.png",
     "AWS/Solutions Architect Associate/1. IAM & AWS CLI/attachments/Pasted image 20260407235316.png",
     "AWS/Solutions Architect Associate/1. IAM & AWS CLI/attachments",
-    "AWS/Solutions Architect Associate/26. White Papers and Architectures",
-    "AWS/Solutions Architect Associate/25. Other Services",
-    "AWS/Solutions Architect Associate/24. More Solutions Architectures",
-    "AWS/Solutions Architect Associate/23. Disaster Recovery and Migrations",
     "AWS/Solutions Architect Associate/Untitled.canvas",
     "DNS/DNS Tree.md",
-    "DNS/DNS.md",
-    "DNS/Name Resolution.md",
-    "DNS/Name registration.md",
-    "Kubernetes-Ardan-Labs/K8s Healthchecks (probes).md",
-    "Kubernetes-Ardan-Labs/Labels and annotations.md",
-    "Kubernetes-Ardan-Labs/kubectl.md",
-    "Kubernetes-Ardan-Labs/Daemon Sets.md",
-    "Docker-Ardan-Labs/Writing Compose Files.md",
-    "Docker-Ardan-Labs/Containers.md",
-    "Docker-Ardan-Labs/Container Network Driver.md",
-    "Docker-Ardan-Labs/Deep Dive Into Containers.md",
-    "Docker-Ardan-Labs/Docker Images.md",
     "DNS/attachments/Pasted image 20260210014935.png",
-    "DNS/attachments/Pasted image 20260210003853.png",
-    "DNS/attachments/Pasted image 20260209165005.png",
     "Untitled.canvas"
   ]
 }
