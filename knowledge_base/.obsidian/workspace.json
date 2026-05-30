@@ -66,9 +66,39 @@
               "icon": "lucide-file",
               "title": "14. S3 CORS"
             }
+          },
+          {
+            "id": "15ca3ff65d0bf514",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "AWS/Solutions Architect Associate/9. AWS S3 Introduction/15. S3 MFA Delete.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "15. S3 MFA Delete"
+            }
+          },
+          {
+            "id": "6ce8b0180a25a919",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "AWS/Solutions Architect Associate/9. AWS S3 Introduction/17. S3 Glacier Vault Lock & S3 Object Lock.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "17. S3 Glacier Vault Lock & S3 Object Lock"
+            }
           }
         ],
-        "currentTab": 3
+        "currentTab": 5
       }
     ],
     "direction": "vertical"
@@ -100,8 +130,8 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
-                "matchingCase": true,
+                "query": "glacier",
+                "matchingCase": false,
                 "explainSearch": true,
                 "collapseAll": true,
                 "extraContext": true,
@@ -220,12 +250,21 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "b064b0bcc648c366",
+  "active": "6ce8b0180a25a919",
   "lastOpenFiles": [
+    "AWS/Solutions Architect Associate/9. AWS S3 Introduction/16. S3 Pre-signed URLs.md",
+    "AWS/Solutions Architect Associate/9. AWS S3 Introduction/6. S3 Storage Classes.md",
+    "AWS/Solutions Architect Associate/9. AWS S3 Introduction/17. S3 Glacier Vault Lock & S3 Object Lock.md",
+    "AWS/Solutions Architect Associate/9. AWS S3 Introduction/attachments/Pasted image 20260530182112.png",
+    "AWS/Solutions Architect Associate/9. AWS S3 Introduction/15. S3 MFA Delete.md",
+    "Cloud/AWS/8. S3/S3.md",
+    "AWS/Solutions Architect Associate/9. AWS S3 Introduction/7. S3 Requester Pays.md",
+    "AWS/Solutions Architect Associate/9. AWS S3 Introduction/16. S3 Access Logs.md",
+    "AWS/Solutions Architect Associate/9. AWS S3 Introduction/attachments/Pasted image 20260530175721.png",
+    "AWS/Solutions Architect Associate/9. AWS S3 Introduction/14. S3 CORS.md",
     "AWS/Solutions Architect Associate/9. AWS S3 Introduction/attachments/Pasted image 20260530171232.png",
     "AWS/Solutions Architect Associate/9. AWS S3 Introduction/attachments/Pasted image 20260530171046.png",
     "AWS/Solutions Architect Associate/9. AWS S3 Introduction/13. Default Encryption vs Bucket Policies.md",
-    "AWS/Solutions Architect Associate/9. AWS S3 Introduction/14. S3 CORS.md",
     "AWS/Solutions Architect Associate/9. AWS S3 Introduction/attachments/Pasted image 20260530165114.png",
     "AWS/Solutions Architect Associate/9. AWS S3 Introduction/12. S3 Object Encryption.md",
     "AWS/Solutions Architect Associate/9. AWS S3 Introduction/attachments/Pasted image 20260530164613.png",
@@ -233,17 +272,12 @@
     "AWS/Solutions Architect Associate/9. AWS S3 Introduction/attachments/Pasted image 20260530160826.png",
     "AWS/Solutions Architect Associate/9. AWS S3 Introduction/attachments/Pasted image 20260530155948.png",
     "AWS/Solutions Architect Associate/9. AWS S3 Introduction/attachments/Pasted image 20260530155159.png",
-    "AWS/Solutions Architect Associate/9. AWS S3 Introduction/attachments/Pasted image 20260530154643.png",
-    "AWS/Solutions Architect Associate/9. AWS S3 Introduction/attachments/Pasted image 20260530154252.png",
-    "AWS/Solutions Architect Associate/9. AWS S3 Introduction/attachments/Pasted image 20260530153909.png",
     "AWS/Solutions Architect Associate/9. AWS S3 Introduction/11. S3 Storage Lens.md",
     "AWS/Solutions Architect Associate/9. AWS S3 Introduction/10. S3 Batch Operations.md",
     "AWS/Solutions Architect Associate/9. AWS S3 Introduction/9. S3 Baseline Performance.md",
     "AWS/Solutions Architect Associate/9. AWS S3 Introduction/8. S3 Event Notifications.md",
     "AWS/Solutions Architect Associate/9. AWS S3 Introduction/2. S3 Security - Bucket Policy.md",
     "AWS/Solutions Architect Associate/9. AWS S3 Introduction/5. S3 Replication.md",
-    "AWS/Solutions Architect Associate/9. AWS S3 Introduction/7. S3 Requester Pays.md",
-    "AWS/Solutions Architect Associate/9. AWS S3 Introduction/6. S3 Storage Classes.md",
     "AWS/Solutions Architect Associate/9. AWS S3 Introduction/4. S3 Versioning.md",
     "AWS/Solutions Architect Associate/9. AWS S3 Introduction/3. S3 Website.md",
     "AWS/Solutions Architect Associate/9. AWS S3 Introduction/attachments",
@@ -256,11 +290,7 @@
     "Go-Bill-Kennedy/Go Language Guide/Concurrent Web Crawler.md",
     "Go-Ardan-Labs/ChatGPT-HTTP, Reader, Writer, Connection.md",
     "Go-Ardan-Labs/Reader, Writer, Copy.md",
-    "Go Dev/Untitled.md",
-    "Go Dev/fmt.Errorf and %w and Error Wrapping.md",
-    "Go-Bill-Kennedy/Go Language Guide/Error Handling in Go.md",
     "HTTP/HTTP Fundamentals/attachments",
-    "AWS/Solutions Architect Associate/2. EC2 Fundamentals/EC2 Instances Purchasing Options.md",
     "HTTP/HTTP Fundamentals",
     "HTTP",
     "AWS/Solutions Architect Associate/2. EC2 Fundamentals/attachments",
