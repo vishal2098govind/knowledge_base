@@ -4,86 +4,41 @@
     "type": "split",
     "children": [
       {
-        "id": "eee041cd8db07eaa",
+        "id": "6cfa3b6e7d4e0507",
         "type": "tabs",
         "children": [
           {
-            "id": "b6ed03339312151b",
+            "id": "49cf4c434dec024d",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AWS/Solutions Architect Associate/11. CloudFront and AWS Global Accelerator/1. CloudFront CDN.md",
+                "file": "AWS/Solutions Architect Associate/12. AWS Storage Extras/1. AWS Snowball.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "1. CloudFront CDN"
+              "title": "1. AWS Snowball"
             }
           },
           {
-            "id": "417ddf7b5a1504c2",
+            "id": "454ebc8842b58baf",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AWS/Solutions Architect Associate/11. CloudFront and AWS Global Accelerator/2. CloudFront - ALB or EC2 as origin.md",
+                "file": "AWS/Solutions Architect Associate/12. AWS Storage Extras/2. Amazon FSx.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "2. CloudFront - ALB or EC2 as origin"
-            }
-          },
-          {
-            "id": "e22b91e7278e14f1",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "AWS/Solutions Architect Associate/11. CloudFront and AWS Global Accelerator/3. CloudFront Geo Restriction.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "3. CloudFront Geo Restriction"
-            }
-          },
-          {
-            "id": "e053952b5d509191",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "AWS/Solutions Architect Associate/11. CloudFront and AWS Global Accelerator/4. CloudFront Cache Invalidations.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "4. CloudFront Cache Invalidations"
-            }
-          },
-          {
-            "id": "05f00db0ee7e1e18",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "AWS/Solutions Architect Associate/11. CloudFront and AWS Global Accelerator/5. AWS Global Accelerator.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "5. AWS Global Accelerator"
+              "title": "2. Amazon FSx"
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -235,28 +190,31 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "05f00db0ee7e1e18",
+  "active": "454ebc8842b58baf",
   "lastOpenFiles": [
+    "AWS/Solutions Architect Associate/12. AWS Storage Extras/attachments/Pasted image 20260530230418.png",
+    "AWS/Solutions Architect Associate/12. AWS Storage Extras/attachments/Pasted image 20260530225803.png",
+    "AWS/Solutions Architect Associate/12. AWS Storage Extras/1. AWS Snowball.md",
+    "AWS/Solutions Architect Associate/12. AWS Storage Extras/2. Amazon FSx.md",
+    "AWS/Solutions Architect Associate/12. AWS Storage Extras/attachments/Pasted image 20260530224823.png",
+    "AWS/Solutions Architect Associate/12. AWS Storage Extras/attachments",
+    "AWS/Solutions Architect Associate/11. CloudFront and AWS Global Accelerator/1. CloudFront CDN.md",
+    "AWS/Solutions Architect Associate/11. CloudFront and AWS Global Accelerator/2. CloudFront - ALB or EC2 as origin.md",
+    "AWS/Solutions Architect Associate/11. CloudFront and AWS Global Accelerator/3. CloudFront Geo Restriction.md",
+    "AWS/Solutions Architect Associate/11. CloudFront and AWS Global Accelerator/4. CloudFront Cache Invalidations.md",
+    "AWS/Solutions Architect Associate/11. CloudFront and AWS Global Accelerator/5. AWS Global Accelerator.md",
     "AWS/Solutions Architect Associate/11. CloudFront and AWS Global Accelerator/attachments/Pasted image 20260530205152.png",
     "AWS/Solutions Architect Associate/11. CloudFront and AWS Global Accelerator/attachments/Pasted image 20260530205021.png",
     "AWS/Solutions Architect Associate/11. CloudFront and AWS Global Accelerator/attachments/Pasted image 20260530204914.png",
-    "AWS/Solutions Architect Associate/11. CloudFront and AWS Global Accelerator/4. CloudFront Cache Invalidations.md",
-    "AWS/Solutions Architect Associate/11. CloudFront and AWS Global Accelerator/5. AWS Global Accelerator.md",
     "AWS/Solutions Architect Associate/11. CloudFront and AWS Global Accelerator/attachments/Pasted image 20260530203859.png",
-    "AWS/Solutions Architect Associate/11. CloudFront and AWS Global Accelerator/3. CloudFront Geo Restriction.md",
-    "AWS/Solutions Architect Associate/11. CloudFront and AWS Global Accelerator/2. CloudFront - ALB or EC2 as origin.md",
     "AWS/Solutions Architect Associate/11. CloudFront and AWS Global Accelerator/attachments/Pasted image 20260530202721.png",
     "AWS/Solutions Architect Associate/11. CloudFront and AWS Global Accelerator/attachments/Pasted image 20260530202258.png",
-    "AWS/Solutions Architect Associate/11. CloudFront and AWS Global Accelerator/1. CloudFront CDN.md",
     "AWS/Solutions Architect Associate/11. CloudFront and AWS Global Accelerator/attachments/Pasted image 20260530200357.png",
     "AWS/Solutions Architect Associate/11. CloudFront and AWS Global Accelerator/attachments/Pasted image 20260530200344.png",
-    "AWS/Solutions Architect Associate/11. CloudFront and AWS Global Accelerator/attachments/Pasted image 20260530194305.png",
     "AWS/Solutions Architect Associate/11. CloudFront and AWS Global Accelerator/attachments",
     "AWS/Solutions Architect Associate/9. AWS S3 Introduction/15. S3 MFA Delete.md",
     "AWS/Solutions Architect Associate/9. AWS S3 Introduction/20. S3 Object Lambda Access Point.md",
-    "AWS/Solutions Architect Associate/9. AWS S3 Introduction/attachments/Pasted image 20260530190720.png",
     "AWS/Solutions Architect Associate/9. AWS S3 Introduction/19. S3 Access Points.md",
-    "AWS/Solutions Architect Associate/9. AWS S3 Introduction/attachments/Pasted image 20260530190107.png",
     "AWS/Solutions Architect Associate/9. AWS S3 Introduction/18. S3 Pre-signed URLs.md",
     "AWS/Solutions Architect Associate/9. AWS S3 Introduction/17. S3 Glacier Vault Lock & S3 Object Lock.md",
     "AWS/Solutions Architect Associate/9. AWS S3 Introduction/6. S3 Storage Classes.md",
@@ -272,8 +230,6 @@
     "AWS/Solutions Architect Associate/9. AWS S3 Introduction/8. S3 Event Notifications.md",
     "AWS/Solutions Architect Associate/9. AWS S3 Introduction/2. S3 Security - Bucket Policy.md",
     "AWS/Solutions Architect Associate/9. AWS S3 Introduction/5. S3 Replication.md",
-    "AWS/Solutions Architect Associate/9. AWS S3 Introduction/4. S3 Versioning.md",
-    "AWS/Solutions Architect Associate/9. AWS S3 Introduction/3. S3 Website.md",
     "AWS/Solutions Architect Associate/9. AWS S3 Introduction/attachments",
     "Go-Bill-Kennedy/goscheduler.excalidraw",
     "HTTP/HTTP Fundamentals/attachments",
@@ -282,7 +238,6 @@
     "AWS/Solutions Architect Associate/2. EC2 Fundamentals/attachments",
     "AWS/Solutions Architect Associate/2. EC2 Fundamentals/SSH/attachments",
     "AWS/Solutions Architect Associate/2. EC2 Fundamentals/SSH",
-    "Articles/Authentication",
     "AWS/Solutions Architect Associate/Untitled.canvas",
     "Untitled.canvas"
   ]
