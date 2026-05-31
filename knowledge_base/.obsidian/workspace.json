@@ -4,191 +4,116 @@
     "type": "split",
     "children": [
       {
-        "id": "41b3e5c34f841f91",
+        "id": "cd486463f4ee4f28",
         "type": "tabs",
         "children": [
           {
-            "id": "c316046f7550e952",
+            "id": "dcab774da1c8473a",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AWS/Solutions Architect Associate/13. Decoupling applications - SQL, SNS, Kinesis, Active MQ/1. Introduction to Messaging.md",
+                "file": "AWS/Solutions Architect Associate/14. Containers on AWS - ECS, Fargate, ECR, EKS/1. Docker Containers Management on AWS.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "1. Introduction to Messaging"
+              "title": "1. Docker Containers Management on AWS"
             }
           },
           {
-            "id": "35cb55eb4b3367e7",
+            "id": "445db960137c818d",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AWS/Solutions Architect Associate/13. Decoupling applications - SQL, SNS, Kinesis, Active MQ/2. Amazon SQS.md",
+                "file": "AWS/Solutions Architect Associate/14. Containers on AWS - ECS, Fargate, ECR, EKS/2. ECS Service Auto Scaling.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "2. Amazon SQS"
+              "title": "2. ECS Service Auto Scaling"
             }
           },
           {
-            "id": "b6000f92caa658e3",
+            "id": "603d80c7eac385b7",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AWS/Solutions Architect Associate/13. Decoupling applications - SQL, SNS, Kinesis, Active MQ/3. SQS – Message Visibility Timeout.md",
+                "file": "AWS/Solutions Architect Associate/14. Containers on AWS - ECS, Fargate, ECR, EKS/3. ECS Solution Architectures.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "3. SQS – Message Visibility Timeout"
+              "title": "3. ECS Solution Architectures"
             }
           },
           {
-            "id": "8194da43dae81619",
+            "id": "098b58728a54f28a",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AWS/Solutions Architect Associate/13. Decoupling applications - SQL, SNS, Kinesis, Active MQ/4. SQS Long Polling.md",
+                "file": "AWS/Solutions Architect Associate/14. Containers on AWS - ECS, Fargate, ECR, EKS/4. Amazon ECR.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "4. SQS Long Polling"
+              "title": "4. Amazon ECR"
             }
           },
           {
-            "id": "af48d897c7201bb1",
+            "id": "bf30c0d983cf1e48",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AWS/Solutions Architect Associate/13. Decoupling applications - SQL, SNS, Kinesis, Active MQ/5. SQS FIFO Queue.md",
+                "file": "AWS/Solutions Architect Associate/14. Containers on AWS - ECS, Fargate, ECR, EKS/5. Amazon EKS.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "5. SQS FIFO Queue"
+              "title": "5. Amazon EKS"
             }
           },
           {
-            "id": "3a77d08c2e7add3c",
+            "id": "de2c1c4a9133a609",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AWS/Solutions Architect Associate/13. Decoupling applications - SQL, SNS, Kinesis, Active MQ/6. SQS with ASG.md",
+                "file": "AWS/Solutions Architect Associate/14. Containers on AWS - ECS, Fargate, ECR, EKS/6. AWS App Runner.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "6. SQS with ASG"
+              "title": "6. AWS App Runner"
             }
           },
           {
-            "id": "9cc471fef2a0da03",
+            "id": "769c6c2131b1cc2f",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AWS/Solutions Architect Associate/13. Decoupling applications - SQL, SNS, Kinesis, Active MQ/7. Amazon SNS.md",
+                "file": "AWS/Solutions Architect Associate/14. Containers on AWS - ECS, Fargate, ECR, EKS/7. AWS App2Container (A2C).md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "7. Amazon SNS"
-            }
-          },
-          {
-            "id": "37801a288762ff67",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "AWS/Solutions Architect Associate/13. Decoupling applications - SQL, SNS, Kinesis, Active MQ/8. SNS + SQS – Fan out pattern.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "8. SNS + SQS – Fan out pattern"
-            }
-          },
-          {
-            "id": "f171165d0a3cbc42",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "AWS/Solutions Architect Associate/13. Decoupling applications - SQL, SNS, Kinesis, Active MQ/9. Amazon Kinesis Data Streams.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "9. Amazon Kinesis Data Streams"
-            }
-          },
-          {
-            "id": "4a579c40394f6c9b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "AWS/Solutions Architect Associate/13. Decoupling applications - SQL, SNS, Kinesis, Active MQ/10. Amazon Data Firehose.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "10. Amazon Data Firehose"
-            }
-          },
-          {
-            "id": "c1ad956a5f6e8649",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "AWS/Solutions Architect Associate/13. Decoupling applications - SQL, SNS, Kinesis, Active MQ/11. SQS vs SNS vs Kinesis.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "11. SQS vs SNS vs Kinesis"
-            }
-          },
-          {
-            "id": "9a4e027ef71927ae",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "AWS/Solutions Architect Associate/13. Decoupling applications - SQL, SNS, Kinesis, Active MQ/12. Amazon MQ.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "12. Amazon MQ"
+              "title": "7. AWS App2Container (A2C)"
             }
           }
         ],
-        "currentTab": 11
+        "currentTab": 6
       }
     ],
     "direction": "vertical"
@@ -340,31 +265,38 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "9a4e027ef71927ae",
+  "active": "769c6c2131b1cc2f",
   "lastOpenFiles": [
-    "AWS/Solutions Architect Associate/13. Decoupling applications - SQL, SNS, Kinesis, Active MQ/attachments/Pasted image 20260531134731.png",
+    "AWS/Solutions Architect Associate/14. Containers on AWS - ECS, Fargate, ECR, EKS/6. AWS App Runner.md",
+    "AWS/Solutions Architect Associate/14. Containers on AWS - ECS, Fargate, ECR, EKS/7. AWS App2Container (A2C).md",
+    "AWS/Solutions Architect Associate/14. Containers on AWS - ECS, Fargate, ECR, EKS/5. Amazon EKS.md",
+    "AWS/Solutions Architect Associate/14. Containers on AWS - ECS, Fargate, ECR, EKS/4. Amazon ECR.md",
+    "AWS/Solutions Architect Associate/14. Containers on AWS - ECS, Fargate, ECR, EKS/3. ECS Solution Architectures.md",
+    "AWS/Solutions Architect Associate/14. Containers on AWS - ECS, Fargate, ECR, EKS/attachments/Pasted image 20260531174424.png",
+    "AWS/Solutions Architect Associate/14. Containers on AWS - ECS, Fargate, ECR, EKS/attachments/Pasted image 20260531174159.png",
+    "AWS/Solutions Architect Associate/14. Containers on AWS - ECS, Fargate, ECR, EKS/attachments/Pasted image 20260531174015.png",
+    "AWS/Solutions Architect Associate/14. Containers on AWS - ECS, Fargate, ECR, EKS/attachments/Pasted image 20260531173945.png",
+    "AWS/Solutions Architect Associate/14. Containers on AWS - ECS, Fargate, ECR, EKS/2. ECS Service Auto Scaling.md",
+    "AWS/Solutions Architect Associate/14. Containers on AWS - ECS, Fargate, ECR, EKS/attachments/Pasted image 20260531170906.png",
+    "AWS/Solutions Architect Associate/14. Containers on AWS - ECS, Fargate, ECR, EKS/1. Docker Containers Management on AWS.md",
+    "AWS/Solutions Architect Associate/14. Containers on AWS - ECS, Fargate, ECR, EKS/attachments/Pasted image 20260531160519.png",
+    "AWS/Solutions Architect Associate/14. Containers on AWS - ECS, Fargate, ECR, EKS/attachments/Pasted image 20260531160455.png",
+    "AWS/Solutions Architect Associate/14. Containers on AWS - ECS, Fargate, ECR, EKS/attachments/Pasted image 20260531160445.png",
+    "AWS/Solutions Architect Associate/14. Containers on AWS - ECS, Fargate, ECR, EKS/attachments/Pasted image 20260531153828.png",
+    "AWS/Solutions Architect Associate/14. Containers on AWS - ECS, Fargate, ECR, EKS/attachments/Pasted image 20260531153815.png",
+    "AWS/Solutions Architect Associate/14. Containers on AWS - ECS, Fargate, ECR, EKS/attachments",
+    "AWS/Solutions Architect Associate/13. Decoupling applications - SQL, SNS, Kinesis, Active MQ/1. Introduction to Messaging.md",
+    "AWS/Solutions Architect Associate/13. Decoupling applications - SQL, SNS, Kinesis, Active MQ/2. Amazon SQS.md",
+    "AWS/Solutions Architect Associate/13. Decoupling applications - SQL, SNS, Kinesis, Active MQ/3. SQS – Message Visibility Timeout.md",
+    "AWS/Solutions Architect Associate/13. Decoupling applications - SQL, SNS, Kinesis, Active MQ/4. SQS Long Polling.md",
+    "AWS/Solutions Architect Associate/13. Decoupling applications - SQL, SNS, Kinesis, Active MQ/5. SQS FIFO Queue.md",
+    "AWS/Solutions Architect Associate/13. Decoupling applications - SQL, SNS, Kinesis, Active MQ/6. SQS with ASG.md",
+    "AWS/Solutions Architect Associate/13. Decoupling applications - SQL, SNS, Kinesis, Active MQ/7. Amazon SNS.md",
+    "AWS/Solutions Architect Associate/13. Decoupling applications - SQL, SNS, Kinesis, Active MQ/8. SNS + SQS – Fan out pattern.md",
+    "AWS/Solutions Architect Associate/13. Decoupling applications - SQL, SNS, Kinesis, Active MQ/9. Amazon Kinesis Data Streams.md",
+    "AWS/Solutions Architect Associate/13. Decoupling applications - SQL, SNS, Kinesis, Active MQ/10. Amazon Data Firehose.md",
     "AWS/Solutions Architect Associate/13. Decoupling applications - SQL, SNS, Kinesis, Active MQ/11. SQS vs SNS vs Kinesis.md",
     "AWS/Solutions Architect Associate/13. Decoupling applications - SQL, SNS, Kinesis, Active MQ/12. Amazon MQ.md",
-    "AWS/Solutions Architect Associate/13. Decoupling applications - SQL, SNS, Kinesis, Active MQ/10. Amazon Data Firehose.md",
-    "AWS/Solutions Architect Associate/13. Decoupling applications - SQL, SNS, Kinesis, Active MQ/1. Introduction to Messaging.md",
-    "AWS/Solutions Architect Associate/13. Decoupling applications - SQL, SNS, Kinesis, Active MQ/attachments/Pasted image 20260531130550.png",
-    "AWS/Solutions Architect Associate/13. Decoupling applications - SQL, SNS, Kinesis, Active MQ/9. Amazon Kinesis Data Streams.md",
-    "AWS/Solutions Architect Associate/13. Decoupling applications - SQL, SNS, Kinesis, Active MQ/attachments/Pasted image 20260531120559.png",
-    "AWS/Solutions Architect Associate/13. Decoupling applications - SQL, SNS, Kinesis, Active MQ/8. SNS + SQS – Fan out pattern.md",
-    "AWS/Solutions Architect Associate/13. Decoupling applications - SQL, SNS, Kinesis, Active MQ/attachments/Pasted image 20260531113520.png",
-    "AWS/Solutions Architect Associate/13. Decoupling applications - SQL, SNS, Kinesis, Active MQ/attachments/Pasted image 20260531112651.png",
-    "AWS/Solutions Architect Associate/13. Decoupling applications - SQL, SNS, Kinesis, Active MQ/attachments/Pasted image 20260531111910.png",
-    "AWS/Solutions Architect Associate/13. Decoupling applications - SQL, SNS, Kinesis, Active MQ/attachments/Pasted image 20260531111245.png",
-    "AWS/Solutions Architect Associate/13. Decoupling applications - SQL, SNS, Kinesis, Active MQ/7. Amazon SNS.md",
-    "AWS/Solutions Architect Associate/13. Decoupling applications - SQL, SNS, Kinesis, Active MQ/attachments/Pasted image 20260531110456.png",
-    "AWS/Solutions Architect Associate/13. Decoupling applications - SQL, SNS, Kinesis, Active MQ/attachments/Pasted image 20260531110328.png",
-    "AWS/Solutions Architect Associate/13. Decoupling applications - SQL, SNS, Kinesis, Active MQ/attachments/Pasted image 20260531105647.png",
-    "AWS/Solutions Architect Associate/13. Decoupling applications - SQL, SNS, Kinesis, Active MQ/6. SQS with ASG.md",
-    "AWS/Solutions Architect Associate/13. Decoupling applications - SQL, SNS, Kinesis, Active MQ/attachments/Pasted image 20260531105348.png",
-    "AWS/Solutions Architect Associate/13. Decoupling applications - SQL, SNS, Kinesis, Active MQ/5. SQS FIFO Queue.md",
-    "AWS/Solutions Architect Associate/13. Decoupling applications - SQL, SNS, Kinesis, Active MQ/4. SQS Long Polling.md",
-    "AWS/Solutions Architect Associate/13. Decoupling applications - SQL, SNS, Kinesis, Active MQ/3. SQS – Message Visibility Timeout.md",
-    "AWS/Solutions Architect Associate/13. Decoupling applications - SQL, SNS, Kinesis, Active MQ/2. Amazon SQS.md",
     "AWS/Solutions Architect Associate/13. Decoupling applications - SQL, SNS, Kinesis, Active MQ/attachments",
     "AWS/Solutions Architect Associate/12. AWS Storage Extras/1. AWS Snowball.md",
     "AWS/Solutions Architect Associate/12. AWS Storage Extras/2. Amazon FSx.md",
@@ -374,20 +306,13 @@
     "AWS/Solutions Architect Associate/12. AWS Storage Extras/6. Storage Comparison.md",
     "AWS/Solutions Architect Associate/12. AWS Storage Extras/attachments",
     "AWS/Solutions Architect Associate/11. CloudFront and AWS Global Accelerator/1. CloudFront CDN.md",
-    "AWS/Solutions Architect Associate/11. CloudFront and AWS Global Accelerator/2. CloudFront - ALB or EC2 as origin.md",
-    "AWS/Solutions Architect Associate/11. CloudFront and AWS Global Accelerator/3. CloudFront Geo Restriction.md",
-    "AWS/Solutions Architect Associate/11. CloudFront and AWS Global Accelerator/4. CloudFront Cache Invalidations.md",
-    "AWS/Solutions Architect Associate/11. CloudFront and AWS Global Accelerator/5. AWS Global Accelerator.md",
     "AWS/Solutions Architect Associate/11. CloudFront and AWS Global Accelerator/attachments",
-    "AWS/Solutions Architect Associate/9. AWS S3 Introduction/15. S3 MFA Delete.md",
-    "AWS/Solutions Architect Associate/9. AWS S3 Introduction/20. S3 Object Lambda Access Point.md",
     "AWS/Solutions Architect Associate/9. AWS S3 Introduction/attachments",
     "Go-Bill-Kennedy/goscheduler.excalidraw",
     "HTTP/HTTP Fundamentals/attachments",
     "HTTP/HTTP Fundamentals",
     "HTTP",
     "AWS/Solutions Architect Associate/2. EC2 Fundamentals/attachments",
-    "AWS/Solutions Architect Associate/2. EC2 Fundamentals/SSH/attachments",
     "AWS/Solutions Architect Associate/Untitled.canvas",
     "Untitled.canvas"
   ]
