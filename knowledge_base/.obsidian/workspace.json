@@ -4,86 +4,25 @@
     "type": "split",
     "children": [
       {
-        "id": "f0d32c1e972410a2",
+        "id": "b8d6b63d29c4202f",
         "type": "tabs",
         "children": [
           {
-            "id": "bca2dbbfbc679ddf",
+            "id": "7a5801b9bd51af7d",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AWS/Solutions Architect Associate/15. Serverless Overviews from a Solution Architect Perspective/7. Lambda in VPC.md",
+                "file": "AWS/Networking Speciality/Birds Eye View/Bird's Eye View.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "7. Lambda in VPC"
-            }
-          },
-          {
-            "id": "1cbcff8d47a23a62",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "AWS/Solutions Architect Associate/15. Serverless Overviews from a Solution Architect Perspective/8. Amazon DynamoDB.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "8. Amazon DynamoDB"
-            }
-          },
-          {
-            "id": "1165f32ceb0fddf0",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "AWS/Solutions Architect Associate/15. Serverless Overviews from a Solution Architect Perspective/9. API Gateway.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "9. API Gateway"
-            }
-          },
-          {
-            "id": "a2cbf9e7367acd20",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "AWS/Solutions Architect Associate/15. Serverless Overviews from a Solution Architect Perspective/10. Step Functions.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "10. Step Functions"
-            }
-          },
-          {
-            "id": "bd601109d40012d6",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "AWS/Solutions Architect Associate/15. Serverless Overviews from a Solution Architect Perspective/11. Amazon Cognito.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "11. Amazon Cognito"
+              "title": "Bird's Eye View"
             }
           }
-        ],
-        "currentTab": 4
+        ]
       }
     ],
     "direction": "vertical"
@@ -102,7 +41,7 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical",
+                "sortOrder": "byModifiedTime",
                 "autoReveal": true
               },
               "icon": "lucide-folder-closed",
@@ -140,8 +79,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 351.5004348754883,
-    "collapsed": true
+    "width": 351.5004348754883
   },
   "right": {
     "id": "b728b4262fed4323",
@@ -235,54 +173,54 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "bd601109d40012d6",
+  "active": "7a5801b9bd51af7d",
   "lastOpenFiles": [
-    "AWS/Solutions Architect Associate/15. Serverless Overviews from a Solution Architect Perspective/attachments/Pasted image 20260601020923.png",
-    "AWS/Solutions Architect Associate/15. Serverless Overviews from a Solution Architect Perspective/attachments/Pasted image 20260601020635.png",
+    "AWS/Networking Speciality/Default VPC/Default VPC.md",
+    "AWS/Networking Speciality/Birds Eye View/Bird's Eye View.md",
+    "AWS/Abhishek Veeramalla/Networking 101.md",
+    "AWS/Networking Speciality/VPC Firewall/Firewall.md",
+    "AWS/Networking Speciality/Default VPC",
+    "AWS/Networking Speciality/VPC Firewall/attachments/Pasted image 20260614202616.png",
+    "AWS/Networking Speciality/VPC Firewall/attachments/Pasted image 20260614201251.png",
+    "AWS/Networking Speciality/VPC Firewall/attachments/Pasted image 20260614201144.png",
+    "AWS/Networking Speciality/VPC Firewall/attachments",
+    "AWS/Networking Speciality/VPC Building Blocks/VPC Building Blocks.md",
+    "AWS/Networking Speciality/VPC Firewall",
+    "AWS/Networking Speciality/VPC Building Blocks",
+    "AWS/Networking Speciality/Birds Eye View/attachments/Pasted image 20260614092722.png",
+    "AWS/Networking Speciality/Birds Eye View/attachments/Pasted image 20260614092208.png",
+    "AWS/Networking Speciality/Birds Eye View/attachments/Pasted image 20260614082223.png",
+    "AWS/Networking Speciality/Birds Eye View/attachments/Pasted image 20260614081833.png",
+    "AWS/Networking Speciality/Birds Eye View/attachments/Pasted image 20260614081412.png",
+    "AWS/Networking Speciality/Birds Eye View/attachments/Pasted image 20260614081018.png",
+    "AWS/Networking Speciality/Birds Eye View/attachments/Pasted image 20260614080511.png",
+    "AWS/Networking Speciality/Birds Eye View/attachments",
+    "AWS/Networking Speciality/Birds Eye View",
+    "AWS/Networking Speciality",
+    "AWS/Abhishek Veeramalla",
+    "Book-DDIA/Part 3 - Derived Data",
+    "Book-DDIA/Part 2 - Distributed Data",
+    "Book-Browser-Networking/Untitled.md",
+    "Book-Database-Internals/Part-1 Storage Engines/Untitled.md",
+    "AWS/Solutions Architect Associate/15. Serverless Overviews from a Solution Architect Perspective/7. Lambda in VPC.md",
+    "AWS/Solutions Architect Associate/15. Serverless Overviews from a Solution Architect Perspective/8. Amazon DynamoDB.md",
+    "AWS/Solutions Architect Associate/15. Serverless Overviews from a Solution Architect Perspective/9. API Gateway.md",
     "AWS/Solutions Architect Associate/15. Serverless Overviews from a Solution Architect Perspective/10. Step Functions.md",
     "AWS/Solutions Architect Associate/15. Serverless Overviews from a Solution Architect Perspective/11. Amazon Cognito.md",
-    "AWS/Solutions Architect Associate/15. Serverless Overviews from a Solution Architect Perspective/9. API Gateway.md",
-    "AWS/Solutions Architect Associate/15. Serverless Overviews from a Solution Architect Perspective/attachments/Pasted image 20260601013146.png",
-    "AWS/Solutions Architect Associate/15. Serverless Overviews from a Solution Architect Perspective/8. Amazon DynamoDB.md",
-    "AWS/Solutions Architect Associate/15. Serverless Overviews from a Solution Architect Perspective/attachments/Pasted image 20260601005817.png",
-    "AWS/Solutions Architect Associate/15. Serverless Overviews from a Solution Architect Perspective/attachments/Pasted image 20260601005049.png",
-    "AWS/Solutions Architect Associate/15. Serverless Overviews from a Solution Architect Perspective/7. Lambda in VPC.md",
     "AWS/Tutorials Dojo Solutions Architect/EC2/3. EC2 Capacity Planning.md",
     "AWS/Tutorials Dojo Solutions Architect/EC2/2. EC2 Auto Scaling.md",
     "AWS/Tutorials Dojo Solutions Architect/EC2/1. EC2 CloudWatch.md",
-    "AWS/Tutorials Dojo Solutions Architect/EC2",
-    "AWS/Tutorials Dojo Solutions Architect",
     "AWS/Solutions Architect Associate/15. Serverless Overviews from a Solution Architect Perspective/1. Serverless.md",
     "AWS/Solutions Architect Associate/15. Serverless Overviews from a Solution Architect Perspective/2. Lambda.md",
     "AWS/Solutions Architect Associate/15. Serverless Overviews from a Solution Architect Perspective/3. Lambda Limits to know - per region.md",
     "AWS/Solutions Architect Associate/15. Serverless Overviews from a Solution Architect Perspective/4. Lambda Concurrency and Throttling.md",
     "AWS/Solutions Architect Associate/15. Serverless Overviews from a Solution Architect Perspective/5. Lambda SnapStart.md",
     "AWS/Solutions Architect Associate/15. Serverless Overviews from a Solution Architect Perspective/6. Lambda@Edge and CloudFront Functions.md",
-    "AWS/Solutions Architect Associate/15. Serverless Overviews from a Solution Architect Perspective/attachments/Pasted image 20260531204349.png",
-    "AWS/Solutions Architect Associate/15. Serverless Overviews from a Solution Architect Perspective/attachments/Pasted image 20260531185142.png",
-    "AWS/Solutions Architect Associate/15. Serverless Overviews from a Solution Architect Perspective/attachments",
     "AWS/Solutions Architect Associate/14. Containers on AWS - ECS, Fargate, ECR, EKS/1. Docker Containers Management on AWS.md",
     "AWS/Solutions Architect Associate/14. Containers on AWS - ECS, Fargate, ECR, EKS/2. ECS Service Auto Scaling.md",
     "AWS/Solutions Architect Associate/14. Containers on AWS - ECS, Fargate, ECR, EKS/3. ECS Solution Architectures.md",
     "AWS/Solutions Architect Associate/14. Containers on AWS - ECS, Fargate, ECR, EKS/4. Amazon ECR.md",
     "AWS/Solutions Architect Associate/14. Containers on AWS - ECS, Fargate, ECR, EKS/5. Amazon EKS.md",
-    "AWS/Solutions Architect Associate/14. Containers on AWS - ECS, Fargate, ECR, EKS/6. AWS App Runner.md",
-    "AWS/Solutions Architect Associate/14. Containers on AWS - ECS, Fargate, ECR, EKS/7. AWS App2Container (A2C).md",
-    "AWS/Solutions Architect Associate/14. Containers on AWS - ECS, Fargate, ECR, EKS/attachments/Pasted image 20260531174424.png",
-    "AWS/Solutions Architect Associate/14. Containers on AWS - ECS, Fargate, ECR, EKS/attachments/Pasted image 20260531174159.png",
-    "AWS/Solutions Architect Associate/14. Containers on AWS - ECS, Fargate, ECR, EKS/attachments/Pasted image 20260531174015.png",
-    "AWS/Solutions Architect Associate/14. Containers on AWS - ECS, Fargate, ECR, EKS/attachments/Pasted image 20260531173945.png",
-    "AWS/Solutions Architect Associate/14. Containers on AWS - ECS, Fargate, ECR, EKS/attachments",
-    "AWS/Solutions Architect Associate/13. Decoupling applications - SQL, SNS, Kinesis, Active MQ/1. Introduction to Messaging.md",
-    "AWS/Solutions Architect Associate/13. Decoupling applications - SQL, SNS, Kinesis, Active MQ/2. Amazon SQS.md",
-    "AWS/Solutions Architect Associate/13. Decoupling applications - SQL, SNS, Kinesis, Active MQ/3. SQS – Message Visibility Timeout.md",
-    "AWS/Solutions Architect Associate/13. Decoupling applications - SQL, SNS, Kinesis, Active MQ/4. SQS Long Polling.md",
-    "AWS/Solutions Architect Associate/13. Decoupling applications - SQL, SNS, Kinesis, Active MQ/attachments",
-    "AWS/Solutions Architect Associate/12. AWS Storage Extras/attachments",
-    "AWS/Solutions Architect Associate/11. CloudFront and AWS Global Accelerator/attachments",
-    "AWS/Solutions Architect Associate/9. AWS S3 Introduction/attachments",
-    "Go-Bill-Kennedy/goscheduler.excalidraw",
-    "HTTP/HTTP Fundamentals/attachments",
     "AWS/Solutions Architect Associate/Untitled.canvas",
     "Untitled.canvas"
   ]

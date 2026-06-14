@@ -1,0 +1,3 @@
+- Nothing special, can be created if deleted by mistake
+- Created by default in every region for an AWS account
+- Recommended to use own custom VPC
