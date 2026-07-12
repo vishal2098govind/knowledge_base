@@ -107,7 +107,8 @@ DynamoDB supports Standard Table class and Infrequent Access (IA) Table class
     - By default auto-scaling is not enabled when created using CLI
 - At risk of **over-provisioning** and having **unnecessary costs** when the incoming traffic is way lower than expected
 - DynamoDB auto scaling uses the AWS Application Auto Scaling service to dynamically adjust provisioned throughput capacity on your behalf, in response to actual traffic patterns. 
-    - This enables a table or a global secondary index to increase its provisioned read and write capacity to handle sudden increases in traffic, without throttling. When the workload decreases, Application Auto Scaling decreases the throughput so that you don’t pay for unused provisioned capacity.
+    - This enables a table or a global secondary index to increase its provisioned read and write capacity to handle sudden increases in traffic, without throttling. 
+    - When the workload decreases, Application Auto Scaling decreases the throughput so that you don’t pay for unused provisioned capacity.
 
 
 **On-Demand Capacity Mode**
