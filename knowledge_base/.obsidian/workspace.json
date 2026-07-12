@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AWS/0 AWS SAA Revison/DynamoDB/Dynamo DB Revision notes.md",
+                "file": "AWS/0 AWS SAA Revison/EBS/EBS Revision notes.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Dynamo DB Revision notes"
+              "title": "EBS Revision notes"
             }
           }
         ]
@@ -79,8 +79,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 221.50271224975586,
-    "collapsed": true
+    "width": 262.50271224975586
   },
   "right": {
     "id": "b728b4262fed4323",
@@ -176,14 +175,22 @@
   },
   "active": "8508f355e89559ac",
   "lastOpenFiles": [
-    "AWS/0 AWS SAA Revison/DynamoDB/attachments/Pasted image 20260712143016.png",
-    "AWS/0 AWS SAA Revison/DynamoDB/attachments/Pasted image 20260712142517.png",
-    "AWS/0 AWS SAA Revison/DynamoDB/attachments/Pasted image 20260712141253.png",
-    "AWS/0 AWS SAA Revison/DynamoDB/attachments/Pasted image 20260712121323.png",
-    "AWS/0 AWS SAA Revison/DynamoDB/attachments/20260712105301.png",
+    "AWS/0 AWS SAA Revison/EBS/EFS.md",
+    "AWS/0 AWS SAA Revison/EBS/EBS Revision notes.md",
+    "AWS/0 AWS SAA Revison/EBS/attachments/Pasted image 20260712172548.png",
+    "AWS/0 AWS SAA Revison/EBS/attachments/Pasted image 20260712161547.png",
+    "AWS/0 AWS SAA Revison/EBS/attachments/Pasted image 20260712160959.png",
+    "AWS/0 AWS SAA Revison/EBS/attachments/Pasted image 20260712155942.png",
+    "AWS/0 AWS SAA Revison/AWS Storage Services/image.png",
+    "AWS/0 AWS SAA Revison/EBS/attachments/Pasted image 20260712155507.png",
+    "AWS/0 AWS SAA Revison/EBS/attachments/Pasted image 20260712155030.png",
+    "AWS/0 AWS SAA Revison/EBS/attachments/Pasted image 20260712155000.png",
+    "AWS/0 AWS SAA Revison/EBS/attachments/Pasted image 20260712154756.png",
+    "AWS/0 AWS SAA Revison/AWS Storage Services/attachments/Pasted image 20260712154725.png",
+    "AWS/0 AWS SAA Revison/EBS/attachments",
+    "AWS/0 AWS SAA Revison/EBS/S3.md",
     "AWS/0 AWS SAA Revison/DynamoDB/Dynamo DB Revision notes.md",
-    "AWS/0 AWS SAA Revison/DynamoDB/attachments/Pasted image 20260712102914.png",
-    "AWS/0 AWS SAA Revison/DynamoDB/attachments/Pasted image 20260712101037.png",
+    "AWS/0 AWS SAA Revison/EBS",
     "AWS/0 AWS SAA Revison/DynamoDB/attachments",
     "AWS/2 AWS With Chetan/AWS IAM/IAM Credentials.md",
     "AWS/0 AWS SAA Revison/DynamoDB",
@@ -199,13 +206,7 @@
     "AWS/3 Networking Speciality/2 Default VPC/Default VPC.md",
     "AWS/1 Abhishek Veeramalla/Networking 101.md",
     "AWS/3 Networking Speciality/3 VPC Firewall/Firewall.md",
-    "AWS/3 Networking Speciality/2 Default VPC",
-    "AWS/3 Networking Speciality/3 VPC Firewall/attachments/Pasted image 20260614202616.png",
-    "AWS/3 Networking Speciality/3 VPC Firewall/attachments/Pasted image 20260614201251.png",
-    "AWS/3 Networking Speciality/3 VPC Firewall/attachments/Pasted image 20260614201144.png",
-    "AWS/3 Networking Speciality/3 VPC Firewall/attachments",
     "AWS/3 Networking Speciality/1 VPC Building Blocks/VPC Building Blocks.md",
-    "AWS/3 Networking Speciality/0 Birds Eye View/attachments/Pasted image 20260614092722.png",
     "Book-Browser-Networking/Untitled.md",
     "AWS/4 Solutions Architect Associate/15. Serverless Overviews from a Solution Architect Perspective/7. Lambda in VPC.md",
     "AWS/4 Solutions Architect Associate/15. Serverless Overviews from a Solution Architect Perspective/8. Amazon DynamoDB.md",
@@ -219,9 +220,6 @@
     "AWS/4 Solutions Architect Associate/15. Serverless Overviews from a Solution Architect Perspective/2. Lambda.md",
     "AWS/4 Solutions Architect Associate/15. Serverless Overviews from a Solution Architect Perspective/3. Lambda Limits to know - per region.md",
     "AWS/4 Solutions Architect Associate/15. Serverless Overviews from a Solution Architect Perspective/4. Lambda Concurrency and Throttling.md",
-    "AWS/4 Solutions Architect Associate/15. Serverless Overviews from a Solution Architect Perspective/5. Lambda SnapStart.md",
-    "AWS/4 Solutions Architect Associate/15. Serverless Overviews from a Solution Architect Perspective/6. Lambda@Edge and CloudFront Functions.md",
-    "AWS/4 Solutions Architect Associate/14. Containers on AWS - ECS, Fargate, ECR, EKS/1. Docker Containers Management on AWS.md",
     "AWS/Solutions Architect Associate/Untitled.canvas",
     "Untitled.canvas"
   ]
