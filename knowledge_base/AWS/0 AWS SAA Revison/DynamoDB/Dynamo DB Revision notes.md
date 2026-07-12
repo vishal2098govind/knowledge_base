@@ -37,7 +37,12 @@ DynamoDB has Table as basic entity to store data
 - Provides the ability to search for a particular item in your table
 - Used an an **input to the internal hash function** in DynamoDB. The output from that function determines the physical internal storage in which the item will be stored
 - The primary key attribute **must be a scalar**
-    - string/number/binary 
+    - string/number/binary
+> The partition key portion of a table’s primary key determines the logical partitions in which a table’s data is stored.
+> This, in turn, affects the underlying physical partitions. 
+> Provisioned I/O capacity for the table is divided evenly among these physical partitions. 
+> Therefore, a partition key design that doesn’t distribute I/O requests evenly can create “hot” partitions that result in throttling and use your provisioned I/O capacity inefficiently.
+![[Pasted image 20260712141253.png]]
 ---
 ### DynamoDB Component - Query and Scan
 **Query** - fetches specific items using Partition Key
@@ -256,3 +261,8 @@ DynamoDB supports Standard Table class and Infrequent Access (IA) Table class
 	- creating a **VPC Gateway Endpoint** 
 	- and adding a new route table entry
 ---
+### Resilient Architecture Designs
+
+### Route53 as failover target and DynamoDB global table for HA and/or DR
+When you have more than one resource performing the same function—for example, more than one HTTP serve—you can configure Amazon Route 53 to check the health of your resources and respond to DNS queries using only the healthy resources. For example, suppose your website, example.com, is hosted on six servers, two each in three data centers around the world. You can configure Route 53 to check the health of those servers and to respond to DNS queries for example.com using only the servers that are currently healthy.
+![[Pasted image 20260712142517.png]]
