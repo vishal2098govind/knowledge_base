@@ -261,8 +261,14 @@ DynamoDB supports Standard Table class and Infrequent Access (IA) Table class
 	- creating a **VPC Gateway Endpoint** 
 	- and adding a new route table entry
 ---
-### Resilient Architecture Designs
+### Architecture Designs
 
-### Route53 as failover target and DynamoDB global table for HA and/or DR
+### Route53 for region failover and DynamoDB global table for HA and/or DR - Resiliency
 When you have more than one resource performing the same function—for example, more than one HTTP serve—you can configure Amazon Route 53 to check the health of your resources and respond to DNS queries using only the healthy resources. For example, suppose your website, example.com, is hosted on six servers, two each in three data centers around the world. You can configure Route 53 to check the health of those servers and to respond to DNS queries for example.com using only the servers that are currently healthy.
 ![[Pasted image 20260712142517.png]]
+
+### DynamoDB Streams with Lambda Trigger - High Performance
+Amazon DynamoDB is integrated with AWS Lambda so that you can create _triggers_—pieces of code that automatically respond to events in DynamoDB Streams. With triggers, you can build applications that react to data modifications in DynamoDB tables.
+
+If you enable DynamoDB Streams on a table, you can associate the stream ARN with a Lambda function that you write. Immediately after an item in the table is modified, a new record appears in the table’s stream. AWS Lambda polls the stream and invokes your Lambda function synchronously when it detects new stream records.
+![[Pasted image 20260712143016.png]]
