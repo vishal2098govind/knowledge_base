@@ -24,7 +24,7 @@ DynamoDB has Table as basic entity to store data
 - Can use filters to narrow down the results but still scans all items first.
 ---
 ### DynamoDB - Global & Local Secondary Index
-![[Pasted image 20260712101037.png]]
+![[Pasted image 20260712101037.png|309]]
 **Local Secondary Index**
 - Queries data over a **single partition** only (localized)
 - Supports both **eventual consistency** or **strong consistency**
@@ -33,7 +33,7 @@ DynamoDB has Table as basic entity to store data
 - Queries data across **all partitions** of the entire table
 - Only supports eventual consistency only, no strong consistency
 - Can be added or deleted at **any time**
-![[Pasted image 20260712102914.png]]
+![[Pasted image 20260712102914.png|295]]
 ---
 ### DynamoDB Features
 - Can add ACID properties to a DynamoDB table
@@ -80,9 +80,31 @@ DynamoDB supports Standard Table class and Infrequent Access (IA) Table class
 
 ---
 ### Multi Region Database - DynamoDB Global Tables
-- provide multi-region replication
+- provide multi-region replication across all replicas/tables
+- Can read/write to any replica
+- includes ongoing data changes across all the tables during replication
+
+- Multi-region, multi-active, serverless tables across regions
 - completely automated
-- includes ongoing data changes across all the tables
+
 - underlying infra is entirely managed by AWS themselves
 - doesn't reside within a custom VPC
-- 
+- 99.999% availability
+
+**Use cases:**
+- Global application requiring low latency access for users
+- Can handle region level failure (DR - Disaster Recovery)
+---
+### DynamoDB Streams
+- A data stream that **captures each and every data change made to the items**
+- If an item was added, modified, or deleted, then that item will be included in the DynamoDB stream
+- **Can be associated with AWS Lambda**. The function can poll the stream and execute a set of actions whenever it detects new stream records
+- Can also be integrated with **Kinesis Data Streams**
+- Important component that **needs to be enabled when using Amazon DynamoDB Global Tables**
+![[Pasted image 20260712105301.png|134]]
+---
+### DynamoDB Accelerator - DAX
+- Fully managed highly available in-memory cache for DynamoDB
+- 10x performance improvement with single digit millisecond to microsecond level latency
+- API-compatible with DynamoDB. Only client & endpoint needs to change to use with an existing application.
+- DAX provides access to eventually consistent data from DynamoDB tables
