@@ -6,36 +6,8 @@
 - **Serverless**: No provisioning or capacity management, Encryption for data at rest, 99.999% availability
 - Support different data types i.e. Scalar (Number, String etc.), Document (JSON) and Set types
 ---
-DynamoDB has Table as basic entity to store data
-- Table contains items (like rows)
-- Items contains Partition Key, Sort Key (optional), and attributes (key-value pairs).
-- **Partition Key + Sort Key = Primary Key**
----
-### Query and Scan
-**Query** - fetches specific items using Partition Key
-- Retrieves items by Partition Key (and optional Sort Key conditions).
-- Can use conditions like <, >, <=, >= etc. with Sort Key
-- Fast and **efficient** — looks only in matching partitions.
-- Can use filters, but filtering happens after reading the data.
-
-**Scan** – fetches every item of the table
-- Reads every item in the table or index.
-- Slow and **expensive** for large tables.
-- Can use filters to narrow down the results but still scans all items first.
----
-### DynamoDB - Global & Local Secondary Index
-![[Pasted image 20260712101037.png|309]]
-**Local Secondary Index**
-- Queries data over a **single partition** only (localized)
-- Supports both **eventual consistency** or **strong consistency**
-- Can only be added at the same time that you create the base table
-**Global Local Secondary Index**
-- Queries data across **all partitions** of the entire table
-- Only supports eventual consistency only, no strong consistency
-- Can be added or deleted at **any time**
-![[Pasted image 20260712102914.png|295]]
----
 ## DynamoDB Features
+- DynamoDB Components - Table, Item, Partition keys, Secondary Indexes (GSI and LSI)
 - DynamoDB Table class - Standard, Standard-IA
 - DynamoDB Global Tables
     - Can configure DynamoDB as a multi-region database
@@ -50,6 +22,60 @@ DynamoDB has Table as basic entity to store data
 - DynamoDB Scaling - Read/Write Capacity (RCU/WCU)
     - Modify read/write throughput capacity
 - DynamoDB Security
+---
+### DynamoDB Component - Table, Item
+![[Pasted image 20260712101037.png|309]]
+DynamoDB has Table as basic entity to store data
+- Table contains items (like rows)
+- Items contains Partition Key, Sort Key (optional), and attributes (key-value pairs).
+- **Partition Key = Simple Primary Key**
+- **Partition Key + Sort Key = Composite Primary Key**
+    - Sort key is used to sort items with same partition values
+---
+### DynamoDB Component - Partition Key
+- Acts as the primary index that uniquely identifies each item in your DynamoDB table
+- Provides the ability to search for a particular item in your table
+- Used an an **input to the internal hash function** in DynamoDB. The output from that function determines the physical internal storage in which the item will be stored
+- The primary key attribute **must be a scalar**
+    - string/number/binary 
+---
+### DynamoDB Component - Query and Scan
+**Query** - fetches specific items using Partition Key
+- Retrieves items by Partition Key (and optional Sort Key conditions).
+- Can use conditions like <, >, <=, >= etc. with Sort Key
+- Fast and **efficient** — looks only in matching partitions.
+- Can use filters, but filtering happens after reading the data.
+
+**Scan** – fetches every item of the table
+- Reads every item in the table or index.
+- Slow and **expensive** for large tables.
+- Can use filters to narrow down the results but still scans all items first.
+---
+### DynamoDB Component - Global & Local Secondary Index
+**Local Secondary Index (LSI)**
+- Queries data over a **single partition** only (localized)
+- Supports both **eventual consistency** or **strong consistency**
+- **Can only be added at the same time that you create the base table (unlike GSI)**
+- Must use same partition key as table's partition key, sort key can differ
+- Use cases:
+    - Query all items with single partition key value, like all moves where director = "Christopher Nolan", where director is partition key of the base table, and thus also LSI.
+- When queried (reads from or writes to LSI), it **consumes provisioned RCU/WCU throughput of base table**. Unlike GSI, where RCU/WCU of GSI can be seperately or independently provisoned
+    - Thus, using **eventual consistency** consumes lesser WCU than choosing **strong consistency**
+- Can include un-projected attributes (columns) in the read queries. They are automatically fetched from base table. This concept is called "fetching". Although will causes additional query latencies in query responses and incurs higher provisioned throughput cost (RCU)
+    - Thus, avoid "fetching" by carefully planning projected attributes of LSI during base table creation itself
+
+**Global Local Secondary Index (GSI)**
+- Queries data across **all partitions** of the entire table
+- Only supports eventual consistency only, **no strong consistency**
+- Can be added or deleted at **any time**
+- Can have different partition key and sort key than table's partition key
+- Can have a default limit of upto 20 GSIs
+- **Only projected attributes** of GSIs are accessible while querying from GSI table, unlike LSI where un-projected attributes are "fetched" automatically from base table
+- Do not consume RCU/WCU of base table when GSIs are queried. So RCU/WCU of GSI is separate from that of base table.
+- Applications do not write directly to GSI. Any updates or deletes to DynamoDB table happen on base table first, and then asynchronously reflected to GSI table, using an **eventual consistency model** only
+- Thus single update to base table corresponds to 2 or more write actions depending on how many GSIs we have
+- **Recommended** to provison **WCU of GSI which is either greater or equal to WCU of base table**, since we can provison WCU/RCU of GSI seperately than that of base table, to avoid potential throttling
+![[Pasted image 20260712102914.png|295]]
 ---
 ### DynamoDB Table Class
 DynamoDB supports Standard Table class and Infrequent Access (IA) Table class
@@ -92,22 +118,6 @@ DynamoDB supports Standard Table class and Infrequent Access (IA) Table class
 - Can be used if your application has a combination of predictable and variable traffic
     - Suitable if you have clearly defined access patterns throughout the year but with variable amounts of traffic on certain days only (flash sales or product announcements)
 ---
-### Multi Region Database - DynamoDB Global Tables
-- provide multi-region replication across all replicas/tables
-- Can read/write to any replica
-- includes ongoing data changes across all the tables during replication
-
-- Multi-region, multi-active, serverless tables across regions
-- completely automated
-
-- underlying infra is entirely managed by AWS themselves
-- **doesn't reside within a custom VPC**
-- 99.999% availability
-
-**Use cases:**
-- Global application requiring low latency access for users
-- Can handle region level failure (DR - Disaster Recovery)
----
 ### DynamoDB Streams
 - A data stream that **captures each and every data change made to the items**
     - Captures the item level modifications in time-ordered sequence
@@ -123,6 +133,23 @@ DynamoDB supports Standard Table class and Infrequent Access (IA) Table class
 - Maintain time-series data
 - Real-time monitoring e.g. connected vehicles, sensor data, Notifying everyone on an activity e.g. friend creates a post on social media
 - Backup/Change data capture (CDC) of DynamoDB table
+---
+### Multi Region Database - DynamoDB Global Tables
+- provide multi-region replication across all replicas/tables
+- Can read/write to any replica
+- includes ongoing data changes across all the tables during replication
+
+- Multi-region, multi-active (multi-master), serverless tables across regions
+- completely automated
+
+- underlying infra is entirely managed by AWS themselves
+- **doesn't reside within a custom VPC**
+- 99.999% availability
+
+**Use cases:**
+- Global application requiring low latency access for users
+- Can handle region level failure (DR - Disaster Recovery)
+![[Pasted image 20260712121323.png]]
 ---
 ### DynamoDB Accelerator - DAX
 - Fully managed highly available **in-memory cache for DynamoDB**
@@ -209,3 +236,5 @@ DynamoDB supports Standard Table class and Infrequent Access (IA) Table class
 - The API calls from your private Amazon EC2 instances that go to DynamoDB can be **configured to not traverse the public Internet** by 
 	- creating a **VPC Gateway Endpoint** 
 	- and adding a new route table entry
+---
+---
