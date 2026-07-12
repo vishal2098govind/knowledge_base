@@ -104,6 +104,7 @@ DynamoDB supports Standard Table class and Infrequent Access (IA) Table class
     - Can set the target utilization, 
     - minimum provisioned capacity, 
     - and maximum provisioned capacity values in the Auto Scaling settings
+    - By default auto-scaling is not enabled when created using CLI
 - At risk of **over-provisioning** and having **unnecessary costs** when the incoming traffic is way lower than expected
 
 **On-Demand Capacity Mode**
