@@ -212,6 +212,20 @@ DynamoDB supports Standard Table class and Infrequent Access (IA) Table class
 - **No continuous** backups
 - Can only restore to a particular backup that you’ve taken
 - A **cost-effective** yet limited backup option feature for your data
+- **When restoring from a on-demand backup**
+    - When you create an on-demand backup, a time marker of the request is cataloged. 
+    - The backup is created asynchronously by applying all changes until the time of the request to the last full table snapshot. 
+    - Backup requests are processed instantaneously and become available for restore within minutes.
+    - However, some settings are not carried over on the restored table and you must manually configure them after restoring.
+    - You must manually set up the following on the restored table:
+		- Auto scaling policies
+		- AWS Identity and Access Management (IAM) policies
+		- Amazon CloudWatch metrics and alarms
+		- Tags
+		- Stream settings
+		- Time to Live (TTL) settings
+
+
 ---
 ### DynamoDB Export to / Import from S3
 **Export to S3**
@@ -236,5 +250,4 @@ DynamoDB supports Standard Table class and Infrequent Access (IA) Table class
 - The API calls from your private Amazon EC2 instances that go to DynamoDB can be **configured to not traverse the public Internet** by 
 	- creating a **VPC Gateway Endpoint** 
 	- and adding a new route table entry
----
 ---
