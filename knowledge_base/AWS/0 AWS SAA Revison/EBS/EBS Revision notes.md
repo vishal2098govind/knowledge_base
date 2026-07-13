@@ -81,7 +81,7 @@ $ diskutil info / | grep "Device Block Size"
 - Allows you to restore the state of your EBS volume in the event of data loss
 - Enables you to copy your EBS volume to another AWS Region for your **data migration**, **disaster recovery activities**
 - **Can be used to encrypt an unencrypted Amazon EBS volume.**
-- **Automate** the **creation**, **retention**, and **deletion** of your EBS snapshots and EBS-backed AMIs using the **Amazon Data Lifecycle Manager (Amazon DLM) service**
+- **Automate** the **creation**, **retention**, and **deletion** of your EBS snapshots and EBS-backed AMIs using the **Amazon Data-Lifecycle Manager (Amazon DLM) service**
 ---
 ### EBS Encryption
 - Uses **AWS KMS** Keys to encrypt EBS volumes and snapshots
