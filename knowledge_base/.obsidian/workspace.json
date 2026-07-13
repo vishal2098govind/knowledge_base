@@ -28,13 +28,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AWS/0 AWS SAA Revison/3 AWS Backup/AWS Backup.md",
+                "file": "AWS/0 AWS SAA Revison/2 EFS & FSx/EFS & FSx Revision Notes.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "AWS Backup"
+              "title": "EFS & FSx Revision Notes"
             }
           }
         ],
@@ -191,9 +191,9 @@
   },
   "active": "110819deac7cbf9c",
   "lastOpenFiles": [
+    "AWS/0 AWS SAA Revison/3 AWS Backup/AWS Backup Revision Notes.md",
     "AWS/0 AWS SAA Revison/3 AWS Backup",
     "AWS/0 AWS SAA Revison/1 EBS/EBS Revision notes.md",
-    "AWS/0 AWS SAA Revison/3 AWS Backup/AWS Backup.md",
     "AWS/0 AWS SAA Revison/2 EFS & FSx/EFS & FSx Revision Notes.md",
     "AWS/0 AWS SAA Revison/2 EFS & FSx/attachments/Pasted image 20260713061444.png",
     "AWS/0 AWS SAA Revison/2 EFS & FSx/attachments/Pasted image 20260713054207.png",
@@ -219,7 +219,6 @@
     "AWS/2 AWS With Chetan/AWS IAM",
     "Book-Database-Internals/Part-1 Storage Engines/0 Introduction and Overview/Introduction and Overview.md",
     "AWS/AWS With Chetan/1 IAM",
-    "AWS/2 AWS With Chetan",
     "Book-Database-Internals/Part-1 Storage Engines/Storage Engines.md",
     "AWS/3 Networking Speciality/0 Birds Eye View/Bird's Eye View.md",
     "AWS/3 Networking Speciality/2 Default VPC/Default VPC.md",

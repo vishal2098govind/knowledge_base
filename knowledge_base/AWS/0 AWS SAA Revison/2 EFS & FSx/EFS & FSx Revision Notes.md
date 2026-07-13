@@ -11,6 +11,35 @@
 - Can scale EFS without provisioning new physical servers
 - Integrates with AWS KMS for data at rest and in-transit
 
+### Availability and Durability modes
+- Regional (EFS standard) - redundantly across multiple azs - low RPO (DR)
+- One Zone - redundantly across single az - high RPO
+
+### Performance and Throughput modes
+**Performance mode**
+- Can choose among 
+    - **General purpose** 
+    - and **Max I/O** - for Big data analytics and media processing workloads
+    - **How to decide** when to use Max I/O performance mode:
+        - Start with general purpose
+        - run and test performance
+        - If **PercentIOLimit** metric of file system is near 100% for extended amount of time, then we should switch to Max I/O performance mode
+    - **How to switch** from general purpose to Max I/O performance mode?
+        - Create a new Max I/O EFS System
+        - Migrate all data from general purpose EFS to this using **AWS DataSync service**
+
+**Throughput mode**
+- Can choose among
+    - **Bursting** 
+        - default
+        - Allows EFS to scale size of File system, in Regional (standard) or one-zone, grows
+        - For **unpredicatble** access patterns and eventual EFS size
+        - Throughput scales with size of underlying EFS
+    - **Provisioned**
+        - Fixed throughput
+        - If **amount of data in EFS is less relative to throughput demands**, like in development environment, can use provisoned mode
+        - mainly for **known access patterns**
+
 ## FSx for Lustre
 
 ### High Performance Computing (HPC)
