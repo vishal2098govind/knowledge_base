@@ -151,3 +151,24 @@ $ diskutil info / | grep "Device Block Size"
 - If you have to store your application or system data in a POSIX-compliant **hierarchical directory structure** (use **Amazon EFS** instead)
 - If you have multiple applications that are **concurrently accessing the same files** at the same time, it is better to use the **Amazon EFS or Amazon FSx** service instead
 - If you need to store your static data in the **most cost-effective way to store any static data**, it’s more appropriate and cheaper to store them in **Amazon S3**
+
+
+## Amazon Data-Lifecycle Manager (DLM) to manage EBS Snapshots and EBS-backed AMIs
+- Can be done via customised serverless architecture using AWS Lambda and AWS EBS APIs, allowing to customize steps and rules for managing EBS Snapshots
+- This will take time to develop/implement the architecture because we'll need to create lambda functions we need, set it up, and monitor
+- Amazon Data Lifecycle Manager helps automate this
+- Can enforce **regular backup schedule** as per organization's internal policy
+- Reduce storage costs by **deleting outdated backups**
+- implement disaster recovery backup policies that back up data to different AWS accounts
+
+### DLM Steps
+1. Create a policy in DLM
+      - EBS snapshot policy
+      - EBS-backed AMI policy
+          - **DLM does not help backup AMIs which are backed by EC2 instance-store, but only those AMIs which are backed by EBS volumes**
+      - Cross-account event policy
+          - For automatically copying shared snapshots **across AWS accounts**
+2. **Define tags** of EBS volumes we want to backup
+    - DLM uses resource tags to identify resources backup
+3. **Define schedule and frequency** to create backups
+4. **Define retention period** for policy
