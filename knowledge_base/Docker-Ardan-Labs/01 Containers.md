@@ -68,7 +68,7 @@ $ docker logs <cname> -f #< ---- also works
 		- **force** shutdown
 			- immediate, kill
 			- `SIGKILL`
-- the processes in the container are actual processes in the underlying machine
+- the **processes in the container** are **actual processes** in the **underlying machine**
 - if a program can run on a machine, it should be able to run in a container
 
 ### docker ps commands

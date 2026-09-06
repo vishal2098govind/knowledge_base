@@ -1,5 +1,6 @@
 #docker
 
+All Slides - https://2022-11-live.container.training/
 ## What is Docker?
 - When we say "Docker", we refer to the "Docker Engine"
 - Docker Engine is a daemon - service running in the background

@@ -10,12 +10,12 @@ $ kubectl run <name> [--attach] <--image ...> [command]
 ```
 - `docker run`
 	- name is optional
-	- by default it runs attach mode
+	- by **default it runs attach** mode
 	- image name is mandatory
 	- optional commands to run on the container
 - `kubectl run`
 	- name is mandatory
-	- by default it runs in detach mode, thus specify `--attach` to attach
+	- by **default it runs in detach** mode, thus specify `--attach` to attach
 	- image is mandatory and needs `--image` flag
 	- optional command to run on the pod
 ```sh

@@ -4,41 +4,25 @@
     "type": "split",
     "children": [
       {
-        "id": "623e476642dc84f6",
+        "id": "153a8066404f8da9",
         "type": "tabs",
         "children": [
           {
-            "id": "8508f355e89559ac",
+            "id": "9d6cf33d895a0267",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AWS/0 AWS SAA Revison/2 EFS & FSx/EFS & FSx Revision Notes.md",
+                "file": "Engg-notebook-Go/01 Ardan-Go-Foundations/01 Introduction & Setup/00 Introduction to Go.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "EFS & FSx Revision Notes"
-            }
-          },
-          {
-            "id": "b0f56d72057ae335",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "AWS/0 AWS SAA Revison/2 EFS & FSx/EFS & FSx Revision Notes.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "EFS & FSx Revision Notes"
+              "title": "00 Introduction to Go"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -57,8 +41,10 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "byModifiedTimeReverse",
-                "autoReveal": true
+                "sortOrder": "byCreatedTimeReverse",
+                "autoReveal": true,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -70,7 +56,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "glacier",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": true,
                 "collapseAll": true,
@@ -191,17 +177,45 @@
   },
   "active": "110819deac7cbf9c",
   "lastOpenFiles": [
-    "AWS/0 AWS SAA Revison/3 AWS Backup/AWS Backup Revision Notes.md",
-    "AWS/0 AWS SAA Revison/3 AWS Backup",
-    "AWS/0 AWS SAA Revison/1 EBS/EBS Revision notes.md",
+    "Engg-notebook-Go/02 Articles/Netpoller.md",
+    "Engg-notebook-Go/01 Ardan-Go-Foundations/01 Introduction & Setup/00 Introduction to Go.md",
+    "Engg-notebook-Go/Ardan-Go-Foundations/01 Introduction & Setup/Untitled.md",
+    "Engg-notebook-Go/02 Articles",
+    "Engg-notebook-Go",
+    "Kubernetes-Ardan-Labs/Namespaces.md",
+    "Engg-notebook-Go/01 Ardan-Go-Foundations/01 Introduction & Setup",
+    "Engg-notebook-Go/01 Ardan-Go-Foundations",
+    "Kubernetes-Ardan-Labs/Controlling k8s cluster remotely.md",
+    "Kubernetes-Ardan-Labs/Authoring YAML.md",
+    "Kubernetes-Ardan-Labs/Declarative vs Imperative Systems.md",
+    "Kubernetes-Ardan-Labs/Labels and annotations.md",
+    "Kubernetes-Ardan-Labs/Patching k8s Manifests.md",
+    "Kubernetes-Ardan-Labs/k8s events and retries.md",
+    "Kubernetes-Ardan-Labs/Shipping images with a registry.md",
+    "Kubernetes-Ardan-Labs/Services in k8s.md",
+    "Kubernetes-Ardan-Labs/Managing Configuration using Volume.md",
+    "Kubernetes-Ardan-Labs/Running containers on k8s.md",
+    "Kubernetes-Ardan-Labs/k8s Services.md",
+    "Kubernetes-Ardan-Labs/kubectl.md",
+    "Kubernetes-Ardan-Labs/Interacting with K8s.md",
+    "Kubernetes-Ardan-Labs/Kubernetes Architecture.md",
+    "Kubernetes-Ardan-Labs/Kubernetes Concepts.md",
+    "Kubernetes-Ardan-Labs/Kubernetes.md",
+    "Kubernetes-Ardan-Labs/Untitled.md",
+    "Docker-Ardan-Labs/00 What is Docker.md",
+    "Docker-Ardan-Labs/02 Docker Images.md",
+    "Docker-Ardan-Labs/01 Containers.md",
+    "AWS/0 AWS SAA Revison/4 Route53/Route53 Revision notes.md",
     "AWS/0 AWS SAA Revison/2 EFS & FSx/EFS & FSx Revision Notes.md",
+    "AWS/0 AWS SAA Revison/4 Route53",
+    "AWS/0 AWS SAA Revison/Untitled.canvas",
+    "AWS/0 AWS SAA Revison/3 AWS Backup",
     "AWS/0 AWS SAA Revison/2 EFS & FSx/attachments/Pasted image 20260713061444.png",
     "AWS/0 AWS SAA Revison/2 EFS & FSx/attachments/Pasted image 20260713054207.png",
     "AWS/0 AWS SAA Revison/2 EFS & FSx/attachments/Pasted image 20260713054139.png",
     "AWS/0 AWS SAA Revison/2 EFS & FSx/attachments/Pasted image 20260713053758.png",
     "AWS/0 AWS SAA Revison/2 EFS & FSx/attachments",
     "AWS/0 AWS SAA Revison/2 EFS & FSx",
-    "AWS/0 AWS SAA Revison/EBS/EFS.md",
     "AWS/0 AWS SAA Revison/1 EBS/attachments/Pasted image 20260712172548.png",
     "AWS/0 AWS SAA Revison/1 EBS/attachments/Pasted image 20260712161547.png",
     "AWS/0 AWS SAA Revison/1 EBS/attachments/Pasted image 20260712160959.png",
@@ -209,33 +223,7 @@
     "AWS/0 AWS SAA Revison/AWS Storage Services/image.png",
     "AWS/0 AWS SAA Revison/1 EBS/attachments/Pasted image 20260712155507.png",
     "AWS/0 AWS SAA Revison/1 EBS/attachments",
-    "AWS/0 AWS SAA Revison/EBS/S3.md",
-    "AWS/0 AWS SAA Revison/0 DynamoDB/Dynamo DB Revision notes.md",
     "AWS/0 AWS SAA Revison/1 EBS",
-    "AWS/0 AWS SAA Revison/0 DynamoDB/attachments",
-    "AWS/2 AWS With Chetan/AWS IAM/IAM Credentials.md",
-    "AWS/0 AWS SAA Revison/0 DynamoDB",
-    "AWS/0 AWS SAA Revison",
-    "AWS/2 AWS With Chetan/AWS IAM",
-    "Book-Database-Internals/Part-1 Storage Engines/0 Introduction and Overview/Introduction and Overview.md",
-    "AWS/AWS With Chetan/1 IAM",
-    "Book-Database-Internals/Part-1 Storage Engines/Storage Engines.md",
-    "AWS/3 Networking Speciality/0 Birds Eye View/Bird's Eye View.md",
-    "AWS/3 Networking Speciality/2 Default VPC/Default VPC.md",
-    "AWS/1 Abhishek Veeramalla/Networking 101.md",
-    "AWS/3 Networking Speciality/3 VPC Firewall/Firewall.md",
-    "AWS/3 Networking Speciality/1 VPC Building Blocks/VPC Building Blocks.md",
-    "Book-Browser-Networking/Untitled.md",
-    "AWS/4 Solutions Architect Associate/15. Serverless Overviews from a Solution Architect Perspective/7. Lambda in VPC.md",
-    "AWS/4 Solutions Architect Associate/15. Serverless Overviews from a Solution Architect Perspective/8. Amazon DynamoDB.md",
-    "AWS/4 Solutions Architect Associate/15. Serverless Overviews from a Solution Architect Perspective/9. API Gateway.md",
-    "AWS/4 Solutions Architect Associate/15. Serverless Overviews from a Solution Architect Perspective/10. Step Functions.md",
-    "AWS/4 Solutions Architect Associate/15. Serverless Overviews from a Solution Architect Perspective/11. Amazon Cognito.md",
-    "AWS/5 Tutorials Dojo Solutions Architect/EC2/3. EC2 Capacity Planning.md",
-    "AWS/5 Tutorials Dojo Solutions Architect/EC2/2. EC2 Auto Scaling.md",
-    "AWS/5 Tutorials Dojo Solutions Architect/EC2/1. EC2 CloudWatch.md",
-    "AWS/4 Solutions Architect Associate/15. Serverless Overviews from a Solution Architect Perspective/1. Serverless.md",
-    "AWS/4 Solutions Architect Associate/15. Serverless Overviews from a Solution Architect Perspective/2. Lambda.md",
     "AWS/Solutions Architect Associate/Untitled.canvas",
     "Untitled.canvas"
   ]
