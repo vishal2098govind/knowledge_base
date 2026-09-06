@@ -1,3 +1,4 @@
+#engineers-notebook #golang #rune #strings 
 ```sh
 ➜  hw git:(vishal-kb) ✗ cd ../banner 
 ➜  banner git:(vishal-kb) ✗ go run banner.go
@@ -26,7 +27,7 @@ G♡
 	- There are several **encoding schemes** to represent unicode character to sequence of bytes. Most popular one is **UTF-8**
 	- UTF-8 is a **variable length encoding scheme**
 		- variable length meaning, a character from UTF-8 encoding can be from a single byte and **up to 4 bytes**
-	- Refer [[unicode.pdf]]
+	- Refer [[02 unicode.pdf]]
 	- in UTF-8, all of ASCII characters still use single byte, but non ASCII may take more than one byte
 	- For example `<<` this unicode character **takes 2 bytes** and there's also something called as **control character** in UTF-8
 		- thus, `<<` has UTF-8 encoding of `C2AB` for example, this entire single encoding is called **code-point** in UTF-8 or unicode
