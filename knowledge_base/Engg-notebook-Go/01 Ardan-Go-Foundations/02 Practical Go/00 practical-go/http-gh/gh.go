@@ -25,6 +25,9 @@ func main() {
 	}
 
 	dec := json.NewDecoder(resp.Body)
-	dec.Decode(&reply)
+	if err := dec.Decode(&reply); err != nil {
+		fmt.Printf("err decoding response: %v\n", err)
+		return
+	}
 	fmt.Println(reply.Name, reply.Public_Repos, reply.PublicGists)
 }
