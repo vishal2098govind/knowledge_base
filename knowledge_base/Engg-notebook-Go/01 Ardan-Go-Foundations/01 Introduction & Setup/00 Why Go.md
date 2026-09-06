@@ -1,5 +1,4 @@
 #engineers-notebook #golang
-## Why Go
 ### Free lunch is over: 
 - Until clock frequencies were getting higher, the lunch was free
 - Since when clock frequencies started staying about the same and we now have more CPU cores
