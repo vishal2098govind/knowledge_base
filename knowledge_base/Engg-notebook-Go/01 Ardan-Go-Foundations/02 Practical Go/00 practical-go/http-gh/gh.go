@@ -1,10 +1,9 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
-	"io"
 	"net/http"
-	"os"
 )
 
 func main() {
@@ -18,5 +17,14 @@ func main() {
 		fmt.Printf("status: %d\n", resp.StatusCode)
 		return
 	}
-	io.Copy(os.Stdout, resp.Body)
+
+	var reply struct {
+		Name         string
+		Public_Repos int
+		PublicGists  int32 `json:"public_gists"`
+	}
+
+	dec := json.NewDecoder(resp.Body)
+	dec.Decode(&reply)
+	fmt.Println(reply.Name, reply.Public_Repos, reply.PublicGists)
 }
