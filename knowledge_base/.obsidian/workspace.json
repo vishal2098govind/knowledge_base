@@ -25,13 +25,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Engg-notebook-Go/01 Ardan-Go-Foundations/02 Practical Go/03 HTTP and JSON.md",
+                "file": "Engg-notebook-Go/01 Ardan-Go-Foundations/02 Practical Go/04 File management and Error Handling.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "03 HTTP and JSON"
+              "title": "04 File management and Error Handling"
             }
           }
         ],
@@ -190,22 +190,23 @@
   },
   "active": "43af37487a652261",
   "lastOpenFiles": [
-    "Engg-notebook-Go/01 Ardan-Go-Foundations/02 Practical Go/00 practical-go/http-gh/jq.",
-    "Engg-notebook-Go/01 Ardan-Go-Foundations/02 Practical Go/00 practical-go/http-gh/gh.go",
-    "Engg-notebook-Go/01 Ardan-Go-Foundations/02 Practical Go/00 practical-go/http-gh",
+    "Engg-notebook-Go/01 Ardan-Go-Foundations/02 Practical Go/practical-go/kill-server/server.pid",
+    "Engg-notebook-Go/01 Ardan-Go-Foundations/02 Practical Go/practical-go/kill-server/kill.go",
+    "Engg-notebook-Go/01 Ardan-Go-Foundations/02 Practical Go/practical-go/kill-server",
+    "Engg-notebook-Go/01 Ardan-Go-Foundations/02 Practical Go/03 HTTP and JSON.md",
+    "Engg-notebook-Go/01 Ardan-Go-Foundations/02 Practical Go/04 File management and Error Handling.md",
+    "Engg-notebook-Go/01 Ardan-Go-Foundations/02 Practical Go/practical-go/http-gh/jq.",
+    "Engg-notebook-Go/01 Ardan-Go-Foundations/02 Practical Go/practical-go/http-gh/gh.go",
+    "Engg-notebook-Go/01 Ardan-Go-Foundations/02 Practical Go/practical-go/http-gh",
     "Engg-notebook-Go/01 Ardan-Go-Foundations/02 Practical Go/00 practical-go/banner/http-gh/gh.go",
     "Engg-notebook-Go/01 Ardan-Go-Foundations/02 Practical Go/00 practical-go/banner/http-gh",
     "Engg-notebook-Go/01 Ardan-Go-Foundations/02 Practical Go/01 Strings in Go, Runes in Go.md",
     "Engg-notebook-Go/01 Ardan-Go-Foundations/02 Practical Go/02 unicode.pdf",
-    "Engg-notebook-Go/01 Ardan-Go-Foundations/02 Practical Go/03 HTTP and JSON.md",
     "Engg-notebook-Go/01 Ardan-Go-Foundations/02 Practical Go/00 GOOS, build, clean.md",
-    "Engg-notebook-Go/01 Ardan-Go-Foundations/02 Practical Go/00 practical-go/banner/banner.go",
-    "Engg-notebook-Go/01 Ardan-Go-Foundations/02 Practical Go/00 practical-go/banner",
+    "Engg-notebook-Go/01 Ardan-Go-Foundations/02 Practical Go/practical-go/banner/banner.go",
+    "Engg-notebook-Go/01 Ardan-Go-Foundations/02 Practical Go/practical-go/banner",
     "Engg-notebook-Go/Untitled.md",
-    "Engg-notebook-Go/01 Ardan-Go-Foundations/02 Practical Go/00 practical-go/hw/hw.go",
     "Engg-notebook-Go/01 Ardan-Go-Foundations/01 Introduction & Setup/00 Why Go.md",
-    "Engg-notebook-Go/01 Ardan-Go-Foundations/02 Practical Go/00 practical-go/hw/hw",
-    "Engg-notebook-Go/01 Ardan-Go-Foundations/02 Practical Go/practical-go/hw/main.go",
     "Engg-notebook-Go/02 Articles/Netpoller.md",
     "Engg-notebook-Go/Ardan-Go-Foundations/01 Introduction & Setup/Untitled.md",
     "Kubernetes-Ardan-Labs/Namespaces.md",
@@ -225,7 +226,6 @@
     "Kubernetes-Ardan-Labs/Kubernetes Architecture.md",
     "Kubernetes-Ardan-Labs/Kubernetes Concepts.md",
     "Kubernetes-Ardan-Labs/Kubernetes.md",
-    "Kubernetes-Ardan-Labs/Untitled.md",
     "AWS/0 AWS SAA Revison/Untitled.canvas",
     "AWS/0 AWS SAA Revison/2 EFS & FSx/attachments/Pasted image 20260713061444.png",
     "AWS/0 AWS SAA Revison/2 EFS & FSx/attachments/Pasted image 20260713054207.png",
