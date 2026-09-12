@@ -1,4 +1,4 @@
-#engineers-notebook #golang #structs #go-docs
+#engineers-notebook #golang #structs #go-docs #value-semantics #pointer-semantics 
 
 ```go
 type Item {X int; Y int}
