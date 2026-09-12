@@ -46,8 +46,6 @@ func main() {
 [0 0 0 0 0 0 0 10 20 30]
 [0 0 0 0 10 20 30 40]
 ```
-```
-```
 
 ```
                 s1 := make([]int, 10)
@@ -139,6 +137,28 @@ func main() {
 			   	s2
 ```
 
+### Implement Concat without for loop
+```go
+func concat(s1, s2 []string) []string {
+	s3 := make([]string, len(s1)+len(s2))
+	copy(s3, s1)
+	copy(s3[len(s1):], s2)
+	return s3
+}
+```
+
+### Value Semantics & Pointer Semantics in for range loop:
+```go
+players := []Player{{"John", 10}, {"Doe", 20}}
+for _, p := range players {
+	p.Score += 100
+}
+fmt.Println(players)
+for i := range players {
+	players[i].Score += 100
+}
+fmt.Println(players)
+```
 
 ```go
 package main
