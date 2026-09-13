@@ -1,5 +1,6 @@
 #engineers-notebook #golang #go-interface #comma-ok
 
+### Empty interface `interface{}` or `any`
 ```go
 var a any
 a := "hi"
