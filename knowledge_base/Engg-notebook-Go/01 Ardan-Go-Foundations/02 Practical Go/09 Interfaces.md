@@ -1,4 +1,4 @@
-#engineers-notebook #golang #go-interface #comma-ok #type-switch
+#engineers-notebook #golang #go-interface #comma-ok #dot-type
 
 ### Empty interface `interface{}` or `any`
 ```go
